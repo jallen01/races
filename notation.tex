@@ -1,0 +1,56 @@
+
+\documentclass[12pt]{amsart}   % LaTeX with AMS style; 12 point for old eyes
+
+\usepackage{amssymb,amsfonts}   % For better support of math
+\usepackage{graphicx}	        % Enable for eps and pdf figures, if they occur
+\usepackage{hyperref}           % Enable embedded hyperlinks.
+
+% Commands to force sequential numbering:
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{remarks}[theorem]{Remarks}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\begin{document}
+
+\title[The 18.821 report]{The 18.821 Mathematics Project Lab Report 
+[Replace this with your own short descriptive title!]} 
+% the first [...] gives a brief version of the title, which is long!
+ 
+\author{Jonathan Allen, John Wang}
+\date{\today}              % or an actual date
+
+
+\newcommand{\C}{\mathbb C} % blackboard bold , for ``complex,'' etc
+\newcommand{\R}{\mathbb R} 
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+
+\maketitle
+
+\section{Theorems}
+
+\subsection{Notation\label{sec:notation}} 
+
+\begin{description}
+    \item[$t$] Time
+    \item[$l$] Path length
+    \item[$s$] Speed
+    \item[$a_T$] Tangential acceleration
+    \item[$a_C$] Centripetal acceleration
+    \item[$\vec{x}$] Position
+    \item[$\vec{v}$] Velocity
+    \item[$\vec{a}$] Acceleration
+\end{description}
+
+\end{document}
+
+From Spring 2011 or before; revised by Miller, Spring 2013. 
