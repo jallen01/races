@@ -1,0 +1,122 @@
+
+\documentclass[12pt]{amsart}   % LaTeX with AMS style; 12 point for old eyes
+
+\usepackage{amsmath,amssymb,amsfonts}   % For better support of math
+\usepackage{graphicx}	        % Enable for eps and pdf figures, if they occur
+\usepackage{hyperref} % Enable embedded hyperlinks.
+\hypersetup{
+	hidelinks, colorlinks, linkcolor=black, citecolor=black, urlcolor=red
+}
+        
+% Commands to force sequential numbering:
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{remarks}[theorem]{Remarks}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+% Define abs norm, paren, bracket, cbracket, and innerproduct
+\usepackage{mathtools}
+\DeclarePairedDelimiter\tempabs{\lvert}{\rvert}
+\DeclarePairedDelimiter\tempnorm{\lVert}{\rVert}
+\DeclarePairedDelimiter\tempinnerproduct{\langle}{\rangle}
+\DeclarePairedDelimiter\tempparen{(}{)}
+\DeclarePairedDelimiter\tempbracket{[}{]}
+\DeclarePairedDelimiter\tempcbracket{\{}{\}}
+
+% Swap * functionality
+\makeatletter
+\def\abs{\@ifstar{\tempabs}{\tempabs*}}
+\def\norm{\@ifstar{\tempnorm}{\tempnorm*}}
+\def\innerproduct{\@ifstar{\tempinnerproduct}{\tempinnerproduct*}}
+\def\paren{\@ifstar{\tempparen}{\tempparen*}}
+\def\bracket{\@ifstar{\tempbracket}{\tempbracket*}}
+\def\cbracket{\@ifstar{\tempcbracket}{\tempcbracket*}}
+\makeatother
+
+\begin{document}
+
+\title[The 18.821 report]{The 18.821 Mathematics Project Lab Report 
+[Proofs]} 
+% the first [...] gives a brief version of the title, which is long!
+ 
+\author{Jonathan Allen}
+\date{\today}              % or an actual date
+
+
+\newcommand{\C}{\mathbb C} % blackboard bold , for ``complex,'' etc
+\newcommand{\R}{\mathbb R} 
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+
+\maketitle
+
+\section{Theorems}
+
+\subsection{Notation\label{sec:notation}} 
+
+\begin{description}
+    \item[$t$] Time
+    \item[$l$] Path length
+    \item[$s$] Speed
+    \item[$a_t$] Tangential acceleration
+    \item[$a_c$] Centripetal acceleration
+    \item[$\vec{x}$] Position
+    \item[$\vec{v}$] Velocity
+    \item[$\vec{a}$] Acceleration
+\end{description}
+
+\section{Coordinates}
+
+\subsection{Scalar Calculus}
+
+\begin{align}
+s& = \frac{dl}{dt}\\
+%
+a_t& = \frac{ds}{dt}\\
+\end{align}
+
+\subsection{Vector Calculus}
+
+\begin{align}
+\boldsymbol{x}& = r \boldsymbol{\hat{r}}\\
+%
+\boldsymbol{\vec{v}}& = \dot{r} \boldsymbol{\hat{r}} + r \dot{\phi} \boldsymbol{\hat{\phi}}\\
+%
+\boldsymbol{\vec{a}}& = \paren{\ddot{r} - r \dot{\phi}^2} \boldsymbol{\hat{r}} + \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}} \boldsymbol{\hat{\phi}}
+\end{align}
+
+\subsection{Relations}
+
+\begin{align}
+l& = \int_{t=0}^{T} \norm{\boldsymbol{\vec{v}} \, } \; dt\\
+%
+s& = \boldsymbol{\vec{v}}\\
+%
+a_t& = \norm{\boldsymbol{\vec{a}}\,} \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}\,}}
+\end{align}
+
+\section{Theorems}
+
+\begin{theorem}
+For a given speed and bounded centripetal acceleration, it is always optimal to minimize the turning radius. This turning radius is 
+\end{theorem}
+
+\proof Well, yes. \qed
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+\bibitem{wiki_pcoords}
+\url{http://en.wikipedia.org/wiki/Polar_coordinate_system}
+\end{thebibliography}
+
+\end{document}
+
+From Spring 2011 or before; revised by Miller, Spring 2013. 
