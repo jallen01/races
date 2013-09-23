@@ -121,8 +121,8 @@ a_t& = \norm{\boldsymbol{\vec{a}}\,} \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymb
   A fastest path $\hat{\gamma}: \mathrm{R} \to \mathrm{R}^2$ for a particular point mass $p$, a starting point $\vec{x_1}$, a destination point $\vec{x_2}$, and some set of conditions $\mathrm{C}$ is a valid targetted path $\hat{\gamma}$ such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid targetted paths $\gamma$ with the same $p$, $\vec{x_1}$, $\vec{x_2}$, and $\mathrm{C}$.
 \end{definition}
 
-\begin{theorem}
-  Given points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ and a point mass $p$ whose initial position is $(x_1, y_1)$ which moves with tangential acceleration bounded by $\bar{a}$, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $(x_1, y_1)$ to $(x_2, y_2)$ follows the straight line where all coordinates $(x,y)$ on the straight line are given by:
+  \begin{theorem}
+  Given points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ and a point mass $p$ whose initial position is $(x_1, y_1)$ which moves with acceleration bounded by $\bar{a}$, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $(x_1, y_1)$ to $(x_2, y_2)$ follows the straight line where all coordinates $(x,y)$ on the straight line are given by:
   \begin{eqnarray}
     y = \frac{y_2 - y_1}{x_2 - x_1} x + y_1
   \end{eqnarray}
@@ -134,6 +134,36 @@ a_t& = \norm{\boldsymbol{\vec{a}}\,} \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymb
 \end{eqnarray}
 
 For convenience of notation, we will now refer to $x_2'$ as $x_2$.
+
+Now let us examine the particle's motion in the $x$ direction. Let $a_t(t)$ be the tangential acceleration at time $t$ in the $x$ direction. Then we can obtain the speed of the particle $s(t)$ at time $t$ in the $x$ direction like so:
+\begin{eqnarray}
+  s(t) = \int_0^t a_t(t_1) dt_1
+\end{eqnarray}
+
+To find the distance $d(t)$ travelled up to time $t$ in the $x$ direction, we can use the relation:
+\begin{eqnarray}
+  d(t) &=& \int_0^t s(t_2) dt_2 \\
+       &=& \int_0^t \int_0^t a_t(t_1) dt_1 dt_2
+\end{eqnarray}
+
+Recall that the acceleration of the point mass $p$ is bounded by $\bar{a}$. This means that $a_t(t) \leq \bar{a}$ for all $t$. Therefore, we see:
+\begin{eqnarray}
+  d(t) &\leq& \int_0^t \int_0^t \bar{a} dt_1 dt_2 \\
+       &=& \frac{\bar{a} t^2}{2}
+\end{eqnarray}
+
+Thus, in order to travel a distance of $d(T_f) = x_2$, it needs to be the case that $T_f \geq \sqrt{\frac{2 x_2}{\bar{a}}}$. Moreover, equality holds if and only if $a_t(t) = \bar{a}$ for all $t \in [0, T_f(\gamma)]$.
+
+If the point mass travels for time $t < \sqrt{\frac{2 x_2}{\bar{a}}}$, then it is impossible for the point mass to reach $(x_2, 0)$ when starting at $(0,0)$. This is because $p$ cannot reach $(x_2, 0)$ in the $x$ direction when $t < \sqrt{\frac{2 x_2}{\bar{a}}}$ and any acceleration in the $y$ direction would not enable this either.
+
+This means that the fastest path is completed in time $T_f(\hat{\gamma}) = \sqrt{\frac{2 x_2}{\bar{a}}}$. Let us examine the path taken by the point mass $p$ on this fastest path. Recall that $a_t(t) = \bar{a}$ for all $t$ along the fastest path. This means that there was no centripetal acceleration $|a_c| = 0$. In other words, the point mass never turned on its way to reaching the destination point. The only way this could have happened is if it travelled along the $x$ axis in a straight line.
+
+Now, we have seen that the fastest path in the transformed coordinates travels exactly on the $x$ axis so that $y = 0$ anywhere along the fastest path. Notice, however, that the $x$ axis in the transformed coordinates is given exactly by the following line:
+\begin{eqnarray}
+  y = \frac{y_2 - y_1}{x_2 - x_1} x + y_1
+\end{eqnarray}
+
+Thus, we see that the fastest path in the original coordinates follows the above equation, which is what we wanted to show.
 \qed
 
 \begin{corollary}
