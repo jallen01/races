@@ -73,7 +73,7 @@
     \item[$\vec{a}$] Acceleration
 \end{description}
 
-\section{Coordinates}
+\section{Spherical Coordinates}
 
 \subsection{Scalar Calculus}
 
@@ -98,15 +98,22 @@ a_t& = \frac{ds}{dt}\\
 \begin{align}
 l& = \int_{t=0}^{T} \norm{\boldsymbol{\vec{v}} \, } \; dt\\
 %
-s& = \boldsymbol{\vec{v}}\\
+s& = \norm{\boldsymbol{\vec{v}}}\\
 %
-a_t& = \norm{\boldsymbol{\vec{a}}\,} \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}\,}}
+a_t& = \norm{\boldsymbol{\vec{a}}} \cdot \boldsymbol{\hat{v}} = \norm{\boldsymbol{\vec{a}}} \cdot \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}}}\\
+%
+a_c& = \norm{\boldsymbol{\vec{a}}} \times \boldsymbol{\hat{v}} = \norm{\boldsymbol{\vec{a}}} \times \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}}}
 \end{align}
 
 \section{Theorems}
 
 \begin{theorem}
-For a given speed and bounded centripetal acceleration, it is always optimal to minimize the turning radius. This turning radius is 
+If $s$ is held constant, then if $a_c$ is bounded s.t. $a_c \le a_{c,max}$, it is always optimal to minimize the turning radius. This turning radius is given by
+
+\begin{equation}
+R = \frac{v^2}{a_{c,max}}
+\end{equation}
+
 \end{theorem}
 
 \proof Well, yes. \qed
