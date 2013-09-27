@@ -40,6 +40,8 @@
 \def\cbracket{\@ifstar{\tempcbracket}{\tempcbracket*}}
 \makeatother
 
+\graphicspath{ {figures/} }
+
 \begin{document}
 
 \title[The 18.821 report]{The 18.821 Mathematics Project Lab Report 
@@ -129,6 +131,14 @@ R_{min} = \frac{v^2}{a_{c,max}}
 
 \proof 
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{arc_param.eps}
+\end{center}
+\vspace{-.2in} % corrects bad spacing
+\caption{My first .eps figure.\label{fig:2}}
+\end{figure}
+
 If we look at a position, p, on a trajectory. We can align a rectangular coordinate system with this point, such that $\hat{y} = \hat{v}$.
 
 \begin{align}
@@ -157,10 +167,6 @@ If $a_t=0$ and $\norm{a_c} \le a_{c,max}$, it is always optimal to minimize the 
 s& = \sqrt{\dot{r}^2 + r^2 \dot{\phi}^2}\\
 %
 \dot{r}& = s^2 - r^2 \dot{\phi}^2
-\end{align}
-
-\begin{align}
-
 \end{align}
 
 \qed
