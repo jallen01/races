@@ -64,18 +64,31 @@
 
 \begin{description}
     \item[$t$] Time
-    \item[$l$] Path length
-    \item[$s$] Speed
-    \item[$a_t$] Tangential acceleration
-    \item[$a_c$] Centripetal acceleration
-    \item[$\vec{x}$] Position
-    \item[$\vec{v}$] Velocity
-    \item[$\vec{a}$] Acceleration
+    \item[$l(t)$] Path length
+    \item[$s(t)$] Speed
+    \item[$a_t(t)$] Tangential acceleration
+    \item[$a_c(t)$] Centripetal acceleration
+    \item[$\vec{x}(t)$] Position
+    \item[$\vec{v}(t)$] Velocity
+    \item[$\vec{a}(t)$] Acceleration
 \end{description}
 
-\section{Spherical Coordinates}
+\section{Coordinate Systems}
 
-\subsection{Scalar Calculus}
+\begin{align}
+\dot{a}& = \frac{da}{dt}
+\end{align}
+
+\subsection{Rectangular Coordinates}
+
+
+\begin{align}
+R& = \abs{\frac{\paren{\dot{x}^2 + \dot{y}^2}^{3/2}}{\dot{x}\ddot{y} - \dot{y}{\ddot{x}}}}\\
+%
+&= \abs{\frac{s^2}{a_t}}\tag{for $a_c = $}
+\end{align}
+
+\subsection{Scalar Calculus in Polar Coordinates}
 
 \begin{align}
 s& = \frac{dl}{dt}\\
@@ -83,14 +96,14 @@ s& = \frac{dl}{dt}\\
 a_t& = \frac{ds}{dt}\\
 \end{align}
 
-\subsection{Vector Calculus}
+\subsection{Vector Calculus in Polar Coordinates}
 
 \begin{align}
 \boldsymbol{x}& = r \boldsymbol{\hat{r}}\\
 %
 \boldsymbol{\vec{v}}& = \dot{r} \boldsymbol{\hat{r}} + r \dot{\phi} \boldsymbol{\hat{\phi}}\\
 %
-\boldsymbol{\vec{a}}& = \paren{\ddot{r} - r \dot{\phi}^2} \boldsymbol{\hat{r}} + \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}} \boldsymbol{\hat{\phi}}
+\label{eq:a_vec_def}\boldsymbol{\vec{a}}& = \paren{\ddot{r} - r \dot{\phi}^2} \boldsymbol{\hat{r}} + \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}} \boldsymbol{\hat{\phi}}
 \end{align}
 
 \subsection{Relations}
@@ -105,18 +118,52 @@ a_t& = \norm{\boldsymbol{\vec{a}}} \cdot \boldsymbol{\hat{v}} = \norm{\boldsymbo
 a_c& = \norm{\boldsymbol{\vec{a}}} \times \boldsymbol{\hat{v}} = \norm{\boldsymbol{\vec{a}}} \times \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}}}
 \end{align}
 
+\section{Lemmas and Definitions}
+
+\begin{lemma}
+If $a_t=0$ and $\norm{a_c} \le a_{c,max}$, then the minimum radius of curvature of a point trajectory is given by
+\begin{equation}
+R_{min} = \frac{v^2}{a_{c,max}}
+\end{equation}
+\end{lemma}
+
+\proof 
+
+If we look at a position, p, on a trajectory. We can align a rectangular coordinate system with this point, such that $\hat{y} = \hat{v}$.
+
+\begin{align}
+a_c& = \ddot{r} - r \dot{\phi}^2\\
+%
+a_t& = \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}}\\
+%
+0& = \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}}\\
+%
+r^2 \dot{\phi}& = constant
+\end{align}
+
+\qed
+
 \section{Theorems}
 
 \begin{theorem}
-If $s$ is held constant, then if $a_c$ is bounded s.t. $a_c \le a_{c,max}$, it is always optimal to minimize the turning radius. This turning radius is given by
-
-\begin{equation}
-R = \frac{v^2}{a_{c,max}}
-\end{equation}
-
+If $a_t=0$ and $\norm{a_c} \le a_{c,max}$, it is always optimal to minimize the turning radius.
 \end{theorem}
 
-\proof Well, yes. \qed
+\proof
+
+\begin{align}
+\boldsymbol{\vec{v}}& = \dot{r} \boldsymbol{\hat{r}} + r \dot{\phi} \boldsymbol{\hat{\phi}}\\
+%
+s& = \sqrt{\dot{r}^2 + r^2 \dot{\phi}^2}\\
+%
+\dot{r}& = s^2 - r^2 \dot{\phi}^2
+\end{align}
+
+\begin{align}
+
+\end{align}
+
+\qed
 
 \bibliographystyle{plain}
 \begin{thebibliography}{9}
