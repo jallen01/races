@@ -170,6 +170,43 @@ Thus, we see that the fastest path in the original coordinates follows the above
   The fastest path between two points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ is unique.
 \end{corollary}
 
+
+\section{Turning Around a Cone - Constant Velocity}
+
+\subsection{Quadrilateral}
+
+Before we attempt to tackle the problem of finding the optimal path around a cone at constant velocity, we may want to find some intuition for the problem with a simple, but related problem. In particular, if a particle is traveling around a cone, we would like to know what circle it traces as it goes around the cone.
+
+To make a simple model of this problem, we will use a quadrilateral to model a path around a cone. We will construct a quadrilateral with particular constaints that models the constraints of a path around a cone, and we will try to find the parameters that minimize the perimeter around the quadrilateral. Let us call the sides of the quadrilateral $s_1, s_2, s_3$ and $s_4$. Imagine that $s_1$ and $s_2$ are on opposite sides of the quadrilateral with fixed lengths $l_1$ and $l_2$ respectively. Now we will constrain the problem to be related to the problem of a particle traveling around a cone: imagine $s_1$ and $s_2$ are connected by a bar $s_b$ of length $d$. The bar will be perpendicular to $s_1$. The angle that $s_b$ forms with $s_2$ will be called $\theta$. We will try to find the optimal $\theta$ that minimizes the perimeter around the quadrilateral.
+\begin{figure}
+\end{figure}
+
+\subsection{Symmetric Quadrilateral}
+
+Let us begin by solving the simplest version of this problem. Let us imagine that $s_b$ is connected to the midpoints of $s_1$ and $s_2$. We know that the perimeter will be given by $l_1 + l_2 + l_3 + l_4$ where $l_3$ and $l_4$ are the lengths of the sides of $s_3$ and $s_4$, respectively. We are given $l_1$ and $l_2$, but we will need to compute $l_3$ and $l_4$ as functions of $l_1, l_2,d, $ and $\theta$. 
+
+We can find $l_3$ by using the fact that it forms a right triangle. We know that $l_3^2 = m^2 + n^2$. Finding $l_4$ is similar. Therefore, we just need to find $m$ and $n$. This can be done by using the fact that $m = \frac{l_1}{2} - \frac{l_2}{2} \sin \theta$. This is just the upper half of $s_1$ minus the projection of $s_2$ onto $s_1$. We can find $n$ similarly: $n = d - \frac{l_2}{2} \cos \theta$. This is just the bar $s_b$ minus the projection of $s_2$ onto the bar. Thus by substituting, we have:
+\begin{eqnarray}
+  l_3 = \sqrt{ \left(\frac{l_1}{2} - \frac{l_2}{2} \sin \theta \right)^2 + \left( d - \frac{l_2}{2} \cos \theta \right)^2 }
+\end{eqnarray}
+
+We can do a similar analysis on $l_4$, only remembering that $n$ for $l_4$ gets extended by the projection onto $s_4$ instead of shrunken. We therefore have:
+\begin{eqnarray}
+  l_4 = \sqrt{ \left(\frac{l_1}{2} - \frac{l_2}{2} \sin \theta \right)^2 + \left( d + \frac{l_2}{2} \cos \theta \right)^2 }
+\end{eqnarray}
+
+Now, to minimize the perimeter with respect to $\theta$, we want to minimize $l_1 + l_2 + l_3 + l_4$. Since we know that $l_1$ and $l_2$ are fixed, we really want to minimize $l_3 + l_4$ with respect to $\theta$. The other thing to note is that we're minimizing positive distances. We will invoke the following lemma so that we can simplify our expression for $\min l_3 + l_4$:
+
+\begin{lemma}
+  If $f(t), g(t) > 0$ for all $t$, then $\argmin_t \sqrt{f(t)} + \sqrt{g(t)} = \argmin_t f(t) + g(t)$.
+  \label{lemma:minsqrt}
+\end{lemma}
+\proof Let $t_1, t_2$ be such that $f(t_1) + g(t_1) < f(t_2) + g(t_2)$. Then we can show that $\sqrt{f(t_1)} + \sqrt{g(t_1)} < \sqrt{f(t_2)} + \sqrt{g(t_2)}$. To do this, let's define $k(t) = t^{1/2}$ as the square root function. Then $\sqrt{f(t))} = k(f(t))$. Now we know that $k(t)$ is a strictly monotonically increasing function when $t > 0$, which means that $k(x) < k(y)$ if and only if $x < y$ (assuming we can confine $x, y$ to be non-negative).
+
+Because this is the case, we see that $k(f(x)) < k(f(y))$ if and only if $f(x) < f(y)$ (the same goes for $g$). Thus, we see that if we have found the minimum $t_m$ to $\min_t k(f(t)) + k(g(t))$, then it is the case that $k(f(t_m)) + k(g(t_m)) < k(f(t)) + k(g(t))$ for all $t \neq t_m$ (again where $t > 0$). Following our train of logic, we see that $f(t_m) + g(t_m) < f(t) + g(t)$ for all $t \neq t_m$, which means that $t_m$ is a minimum of $f(t) + g(t)$. Thus by finding a minimum $t_m$ to $k(f(t)) + k(g(t)) = \sqrt{f(t)} + \sqrt{g(t)}$, we also found a minimum to $f(t) + g(t)$. \qed
+
+Since we've proven this lemma, we can invoke it upon $\min l_3 + l_4$. 
+
 \bibliographystyle{plain}
 \begin{thebibliography}{9}
 \bibitem{wiki_pcoords}
