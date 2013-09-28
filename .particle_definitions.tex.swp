@@ -1,0 +1,23 @@
+\begin{definition}
+  A description of a particle $p$ is a set $D(t)$ which contains a particle's position $\vec{x} \in \mathrm{R}^2$ and its derivatives at some time $t$. In other words, we define $D(t) = \{ \vec{x}(t), \frac{d \vec{x}}{dt}(t), \frac{d^2 \vec{x}}{d t^2}(t), \ldots \}$.
+\end{definition}
+
+\begin{definition}
+  A condition $c$ on a particle $p$ is a boolean function $c: \mathrm{D} \to \{0,1\}$ which takes as input a description $D(t)$ of the particle $p$ at some time $t$ and outputs that either the condition is true or false.
+\end{definition}
+
+\begin{definition}
+A path $\gamma: \mathrm{R} \to \mathrm{R}^2$ is a function which maps some time $t$ to a position $\gamma(t) \in \mathrm{R}^2$. The path is defined from time $t = 0$ until the end time of the path, denoted as $T_{f, \gamma}$.
+\end{definition}
+
+\begin{definition}
+  A valid path $\gamma: \mathrm{R} \to \mathrm{R}^2$ for some particle $p$ and conditions $\mathrm{C}$ is some path which at all times $t$ such that $0 \leq t \leq T_{f, \gamma}$, all conditions in $\mathrm{C}$ on the particle are satisfied.
+\end{definition}
+
+\begin{definition}
+  A valid targetted path $\gamma: \mathrm{R} \to \mathrm{R}^2$ for some point mass $p$, conditions $\mathrm{C}$, starting point $\vec{x_1}$, and ending point $\vec{x_2}$ is a valid path where $\gamma(t) = \vec{x_1}$ and $\gamma(T_f(\gamma)) = \vec{x_2}$. In other words, it is a valid path which starts at $\vec{x_1}$ and ends at $\vec{x_2}$.
+\end{definition}
+
+\begin{definition}
+  A fastest path $\hat{\gamma}: \mathrm{R} \to \mathrm{R}^2$ for a particular point mass $p$, a starting point $\vec{x_1}$, a destination point $\vec{x_2}$, and some set of conditions $\mathrm{C}$ is a valid targetted path $\hat{\gamma}$ such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid targetted paths $\gamma$ with the same $p$, $\vec{x_1}$, $\vec{x_2}$, and $\mathrm{C}$.
+\end{definition}

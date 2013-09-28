@@ -1,56 +1,42 @@
-
-\documentclass[12pt]{amsart}   % LaTeX with AMS style; 12 point for old eyes
-
-\usepackage{amssymb,amsfonts}   % For better support of math
-\usepackage{graphicx}	        % Enable for eps and pdf figures, if they occur
-\usepackage{hyperref}           % Enable embedded hyperlinks.
-
-% Commands to force sequential numbering:
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{examples}[theorem]{Examples}
-\newtheorem{remarks}[theorem]{Remarks}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{conjecture}[theorem]{Conjecture}
-
-\begin{document}
-
-\title[The 18.821 report]{The 18.821 Mathematics Project Lab Report 
-[Replace this with your own short descriptive title!]} 
-% the first [...] gives a brief version of the title, which is long!
- 
-\author{Jonathan Allen, John Wang}
-\date{\today}              % or an actual date
-
-
-\newcommand{\C}{\mathbb C} % blackboard bold , for ``complex,'' etc
-\newcommand{\R}{\mathbb R} 
-\newcommand{\Z}{\mathbb Z}
-\newcommand{\Q}{\mathbb Q}
-\newcommand{\N}{\mathbb N}
-
-\maketitle
-
-\section{Theorems}
-
-\subsection{Notation\label{sec:notation}} 
+\subsection{Vectors}
 
 \begin{description}
-    \item[$t$] Time
-    \item[$l$] Path length
-    \item[$s$] Speed
-    \item[$a_T$] Tangential acceleration
-    \item[$a_C$] Centripetal acceleration
-    \item[$\vec{x}$] Position
-    \item[$\vec{v}$] Velocity
-    \item[$\vec{a}$] Acceleration
+  \item[$a$] Scalar quantity.
+  \item[$\bvec{a}$] Vector in n-dimensional space. $\norm{\bvec{a}} = a$.
+  \item[$\bhat{a}$] Unit vector in n-dimensional space. $\bhat{a} = \bvec{a}/a$ and $\norm{\bhat{a}} = 1$.
 \end{description}
 
-\end{document}
+\subsection{Angles}
 
-From Spring 2011 or before; revised by Miller, Spring 2013. 
+Since many of the theorems in this paper involve polar coordinates, we define two different types of angle measurements: the standard counterclockwise measurement, and a directional measurement.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{angle_def_1.eps}
+    \caption{}
+    \label{fig:angle-def-1}
+  \end{subfigure}
+  \qquad \qquad
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{angle_def_2.eps}
+    \caption{}
+    \label{fig:angle-def-2}
+  \end{subfigure}
+  \caption{Standard angle notation (no arrow). Angle measured counterclockwise from $\overline{AB}$ to $\overline{CB}$.}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{angle_def_3.eps}
+    \caption{}
+    \label{fig:angle-def-3}
+  \end{subfigure}
+  \qquad \qquad
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{angle_def_4.eps}
+    \caption{}
+    \label{fig:angle-def-4}
+  \end{subfigure}
+  \caption{Directional angle notation (arrow). Angle is measured using smallest angle from $\overline{AB}$ to $\overline{CB}$. Angle is always less than $180^{\circ}$.}
+\end{figure}

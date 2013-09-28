@@ -29,6 +29,8 @@
 \DeclarePairedDelimiter\tempparen{(}{)}
 \DeclarePairedDelimiter\tempbracket{[}{]}
 \DeclarePairedDelimiter\tempcbracket{\{}{\}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
 % Swap * functionality
 \makeatletter
 \def\abs{\@ifstar{\tempabs}{\tempabs*}}
@@ -67,62 +69,25 @@
 [Proofs]} 
 % the first [...] gives a brief version of the title, which is long!
  
-\author{Jonathan Allen}
-\date{\today}              % or an actual date
+\author{Jonathan Allen, John Wang}
+\date{\today}
 
 \maketitle
 
-\section{Lemmas and Definitions}
+\section{Introduction}
+\include{introduction.tex}
 
-\begin{lemma}
-If $a_t=0$ and $\norm{a_c} \le a_{c,max}$, then the minimum radius of curvature of a point trajectory is given by
-\begin{equation}
-R_{min} = \frac{v^2}{a_{c,max}}
-\end{equation}
-\end{lemma}
+\section{Particles and Paths}
+\include{particle_definitions.tex}
 
-\proof 
+\section{Traveling Between Points}
+\include{path_theorems.tex}
 
+\section{Turning Around Cones}
+\include{cone_theorems.tex}
 
-\includefig{particle_param.eps}{Particle Parameterization}{particle_param}
-
-\begin{lemma}
-Every optimal trajectory is constructed from line segments and circular sections of radius $R_{min}$. Every point along an optimal trajectory where $a_t=0$ has $R = \infty$ or $R = R_{min}$.
-\end{lemma}
-
-\proof
-
-If we look at a position, p, on a trajectory. We can align a rectangular coordinate system with this point, such that $\hat{y} = \hat{v}$.
-
-\begin{align}
-a_c& = \ddot{r} - r \dot{\phi}^2\\
-%
-a_t& = \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}}\\
-%
-0& = \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}}\\
-%
-r^2 \dot{\phi}& = constant
-\end{align}
-
-\qed
-
-\section{Theorems}
-
-\begin{theorem}
-If $a_t=0$ and $\norm{a_c} \le a_{c,max}$, it is always optimal to minimize the turning radius.
-\end{theorem}
-
-\proof
-
-\begin{align}
-\boldsymbol{\vec{v}}& = \dot{r} \boldsymbol{\hat{r}} + r \dot{\phi} \boldsymbol{\hat{\phi}}\\
-%
-s& = \sqrt{\dot{r}^2 + r^2 \dot{\phi}^2}\\
-%
-\dot{r}& = s^2 - r^2 \dot{\phi}^2
-\end{align}
-
-\qed
+\section*{Appendix}
+\input{math_review.tex}
 
 \bibliographystyle{plain}
 \begin{thebibliography}{9}

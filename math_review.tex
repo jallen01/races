@@ -1,0 +1,49 @@
+\subsection{Coordinate Systems\label{sec:notation}} 
+
+\subsubsection{Time Derivatives}
+
+\begin{align*}
+\dot{a}& = \frac{da}{dt}\\
+%
+\ddot{a}& = \frac{d^2a}{dt^2}
+\end{align*}
+
+\subsubsection{Radius of Curvature}
+
+The radius of curvature, $R$, of a curve at a point is a measure of the radius of the circular arc which best approximates the curve at that point.
+
+\begin{align}
+R& = \abs{\frac{\paren{\dot{x}^2 + \dot{y}^2}^{3/2}}{\dot{x}\ddot{y} - \dot{y}{\ddot{x}}}}\\
+%
+&= \abs{\frac{s^2}{a_t}}\tag{for $a_c = $}
+\end{align}
+
+\subsection{Scalar Calculus in Polar Coordinates}
+
+\begin{align}
+s& = \frac{dl}{dt}\\
+%
+a_t& = \frac{ds}{dt}\\
+\end{align}
+
+\subsection{Vector Calculus in Polar Coordinates}
+
+\begin{align}
+\boldsymbol{x}& = r \boldsymbol{\hat{r}}\\
+%
+\boldsymbol{\vec{v}}& = \dot{r} \boldsymbol{\hat{r}} + r \dot{\phi} \boldsymbol{\hat{\phi}}\\
+%
+\label{eq:a_vec_def}\boldsymbol{\vec{a}}& = \paren{\ddot{r} - r \dot{\phi}^2} \boldsymbol{\hat{r}} + \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}} \boldsymbol{\hat{\phi}}
+\end{align}
+
+\subsection{Relations}
+
+\begin{align}
+l& = \int_{t=0}^{T} \norm{\boldsymbol{\vec{v}} \, } \; dt\\
+%
+s& = \norm{\boldsymbol{\vec{v}}}\\
+%
+a_t& = \norm{\boldsymbol{\vec{a}}} \cdot \boldsymbol{\hat{v}} = \norm{\boldsymbol{\vec{a}}} \cdot \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}}}\\
+%
+a_c& = \norm{\boldsymbol{\vec{a}}} \times \boldsymbol{\hat{v}} = \norm{\boldsymbol{\vec{a}}} \times \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}}}
+\end{align}
