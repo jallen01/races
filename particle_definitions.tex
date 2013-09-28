@@ -1,5 +1,5 @@
 \begin{definition}
-A n-dimensional path $\gamma(t): \mathrm{R} \to \mathrm{R}^n$ is a function which maps a time $t \in \R$, $0 \ge t \ge T_{f, \gamma}$, to a position $\bvec{X} \in \mathrm{R}^n$. 
+A n-dimensional path $\gamma(t): \mathrm{R} \to \mathrm{R}^n$ is a function which maps a time $t \in \R$, $t \in [0, T_{f, \gamma}]$, to a position $\bvec{X} \in \mathrm{R}^n$. 
 \end{definition}
 
 \begin{definition}
@@ -25,3 +25,73 @@ A n-dimensional path $\gamma(t): \mathrm{R} \to \mathrm{R}^n$ is a function whic
 \begin{definition}
   The tangential acceleration, $\bvec{a_t}$, of a particle, $p$, is the component of the acceleration of $p$ in its direction of motion, $\bhat{v}$.
 \end{definition}
+
+% -----------------------------------------------------------------------------
+
+\subsection{Particle Motion in Polar Coordinates}
+
+The motion of the 2-dimensional particles in this paper will typically be described in the polar coordinate system, shown in figure \ref{fig:polar-param}.
+
+\includefig{polar_param.eps}{A particle moving in 2-dimensional polar coordinate system centered at B}{polar-param}
+
+\begin{lemma}
+The time derivative of $\theta$ is given by
+\[
+\frac{d\beta}{dt} = \frac{a_c}{s}
+\]
+\end{lemma}
+
+\begin{proof}
+
+\includefig{theta_deriv.eps}{Tangential acceleration}{theta-deriv}
+
+If we look at a point, $p$, subject to only a centripetal acceleration, $a_c$, the change in $\bvec{v}$ over an infinitesimal time, $dt$, is shown in the figure \ref{fig:theta-deriv} (the two vectors, $\bvec{v}$ and $\bvec{v}+\bvec{dv}$, are superimposed). From the definition of $a_c$
+
+\[
+\frac{dv}{dt} = a_c
+\]
+
+So...
+\[
+\frac{d\beta}{dt} = \frac{a_c}{s}
+\]
+\end{proof}
+
+The proof of the lemma in the case where $a_t$ is also nonzero is very similar, since the component of $\bvec{dv}$ in the direction $\bhat{v}$ is negligeable compared to $v$.
+
+Returning again to figure \ref{fig:polar-param}, the following equations can be derived
+
+\begin{align}
+  \frac{dr(t)}{dt}& = -s(t) \, \cos\paren{\theta(t)}\\
+  \frac{d\phi(t)}{dt}& = s(t) \, \sin\paren{\theta(t)}\\
+  \frac{d\theta(t)}{dt}& = \frac{d\phi(t)}{dt} - \frac{a_c(t)}{s(t)}\label{eq:theta-deriv}\\
+  \frac{d}{dt} \frac{dr(t)}{dt}& = -\frac{ds(t)}{dt} \cos\paren{\theta(t)} + s(t) \sin\paren{\theta(t)} \frac{d\theta(t)}{dt}
+\end{align}
+
+\begin{lemma}
+  For a particle, $p$, with bounded centripetal and tangential acceleration, then: 
+
+  (1) The functions $\phi(t)$ and $\theta(t)$ are continuous. 
+
+  (2) For two times $t_1$ and $t_2$, s.t. $t_1 < t_2$, $\theta(t_1) > a$ and $\theta(t_2) < a$, then $\theta(t_c) = a$ for some $t_c \in [t_1, t_2]$.
+\end{lemma}
+
+\begin{proof}
+First off, it should be noted that a solution to \ref{eq:theta-deriv} exists because the rhs is Lipschitz continuous. The proof of (1) follows directly from the fact that the derivative of $\theta(t)$ exist and is bounded. (2) is just a restatement of the intermediate value theorem.
+\end{proof}
+
+\begin{lemma}
+  For a particle, $p$, with nonzero speed, and no centripetal acceleration for $t \ge t_0$, then
+  \[
+    \begin{cases}
+      \theta(t) \to \pi \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(t_0) > 0\\
+      \theta(t) = 0 \quad \text{for} \quad t \ge t_0 \qquad &\text{if} \;\; \theta(t_0) = 0
+    \end{cases}
+  \]
+\end{lemma}
+
+\begin{proof}
+The second case is the easiest to check, 
+
+
+\end{proof}

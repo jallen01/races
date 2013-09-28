@@ -1,3 +1,34 @@
+\begin{lemma}
+If $a_t=0$ and $\norm{a_c} \le a_{c,max}$, then the minimum radius of curvature of a point trajectory is given by
+\begin{equation}
+R_{min} = \frac{v^2}{a_{c,max}}
+\end{equation}
+\end{lemma}
+
+\begin{theorem}
+For a particle, $p$, traveling along an optimal path, $\hat{\gamma}(t)$ between two points $X_1$ and $X_2$, 
+\end{theorem}
+
+\begin{lemma}
+Every optimal trajectory is constructed from line segments and circular sections of radius $R_{min}$. Every point along an optimal trajectory where $a_t=0$ has $R = \infty$ or $R = R_{min}$.
+\end{lemma}
+
+\proof
+
+If we look at a position, p, on a trajectory. We can align a rectangular coordinate system with this point, such that $\hat{y} = \hat{v}$.
+
+\begin{align}
+a_c& = \ddot{r} - r \dot{\phi}^2\\
+%
+a_t& = \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}}\\
+%
+0& = \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}}\\
+%
+r^2 \dot{\phi}& = constant
+\end{align}
+
+\qed
+
 % -----------------------------------------------------------------------------
 
 \begin{theorem}
@@ -53,37 +84,3 @@ Thus, we see that the fastest path in the original coordinates follows the above
 
 % -----------------------------------------------------------------------------
 
-\includefig{polar_param.eps}{Particle parameters in polar coordinates. B is center of coordinate system, and p is the particle.}{polar-param}
-
-\begin{lemma}
-  For a particle, $p$,
-  \begin{align*}
-    \frac{dr(t)}{dt} = -s(t) \, \cos\paren{\phi(t) + \theta(t)}\\
-    \frac{d\phi(t)}{dt} = -s(t) \, \sin\paren{\phi(t) + \theta(t)}
-  \end{align*}
-\end{lemma}
-
-\begin{lemma}\label{theta-deriv}
-  For a particle, $p$,
-  \[
-  \frac{d\theta(t)}{dt} = -\frac{a_c(t)}{s(t)}
-  \]
-\end{lemma}
-
-\begin{lemma}
-  For a particle, $p$, with bounded centripetal and tangential acceleration, than the functions $\phi(t)$ and $\theta(t)$ are continuous. Furthermore, for two times $t_1$ and $t_2$, s.t. $t_1 \le t_2$, $\phi(t_1) + \theta(t_1) > a$ and  
-\end{lemma}
-
-\proof
-
-The proof follows directly from the fact that the derivatives of $\phi(t)$ and $\theta(t)$ exist: \ref{theta-deriv}).
-
-\begin{lemma}
-  For a particle, $p$, with nonzero speed, and no centripetal acceleration for $t \ge t_0$, then
-  \[
-    \begin{cases}
-      \phi(t) \to \theta(t_0) \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(t_0) > 0\\
-      \phi(t) = 0 \quad \text{for} \quad t \ge t_0 \qquad &\text{if} \;\; \theta(t_0) = 0
-    \end{cases}
-  \]
-\end{lemma}
