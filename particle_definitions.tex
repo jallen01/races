@@ -1,4 +1,4 @@
-In this section, we will make some basic definitions about particles and paths. These will lay the groundwork for thinking about optimal paths. We will begin by defining the description of a particle and then define various types of paths that a particle can take.
+In this section, we will provide some basic definitions about particles and paths. These will lay the groundwork for thinking about optimal paths. We will begin by defining the description of a particle and then define various types of paths along which a particle can travel.
 
 \begin{definition}
 A n-dimensional path $\gamma(t): \mathrm{R} \to \mathrm{R}^n$ is a function which maps a time $t \in \R$, $t \in [0, T_{f, \gamma}]$, to a position $\bvec{X} \in \mathrm{R}^n$. 
@@ -17,22 +17,41 @@ A n-dimensional path $\gamma(t): \mathrm{R} \to \mathrm{R}^n$ is a function whic
 \end{definition}
 
 \begin{definition}
-  For a given particle, $p$, a fastest path, $\hat{\gamma}(t)$, between two points, $\bvec{X_1}$ and $\bvec{X_2}$, is a valid path such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid paths, $\gamma(t)$, between $\bvec{X_1}$ and $\bvec{X_2}$.
+  For a given particle, $p$, a fastest path, $\hat{\gamma}(t)$, between two points, $\bvec{X_1}$ and $\bvec{X_2}$, is a valid path such that $T_{f,\hat{\gamma}} \leq T_{f,\gamma}$ for all valid paths, $\gamma(t)$, between $\bvec{X_1}$ and $\bvec{X_2}$.
 \end{definition}
 
 \begin{definition}
-  The centripetal acceleration, $\bvec{a_c}$, of a particle, $p$, is the component of the acceleration of $p$ perpendicular to its direction of motion, $\bhat{v}$. The sign of $a_c$ is difined as the sign of the projection of $\bhat{a_c}$ onto $\bhat{r}$.
+  A particle's velocity is defined as 
+
+  \[\bvec{v} \coloneqq \frac{d\bvec{X}}{dt}\]
+
+  A particle's speed is $v$, and its direction of motion is $\bhat{v}$
+
 \end{definition}
 
 \begin{definition}
-  The tangential acceleration, $\bvec{a_t}$, of a particle, $p$, is the component of the acceleration of $p$ in its direction of motion, $\bhat{v}$.
+  A particle's acceleration is defined as 
+  
+  \[\bvec{a} \coloneqq \frac{d\bvec{v}}{dt}\]
+\end{definition}
+
+\begin{definition}
+  The centripetal acceleration, $\bvec{a_c}$, of a particle, $p$, is the component of the acceleration of $p$ perpendicular to its direction of motion.
+
+  In rectangular coordinates, the sign of $a_c$ is the projection of $\bhat{a_c}$ onto $\bhat{x}$. 
+
+  In polar coordinates, the sign of $a_c$ is difined as the sign of the projection of $\bhat{a_c}$ onto $\bhat{r}$.
+\end{definition}
+
+\begin{definition}
+  The tangential acceleration, $\bvec{a_t}$, of a particle, $p$, is the component of the acceleration of $p$ in its direction of motion, $\bhat{v}$. $a_t = \frac{ds}{dt}$.
 \end{definition}
 
 % -----------------------------------------------------------------------------
 
 \subsection{Particle Motion in Polar Coordinates}
 
-The motion of the 2-dimensional particles in this paper will typically be described in the polar coordinate system, shown in figure \ref{fig:polar-param}.
+The motion of the 2-dimensional particles in this paper will be described in the polar coordinate system, shown in Figure \ref{fig:polar-param}.
 
 \includefig{polar_param.eps}{A particle moving in 2-dimensional polar coordinate system centered at B}{polar-param}
 
@@ -45,9 +64,11 @@ The time derivative of $\theta$ is given by
 
 \begin{proof}
 
+If we look at a point, $p$, subject to only centripetal acceleration, $a_c$, the change in $\bvec{v}$ over an infinitesimal time, $dt$, is shown in Figure \ref{fig:theta-deriv} (the two vectors, $\bvec{v}$ and $\bvec{v}+\bvec{dv}$, are superimposed). 
+
 \includefig{theta_deriv.eps}{Tangential acceleration}{theta-deriv}
 
-If we look at a point, $p$, subject to only a centripetal acceleration, $a_c$, the change in $\bvec{v}$ over an infinitesimal time, $dt$, is shown in the figure \ref{fig:theta-deriv} (the two vectors, $\bvec{v}$ and $\bvec{v}+\bvec{dv}$, are superimposed). From the definition of $a_c$
+From the definition of $a_c$
 
 \[
 \frac{dv}{dt} = a_c
@@ -55,31 +76,37 @@ If we look at a point, $p$, subject to only a centripetal acceleration, $a_c$, t
 
 So...
 \[
-\frac{d\beta}{dt} = \frac{a_c}{s}
+\frac{d\beta}{dt} = \frac{a_c}{v}
 \]
 \end{proof}
 
 The proof of the lemma in the case where $a_t$ is also nonzero is very similar, since the component of $\bvec{dv}$ in the direction $\bhat{v}$ is negligeable compared to $v$.
 
-Returning again to figure \ref{fig:polar-param}, the following equations can be derived
+Returning again to Figure \ref{fig:polar-param}, the following equations can be derived
 
 \begin{align}
-  \frac{dr(t)}{dt}& = -s(t) \, \cos\paren{\theta(t)}\\
-  \frac{d\phi(t)}{dt}& = s(t) \, \sin\paren{\theta(t)}\\
-  \frac{d\theta(t)}{dt}& = \frac{d\phi(t)}{dt} - \frac{a_c(t)}{s(t)}\label{eq:theta-deriv}\\
-  \frac{d}{dt} \frac{dr(t)}{dt}& = -\frac{ds(t)}{dt} \cos\paren{\theta(t)} + s(t) \sin\paren{\theta(t)} \frac{d\theta(t)}{dt}
+  \frac{dr(t)}{dt}& = -s(t) \, \cos\paren{\theta(t)}\label{eq:r-deriv}\\
+  \frac{d\phi(t)}{dt}& = s(t) \, \sin\paren{\theta(t)}\label{eq:phi-deriv}\\
+  \frac{d\theta(t)}{dt}& = \frac{d\phi(t)}{dt} - \frac{a_c(t)}{s(t)}\\
+  &= s(t) \, \sin\paren{\theta(t)} - \frac{a_c(t)}{s(t)}\label{eq:theta-deriv}\\
+  \intertext{Applying the chain rule to (\ref{eq:r-deriv})}
+  \frac{d}{dt} \frac{dr(t)}{dt}& = -\frac{ds(t)}{dt} \cos\paren{\theta(t)} + s(t) \sin\paren{\theta(t)} \frac{d\theta(t)}{dt}\\
+  &\begin{aligned}
+    = -\frac{ds(t)}{dt} \cos\paren{\theta(t)} &+ s(t)^2 \sin^2\paren{\theta(t)}\\
+    &\qquad - s(t) \sin\paren{\theta(t)} \frac{a_c(t)}{s(t)}\label{eq:r-deriv-2}
+  \end{aligned}
 \end{align}
 
 \begin{lemma}
   For a particle, $p$, with bounded centripetal and tangential acceleration, then: 
 
-  (1) The functions $\phi(t)$ and $\theta(t)$ are continuous. 
+  1. The functions $\phi(t)$ and $\theta(t)$ are continuous. 
 
-  (2) For two times $t_1$ and $t_2$, s.t. $t_1 < t_2$, $\theta(t_1) > a$ and $\theta(t_2) < a$, then $\theta(t_c) = a$ for some $t_c \in [t_1, t_2]$.
+  2. For two times $t_1$ and $t_2$, s.t. $t_1 < t_2$, $\theta(t_1) > a$ and $\theta(t_2) < a$, then $\theta(t_c) = a$ for some $t_c \in [t_1, t_2]$.
 \end{lemma}
 
 \begin{proof}
-First off, it should be noted that a solution to \ref{eq:theta-deriv} exists because the rhs is Lipschitz continuous. The proof of (1) follows directly from the fact that the derivative of $\theta(t)$ exist and is bounded. (2) is just a restatement of the intermediate value theorem.
+First off, it should be noted that a solution to \ref{eq:theta-deriv} exists because the right hand side is Lipschitz continuous. The proof of 1.\ follows directly from the fact that the derivative of $\theta(t)$ exist and is bounded. 2.\ is just a restatement of the intermediate value theorem.
 \end{proof}
 
 \begin{lemma}
@@ -93,7 +120,15 @@ First off, it should be noted that a solution to \ref{eq:theta-deriv} exists bec
 \end{lemma}
 
 \begin{proof}
-The second case is the easiest to check, 
 
+For the first case 
+
+The second case is the easiest to check. If we plug $\theta(t_0) = 0$ into \ref{eq:theta-deriv}, we get
+
+\begin{align*}
+\frac{d\theta(t)}{dt} = 0 \qquad \text{for} \;\; t \ge t_0\\
+\intertext{So...}
+\theta(t) = 0 \qquad \text{for} \;\; t \ge t_0
+\end{align*}
 
 \end{proof}
