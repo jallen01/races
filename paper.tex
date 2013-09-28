@@ -217,7 +217,8 @@ Because this is the case, we see that $k(f(x)) < k(f(y))$ if and only if $f(x) <
 
 Since we've proven this lemma, we can invoke it upon $\min l_3 + l_4$. Since $l_3 = \sqrt{z_3}$ and $l_4 = \sqrt{z_4}$, we can use $k(t) = \sqrt{t}$ and we can write $\min l_3 + l_4 = \min z_3 + z_4$ by using our lemma. Thus, we now want to solve the problem:
 \begin{eqnarray}
-  \argmin_{\theta} 2 \left(\frac{l_1}{2} - \frac{l_2}{2} \sin \theta \right)^2 + \left( d - \frac{l_2}{2} \cos \theta \right)^2 + \left( d + \frac{l_2}{2} \cos \theta \right)^2
+  \argmin_{\theta} &2& \left(\frac{l_1}{2} - \frac{l_2}{2} \sin \theta \right)^2 \\
+  &+& \left( d - \frac{l_2}{2} \cos \theta \right)^2 + \left( d + \frac{l_2}{2} \cos \theta \right)^2
 \end{eqnarray}
 
 Now, we can expand out our expression and use the fact that $\sin^2 \theta + \cos^2 \theta = 1$ to obtain a much simpler (but equivalent) minimization problem:
