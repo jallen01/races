@@ -124,15 +124,15 @@ A path $\gamma: \mathrm{R} \to \mathrm{R}^2$ is a function which maps some time 
 \end{definition}
 
 \begin{definition}
-  A valid targetted path $\gamma: \mathrm{R} \to \mathrm{R}^2$ for some point mass $p$, conditions $\mathrm{C}$, starting point $\vec{x_1}$, and ending point $\vec{x_2}$ is a valid path where $\gamma(t) = \vec{x_1}$ and $\gamma(T_f(\gamma)) = \vec{x_2}$. In other words, it is a valid path which starts at $\vec{x_1}$ and ends at $\vec{x_2}$.
+  A valid targetted path $\gamma: \mathrm{R} \to \mathrm{R}^2$ for some particle $p$, conditions $\mathrm{C}$, starting point $\vec{x_1}$, and ending point $\vec{x_2}$ is a valid path where $\gamma(t) = \vec{x_1}$ and $\gamma(T_f(\gamma)) = \vec{x_2}$. In other words, it is a valid path which starts at $\vec{x_1}$ and ends at $\vec{x_2}$.
 \end{definition}
 
 \begin{definition}
-  A fastest path $\hat{\gamma}: \mathrm{R} \to \mathrm{R}^2$ for a particular point mass $p$, a starting point $\vec{x_1}$, a destination point $\vec{x_2}$, and some set of conditions $\mathrm{C}$ is a valid targetted path $\hat{\gamma}$ such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid targetted paths $\gamma$ with the same $p$, $\vec{x_1}$, $\vec{x_2}$, and $\mathrm{C}$.
+  A fastest path $\hat{\gamma}: \mathrm{R} \to \mathrm{R}^2$ for a particular particle $p$, a starting point $\vec{x_1}$, a destination point $\vec{x_2}$, and some set of conditions $\mathrm{C}$ is a valid targetted path $\hat{\gamma}$ such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid targetted paths $\gamma$ with the same $p$, $\vec{x_1}$, $\vec{x_2}$, and $\mathrm{C}$.
 \end{definition}
 
   \begin{theorem}
-  Given points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ and a point mass $p$ whose initial position is $(x_1, y_1)$ which moves with acceleration bounded by $\bar{a}$, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $(x_1, y_1)$ to $(x_2, y_2)$ follows the straight line where all coordinates $(x,y)$ on the straight line are given by:
+  Given points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ and a particle $p$ whose initial position is $(x_1, y_1)$ which moves with acceleration bounded by $\bar{a}$, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $(x_1, y_1)$ to $(x_2, y_2)$ follows the straight line where all coordinates $(x,y)$ on the straight line are given by:
   \begin{eqnarray}
     y = \frac{y_2 - y_1}{x_2 - x_1} x + y_1
   \end{eqnarray}
@@ -177,9 +177,12 @@ Thus, we see that the fastest path in the original coordinates follows the above
 \qed
 
 \begin{corollary}
-  The fastest path between two points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ is unique.
+  Given points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ and a particle $p$ whose initial position is $(x_1, y_1)$ which moves with acceleration bounded by $\bar{a}$, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $(x_1, y_1)$ to $(x_2, y_2)$ is unique.
 \end{corollary}
+\proof We have already shown that any fastest path between $(x_1, y_1)$ and $(x_2, y_2)$ follows the straight line given by $y = \frac{y_2 - y_1}{x_2 - x_1} x + y_1$. Moreover, we showed that when travelling along the fastest path, the particle must have acceleration along the straight line of $\bar{a}$. Since we have starting position $(x_1, y_1)$ and initial speed of $0$, the acceleration of the particle $a(t)$ uniquely defines a path for the particle.
 
+There is only a single function $a(t) = \bar{a}$ which the acceleration can satisfy when the particle is moving along a fastest path, therefore, there is only a single possible fastest path.
+\qed
 
 \section{Turning Around a Cone - Constant Velocity}
 
@@ -232,6 +235,10 @@ We note that $l_1, l_2,$ and $d$ are all constants which are given to us in the 
 \end{eqnarray}
 
 Thus, we see that $\theta = \frac{\pi}{2}$ minimizes the perimeter of the quadrilateral in the symmetric case.
+
+\subsection{Non-Symmetric Quadrilateral}
+
+
 
 \bibliographystyle{plain}
 \begin{thebibliography}{9}
