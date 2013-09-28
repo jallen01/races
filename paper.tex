@@ -60,52 +60,11 @@
 
 \maketitle
 
-\section{Theorems}
+\section{Introduction}
 
-\subsection{Notation\label{sec:notation}} 
+\section{Background and Definitions}
 
-\begin{description}
-    \item[$t$] Time
-    \item[$l$] Path length
-    \item[$s$] Speed
-    \item[$a_t$] Tangential acceleration
-    \item[$a_c$] Centripetal acceleration
-    \item[$\vec{x}$] Position
-    \item[$\vec{v}$] Velocity
-    \item[$\vec{a}$] Acceleration
-\end{description}
-
-\section{Coordinates}
-
-\subsection{Scalar Calculus}
-
-\begin{align}
-s& = \frac{dl}{dt}\\
-%
-a_t& = \frac{ds}{dt}\\
-\end{align}
-
-\subsection{Vector Calculus}
-
-\begin{align}
-\boldsymbol{x}& = r \boldsymbol{\hat{r}}\\
-%
-\boldsymbol{\vec{v}}& = \dot{r} \boldsymbol{\hat{r}} + r \dot{\phi} \boldsymbol{\hat{\phi}}\\
-%
-\boldsymbol{\vec{a}}& = \paren{\ddot{r} - r \dot{\phi}^2} \boldsymbol{\hat{r}} + \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}} \boldsymbol{\hat{\phi}}
-\end{align}
-
-\subsection{Relations}
-
-\begin{align}
-l& = \int_{t=0}^{T} \norm{\boldsymbol{\vec{v}} \, } \; dt\\
-%
-s& = \boldsymbol{\vec{v}}\\
-%
-a_t& = \norm{\boldsymbol{\vec{a}}\,} \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}\,}}
-\end{align}
-
-\section{Traveling Between Points}
+In this section, we will make some basic definitions about particles and paths. These should lay the groundwork for thinking about optimal paths. We will begin by defining the description of a particle and then define various types of paths that a particle can take.
 
 \begin{definition}
   A description of a particle $p$ is a set $D(t)$ which contains a particle's position $\vec{x} \in \mathrm{R}^2$ and its derivatives at some time $t$. In other words, we define $D(t) = \{ \vec{x}(t), \frac{d \vec{x}}{dt}(t), \frac{d^2 \vec{x}}{d t^2}(t), \ldots \}$.
@@ -130,6 +89,8 @@ A path $\gamma: \mathrm{R} \to \mathrm{R}^2$ is a function which maps some time 
 \begin{definition}
   A fastest path $\hat{\gamma}: \mathrm{R} \to \mathrm{R}^2$ for a particular particle $p$, a starting point $\vec{x_1}$, a destination point $\vec{x_2}$, and some set of conditions $\mathrm{C}$ is a valid targetted path $\hat{\gamma}$ such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid targetted paths $\gamma$ with the same $p$, $\vec{x_1}$, $\vec{x_2}$, and $\mathrm{C}$.
 \end{definition}
+
+\section{Traveling Between Points}
 
   \begin{theorem}
   Given points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ and a particle $p$ whose initial position is $(x_1, y_1)$ which moves with acceleration bounded by $\bar{a}$, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $(x_1, y_1)$ to $(x_2, y_2)$ follows the straight line where all coordinates $(x,y)$ on the straight line are given by:
@@ -243,7 +204,50 @@ Thus, we see that $\theta = \frac{\pi}{2}$ minimizes the perimeter of the quadri
 
 \subsection{Non-Symmetric Quadrilateral}
 
+\section{Appendix}
 
+\subsection{Notation\label{sec:notation}} 
+
+\begin{description}
+    \item[$t$] Time
+    \item[$l$] Path length
+    \item[$s$] Speed
+    \item[$a_t$] Tangential acceleration
+    \item[$a_c$] Centripetal acceleration
+    \item[$\vec{x}$] Position
+    \item[$\vec{v}$] Velocity
+    \item[$\vec{a}$] Acceleration
+\end{description}
+
+\section{Coordinates}
+
+\subsection{Scalar Calculus}
+
+\begin{align}
+s& = \frac{dl}{dt}\\
+%
+a_t& = \frac{ds}{dt}\\
+\end{align}
+
+\subsection{Vector Calculus}
+
+\begin{align}
+\boldsymbol{x}& = r \boldsymbol{\hat{r}}\\
+%
+\boldsymbol{\vec{v}}& = \dot{r} \boldsymbol{\hat{r}} + r \dot{\phi} \boldsymbol{\hat{\phi}}\\
+%
+\boldsymbol{\vec{a}}& = \paren{\ddot{r} - r \dot{\phi}^2} \boldsymbol{\hat{r}} + \frac{1}{r} \frac{d}{dt} \paren{r^2 \dot{\phi}} \boldsymbol{\hat{\phi}}
+\end{align}
+
+\subsection{Relations}
+
+\begin{align}
+l& = \int_{t=0}^{T} \norm{\boldsymbol{\vec{v}} \, } \; dt\\
+%
+s& = \boldsymbol{\vec{v}}\\
+%
+a_t& = \norm{\boldsymbol{\vec{a}}\,} \frac{\boldsymbol{\vec{v}}}{\norm{\boldsymbol{\vec{v}}\,}}
+\end{align}
 
 \bibliographystyle{plain}
 \begin{thebibliography}{9}
