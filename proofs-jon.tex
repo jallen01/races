@@ -29,7 +29,6 @@
 \DeclarePairedDelimiter\tempparen{(}{)}
 \DeclarePairedDelimiter\tempbracket{[}{]}
 \DeclarePairedDelimiter\tempcbracket{\{}{\}}
-
 % Swap * functionality
 \makeatletter
 \def\abs{\@ifstar{\tempabs}{\tempabs*}}
@@ -40,9 +39,27 @@
 \def\cbracket{\@ifstar{\tempcbracket}{\tempcbracket*}}
 \makeatother
 
-\graphicspath{ {figures/} }
+% blackboard bold , for ``complex,'' etc
+\newcommand{\C}{\mathbb C} 
+\newcommand{\R}{\mathbb R} 
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+
+% Add fig with caption command
+\newcommand{\includefig}[3]{
+  \begin{figure}
+    \begin{center}
+      \includegraphics[width=4in]{#1}
+    \end{center}
+  \vspace{-.2in} % corrects bad spacing
+  \caption{#2.\label{fig:#3}}
+  \end{figure}
+}
 
 \begin{document}
+
+\graphicspath{ {figures/} }
 
 \title[The 18.821 report]{The 18.821 Mathematics Project Lab Report 
 [Proofs]} 
@@ -50,13 +67,6 @@
  
 \author{Jonathan Allen}
 \date{\today}              % or an actual date
-
-
-\newcommand{\C}{\mathbb C} % blackboard bold , for ``complex,'' etc
-\newcommand{\R}{\mathbb R} 
-\newcommand{\Z}{\mathbb Z}
-\newcommand{\Q}{\mathbb Q}
-\newcommand{\N}{\mathbb N}
 
 \maketitle
 
@@ -70,18 +80,20 @@
     \item[$s(t)$] Speed
     \item[$a_t(t)$] Tangential acceleration
     \item[$a_c(t)$] Centripetal acceleration
-    \item[$\vec{x}(t)$] Position
+    \item[$\vec{X}(t)$] Position $(x, y)$ coordinate.
     \item[$\vec{v}(t)$] Velocity
     \item[$\vec{a}(t)$] Acceleration
 \end{description}
 
-\section{Coordinate Systems}
+Note: For the rest of this paper, it is assumed that all particle parameters $l, s, \dotsc$ are parameterized by $t$. Also, define the following calculus notation
 
 \begin{align}
-\dot{a}& = \frac{da}{dt}
+\dot{a}& = \frac{da}{dt}\\
+%
+\ddot{a}& = \frac{d^2a}{dt^2}
 \end{align}
 
-\subsection{Rectangular Coordinates}
+\definition{Rectangular Coordinates}
 
 
 \begin{align}
@@ -131,13 +143,14 @@ R_{min} = \frac{v^2}{a_{c,max}}
 
 \proof 
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=4in]{arc_param.eps}
-\end{center}
-\vspace{-.2in} % corrects bad spacing
-\caption{My first .eps figure.\label{fig:2}}
-\end{figure}
+
+\includefig{particle_param.eps}{Particle Parameterization}{particle_param}
+
+\begin{lemma}
+Every optimal trajectory is constructed from line segments and circular sections of radius $R_{min}$. Every point along an optimal trajectory where $a_t=0$ has $R = \infty$ or $R = R_{min}$.
+\end{lemma}
+
+\proof
 
 If we look at a position, p, on a trajectory. We can align a rectangular coordinate system with this point, such that $\hat{y} = \hat{v}$.
 
