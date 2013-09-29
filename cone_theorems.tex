@@ -1,44 +1,42 @@
+Now we are finally able to tackle the model problem of optimal paths around cones. The cone problem we will solve will involve only 3 cones, but first we will solve a simpler but related problem of minimizing the path length around a quadrilateral.
+
 \subsection{Quadrilateral}
 
-Before we attempt to tackle the problem of finding the optimal path around a cone at constant velocity, we may want to find some intuition for the problem with a simple, but related problem. In particular, if a particle is traveling around a cone, we would like to know what circle it traces as it goes around the cone.
-
-To make a simple model of this problem, we will use a quadrilateral to model a path around a cone. We will construct a quadrilateral with particular constaints that models the constraints of a path around a cone, and we will try to find the parameters that minimize the perimeter around the quadrilateral. Let us call the sides of the quadrilateral $s_1, s_2, s_3$ and $s_4$. Imagine that $s_1$ and $s_2$ are on opposite sides of the quadrilateral with fixed lengths $l_1$ and $l_2$ respectively. Now we will constrain the problem to be related to the problem of a particle traveling around a cone: imagine $s_1$ and $s_2$ are connected by a bar $s_b$ of length $d$. The bar will be perpendicular to $s_1$. The angle that $s_b$ forms with $s_2$ will be called $\theta$. We will try to find the optimal $\theta$ that minimizes the perimeter around the quadrilateral.
-
-We will use figure \label{fig:quadrilateral} as reference.
+We would like to minimize the path length around the quadrilateral shown in Figure \ref{fig:quad}.
 
 \includefig{quad.eps}{Quadrilateral path. A $\to$ B $\to$ C $\to$ D}{quad}
 
-\subsection{Symmetric Quadrilateral}
+We will constrain the problem such that it is similar to the problem of a particle traveling around a cone. Sides $\overline{BC}$, $\overline{DA}$, and $\overline{EF}$ have fixed lengths $l_1$, $l_2$, and $w$ respectively. Points E and F bisect $\overline{DA}$ and $\overline{BC}$ respectively. The goal is
 
-Let us begin by solving the simplest version of this problem. Let us imagine that $s_b$ is connected to the midpoints of $s_1$ and $s_2$. We know that the perimeter will be given by $l_1 + l_2 + l_3 + l_4$ where $l_3$ and $l_4$ are the lengths of the sides of $s_3$ and $s_4$, respectively. We are given $l_1$ and $l_2$, but we will need to compute $l_3$ and $l_4$ as functions of $l_1, l_2,d, $ and $\theta$. 
+\[
+\argmin_{\theta} \bracket{l_{AB} + l_{BC} + l_{CD}}
+\]
 
-We can find $l_3$ by using the fact that it forms a right triangle. We know that $l_3^2 = m^2 + n^2$. Finding $l_4$ is similar. Therefore, we just need to find $m$ and $n$. This can be done by using the fact that $m = \frac{l_1}{2} - \frac{l_2}{2} \sin \theta$. This is just the upper half of $s_1$ minus the projection of $s_2$ onto $s_1$. We can find $n$ similarly: $n = d - \frac{l_2}{2} \cos \theta$. This is just the bar $s_b$ minus the projection of $s_2$ onto the bar. Thus by substituting, we have:
-\begin{eqnarray}
-  l_3 = \sqrt{ \left(\frac{l_1}{2} - \frac{l_2}{2} \sin \theta \right)^2 + \left( d - \frac{l_2}{2} \cos \theta \right)^2 }
-\end{eqnarray}
+\begin{align}
+  x_c& = w - \frac{l2}{2 \cos{\theta}}\\
+  y_c& = \frac{l_2}{2} - \frac{l_2}{2 \sin{\theta}}\\
+  l_{AB}& = \sqrt{x_c^2 + y_c^2}\\
+  & = \sqrt{ \paren{\frac{l_1}{2} - \frac{l_2}{2 \cos\theta}}^2 + \paren{w - \frac{l_2}{2 \sin\theta}}^2 }\\
+  l_{BC}& = l2\\
+  l_{CD}& = \sqrt{\paren{\frac{l_1}{2} + \frac{l_2}{2 \cos\theta}}^2 + \paren{w - \frac{l_2}{2 \sin\theta}}^2 }
+\end{align}
 
-We can do a similar analysis on $l_4$, only remembering that $n$ for $l_4$ gets extended by the projection onto $s_4$ instead of shrunken. We therefore have:
-\begin{eqnarray}
-  l_4 = \sqrt{ \left(\frac{l_1}{2} - \frac{l_2}{2} \sin \theta \right)^2 + \left( d + \frac{l_2}{2} \cos \theta \right)^2 }
-\end{eqnarray}
+Since we know that $l_{BC}$ is fixed the problem reduces to
 
-Now, to minimize the perimeter with respect to $\theta$, we want to minimize $l_1 + l_2 + l_3 + l_4$. Since we know that $l_1$ and $l_2$ are fixed, we really want to minimize $l_3 + l_4$ with respect to $\theta$. The other thing to note is that we're minimizing positive distances. We will invoke the following lemma so that we can simplify our expression for $\min l_3 + l_4$:
+\[
+\argmin_{\theta} \bracket{l_{AB} + l_{BC} + l_{CD}}
+\]
 
-\begin{lemma}
-  If $f(t), g(t) > 0$ and $k(t) > 0$ is a strictly monotonically increasing function for all $t$, then $\argmin_t k(f(t)) + k(g(t)) = \argmin_t f(t) + g(t)$.
-  \label{lemma:minsqrt}
-\end{lemma}
-\proof Let $t_1, t_2$ be such that $f(t_1) + g(t_1) < f(t_2) + g(t_2)$. In this proof, we will show that $k(f(t_1)) + k(g(t_1)) < \sqrt{f(t_2)} + \sqrt{g(t_2)}$. Since $k(t)$ is a strictly monotonically increasing function when $t > 0$, we know that $k(x) < k(y)$ if and only if $x < y$ (assuming we can confine $x, y$ to be non-negative).
+Because all distances are positive, we can use Lemma \ref{lemma:conv-argmin}, defined in the Appendix, to simplify our problem:
 
-Because this is the case, we see that $k(f(x)) < k(f(y))$ if and only if $f(x) < f(y)$ (the same goes for $g$). Thus, we see that if we have found the minimum $t_m$ to $\argmin_t k(f(t)) + k(g(t))$, then it is the case that $k(f(t_m)) + k(g(t_m)) < k(f(t)) + k(g(t))$ for all $t \neq t_m$ (again where $t > 0$). Following our train of logic, we see that $f(t_m) + g(t_m) < f(t) + g(t)$ for all $t \neq t_m$, which means that $t_m$ is a minimum of $f(t) + g(t)$. Thus by finding a minimum $t_m$ to $k(f(t)) + k(g(t))$, we also found a minimum to $f(t) + g(t)$. \qed
+If we define $l_{AB} = \sqrt{z_{AB}}$ and $l_{CD} = \sqrt{z_{CD}}$, we can use \ref{lemma:conv-argmin} with $k(t) = \sqrt{t}$ to simplify our problem to
 
-Since we've proven this lemma, we can invoke it upon $\min l_3 + l_4$. Since $l_3 = \sqrt{z_3}$ and $l_4 = \sqrt{z_4}$, we can use $k(t) = \sqrt{t}$ and we can write $\min l_3 + l_4 = \min z_3 + z_4$ by using our lemma. Thus, we now want to solve the problem:
-\begin{eqnarray}
-  \argmin_{\theta} &2& \left(\frac{l_1}{2} - \frac{l_2}{2} \sin \theta \right)^2 \\
-  &+& \left( d - \frac{l_2}{2} \cos \theta \right)^2 + \left( d + \frac{l_2}{2} \cos \theta \right)^2
-\end{eqnarray}
+\begin{multline}
+  \argmin_{\theta} \left[ 2\paren{\frac{l_1}{2} - \frac{l_2}{2 \sin\theta}}^2 \right.\\
+  \left. + \paren{w - \frac{l_2}{2 \cos\theta}}^2 + \paren{w + \frac{l_2}{2 \cos\theta}}^2 \right]
+\end{multline}
 
-Now, we can expand out our expression and use the fact that $\sin^2 \theta + \cos^2 \theta = 1$ to obtain a much simpler (but equivalent) minimization problem:
+Now, we can expand out our expression and use Lemma the fact that $\sin^2 \theta + \cos^2 \theta = 1$ to obtain a much simpler (but equivalent) minimization problem:
 \begin{eqnarray}
   \argmin_{\theta} \frac{l_1^2}{2} + \frac{l_2^2}{2} + 2d^2 - l_1 l_2 \sin \theta
 \end{eqnarray}
@@ -53,25 +51,27 @@ We note that $l_1, l_2,$ and $d$ are all constants which are given to us in the 
 % 3 cones, constant speed
 \begin{theorem}
 
-Given a cone setup consisting of 3 cones at locations $X_A$, $X_B$, and $X_C$.
+Given a particle with zero tangential acceleration and bounded centripetal acceleration, $a_c \le a_{c,max}$, and a cone setup consisting of 3 cones, A, B, and C, at locations $\bvec{X_A}$, $\bvec{X_B}$, and $\bvec{X_C}$ as is shown in Figure \ref{fig:3-cones}.
 
-\includefig{cones_fix_s.eps}{A}{cones-fix-s}
+\includefig{3_cones.eps}{3 Cone setup}{3-cones}
 
-\begin{align}
-dB& = \sqrt{x_B + y_B}\\
-\intertext{Applying the triangle inequality...}
-d_c& = \alpha_c - \tan^{-1}\paren{\frac{y_B}{x_B}}\\
-\end{align}
-
-\includefig{cones_fix_s_2.eps}{A}{cones-fix-s-2}
-
-\begin{align}
-l_1& = \sqrt{d_c - r}\\
-x_c = x_B - r \cos{\alpha_c}\\
-y_c = y_B - r \sin{\alpha_c}\\
-d_c& = \alpha_c - \tan^{-1}\paren{\frac{y_c}{x_c}}\\
-\end{align}
+The optimal path [TODO]
 
 \end{theorem}
 
-\proof
+\begin{proof}
+Since speed is constant, the optimal path will be the shortest path. The optimal path is of the form, tr. Thus, the problem reduces to a trigonometric problem.
+
+\includefig{cones_fix_s.eps}{Position of center of turn}{cones-fix-s}
+
+The turn must touch the cone B, otherwise the trajectory will either not go around the cone, or be longer than necessary. Therefor, the center of the turn must be a distance $r$ away from 
+
+\includefig{cones_fix_s_2.eps}{Path length}{cones-fix-s-2}
+
+\begin{align*}
+x_c = x_B - r \cos{\alpha_c}\\
+y_c = y_B - r \sin{\alpha_c}\\
+l_1& = \sqrt{d_c - r}\\
+l_2& = r \paren{\alpha_c - \tan^{-1}\paren{\frac{y_c}{x_c}}}\\
+\end{align*}
+\end{proof}

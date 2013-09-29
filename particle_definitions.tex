@@ -1,19 +1,19 @@
-In this section, we will provide some basic definitions about particles and paths. These will lay the groundwork for thinking about optimal paths. We will begin by defining the description of a particle and then define various types of paths along which a particle can travel.
+In this section, we will provide some basic definitions about particles and paths. These will lay the groundwork for thinking about optimal paths.
 
 \begin{definition}
 A n-dimensional path $\gamma(t): \mathrm{R} \to \mathrm{R}^n$ is a function which maps a time $t \in \R$, $t \in [0, T_{f, \gamma}]$, to a position $\bvec{X} \in \mathrm{R}^n$. 
 \end{definition}
 
 \begin{definition}
-  A n-dimensional particle, $p$, is an object with zero volume that travels along a n-dimensional path. The particle may have conditions on its position, velocity, and acceleration in $\R^n$.
+  A n-dimensional particle, $p$, is an object with zero volume that travels along a n-dimensional path. Traveling along a path means that the particle is at position $\lambda(t)$ at time $t$, for all $t \in [0, T_{f,\lambda}]$. The particle may have conditions on its position, velocity, and acceleration in $\R^n$.
 \end{definition}
 
 \begin{definition}
-  A valid path $\gamma(t)$ for a particle $p$ is a path such that all conditions on the particle are satisfied at every point along the path.
+  A valid path $\gamma(t)$ for a particle $p$ is a path along which $p$ can travel, such that all its conditions are satisfied at every point along the path.
 \end{definition}
 
 \begin{definition}
-  A path between two points, $\bvec{X_1}$ and $\bvec{X_2}$ is a path, $\gamma(t)$ where $\gamma(0) = \bvec{X_1}$ and $\gamma(T_{f, \gamma}) = \bvec{X_2}$.
+  A path between two points, $\bvec{X_1}$ and $\bvec{X_2}$ is a path, $\gamma(t)$, where $\gamma(0) = \bvec{X_1}$ and $\gamma(T_{f, \gamma}) = \bvec{X_2}$.
 \end{definition}
 
 \begin{definition}
@@ -25,7 +25,7 @@ A n-dimensional path $\gamma(t): \mathrm{R} \to \mathrm{R}^n$ is a function whic
 
   \[\bvec{v} \coloneqq \frac{d\bvec{X}}{dt}\]
 
-  A particle's speed is $v$, and its direction of motion is $\bhat{v}$
+  Furthermore, a particle's speed is $v$, and its direction of motion is $\bhat{v}$
 
 \end{definition}
 
@@ -36,29 +36,35 @@ A n-dimensional path $\gamma(t): \mathrm{R} \to \mathrm{R}^n$ is a function whic
 \end{definition}
 
 \begin{definition}
-  The centripetal acceleration, $\bvec{a_c}$, of a particle, $p$, is the component of the acceleration of $p$ perpendicular to its direction of motion.
+  The centripetal acceleration, $\bvec{a_c}$, of a particle, $p$, is the component of its acceleration in the direction perpendicular to its direction of motion.
 
-  In rectangular coordinates, the sign of $a_c$ is the projection of $\bhat{a_c}$ onto $\bhat{x}$. 
+  In rectangular coordinates, the sign of $a_c$ is defined to be the sign of the projection of $\bhat{a_c}$ onto $\bhat{x}$. 
 
-  In polar coordinates, the sign of $a_c$ is difined as the sign of the projection of $\bhat{a_c}$ onto $\bhat{r}$.
+  In polar coordinates, the sign of $a_c$ is defined to be the sign of the projection of $\bhat{a_c}$ onto $\bhat{r}$.
 \end{definition}
 
 \begin{definition}
-  The tangential acceleration, $\bvec{a_t}$, of a particle, $p$, is the component of the acceleration of $p$ in its direction of motion, $\bhat{v}$. $a_t = \frac{ds}{dt}$.
+  The tangential acceleration, $\bvec{a_t}$, of a particle, $p$, is the component of the acceleration of $p$ in its direction of motion, $\bhat{v}$.
+
+  \[
+  a_t = \frac{dv}{dt}
+  \]
 \end{definition}
 
 % -----------------------------------------------------------------------------
 
 \subsection{Particle Motion in Polar Coordinates}
 
-The motion of the 2-dimensional particles in this paper will be described in the polar coordinate system, shown in Figure \ref{fig:polar-param}.
+Unless otherwise specified, the motion of 2-dimensional particles in this paper will be described in polar coordinates, along with an extra parameter $\theta$ as is shown in Figure \ref{fig:polar-param}.
 
 \includefig{polar_param.eps}{A particle moving in 2-dimensional polar coordinate system centered at B}{polar-param}
+
+$\theta(t), \phi(t) \in [-\pi, \pi]$. From now on, $\abs{\theta}$ and $\abs{\phi}$ will be used, since there is a symmetry in the system about $\bhat{r}$.
 
 \begin{lemma}
 The time derivative of $\theta$ is given by
 \[
-\frac{d\beta}{dt} = \frac{a_c}{s}
+\frac{d\abs{\theta(t)}}{dt} = \frac{a_c}{v}
 \]
 \end{lemma}
 
@@ -74,61 +80,72 @@ From the definition of $a_c$
 \frac{dv}{dt} = a_c
 \]
 
-So...
+Since $dv = d\abs{\theta} v$, then
 \[
-\frac{d\beta}{dt} = \frac{a_c}{v}
+\frac{d\abs{\theta}}{dt} = \frac{a_c}{v}
 \]
 \end{proof}
 
-The proof of the lemma in the case where $a_t$ is also nonzero is very similar, since the component of $\bvec{dv}$ in the direction $\bhat{v}$ is negligeable compared to $v$.
+The proof of the lemma in the case where $a_t$ is also nonzero is very similar, since the component of $\bvec{dv}$ in the direction $\bhat{v}$ is negligible compared to $v$.
 
 Returning again to Figure \ref{fig:polar-param}, the following equations can be derived
 
 \begin{align}
-  \frac{dr(t)}{dt}& = -s(t) \, \cos\paren{\theta(t)}\label{eq:r-deriv}\\
-  \frac{d\phi(t)}{dt}& = s(t) \, \sin\paren{\theta(t)}\label{eq:phi-deriv}\\
-  \frac{d\theta(t)}{dt}& = \frac{d\phi(t)}{dt} - \frac{a_c(t)}{s(t)}\\
-  &= s(t) \, \sin\paren{\theta(t)} - \frac{a_c(t)}{s(t)}\label{eq:theta-deriv}\\
+  \frac{dr(t)}{dt}& = -v(t) \, \cos\paren{\abs{\theta(t)}}\label{eq:r-deriv}\\
+  \frac{d\abs{\phi(t)}}{dt}& = \frac{v(t)}{r(t)} \, \sin\paren{\abs{\theta(t)}}\label{eq:phi-deriv}\\
+  \frac{d\abs{\theta(t)}}{dt}& = \frac{d\abs{\phi(t)}}{dt} - \frac{a_c(t)}{v(t)}\\
+  &= \frac{v(t)}{r(t)} \, \sin\paren{\abs{\theta(t)}} - \frac{a_c(t)}{v(t)}\label{eq:theta-deriv}\\
   \intertext{Applying the chain rule to (\ref{eq:r-deriv})}
-  \frac{d}{dt} \frac{dr(t)}{dt}& = -\frac{ds(t)}{dt} \cos\paren{\theta(t)} + s(t) \sin\paren{\theta(t)} \frac{d\theta(t)}{dt}\\
+  \frac{d}{dt} \frac{dr(t)}{dt}& = -\frac{dv(t)}{dt} \cos\paren{\abs{\theta(t)}} + v(t) \sin\paren{\abs{\theta(t)}} \frac{d\abs{\theta(t)}}{dt}\\
   &\begin{aligned}
-    = -\frac{ds(t)}{dt} \cos\paren{\theta(t)} &+ s(t)^2 \sin^2\paren{\theta(t)}\\
-    &\qquad - s(t) \sin\paren{\theta(t)} \frac{a_c(t)}{s(t)}\label{eq:r-deriv-2}
+    = -\frac{dv(t)}{dt} \cos\paren{\abs{\theta(t)}} &+ \frac{v(t)^2}{r(t)} \sin^2\paren{\abs{\theta(t)}}\\
+    &\qquad - v(t) \sin\paren{\abs{\theta(t)}} \frac{a_c(t)}{v(t)}\label{eq:r-deriv-2}
   \end{aligned}
 \end{align}
 
 \begin{lemma}
   For a particle, $p$, with bounded centripetal and tangential acceleration, then: 
 
-  1. The functions $\phi(t)$ and $\theta(t)$ are continuous. 
+  1. The function $\abs{\theta(t)}$ is continuous. 
 
-  2. For two times $t_1$ and $t_2$, s.t. $t_1 < t_2$, $\theta(t_1) > a$ and $\theta(t_2) < a$, then $\theta(t_c) = a$ for some $t_c \in [t_1, t_2]$.
+  2. Given $t_1, t_2 \in \R^2$, s.t. $t_1 < t_2$, $\theta(t_1) > a$ and $\theta(t_2) < a$, then $\theta(t_c) = a$ for some $t_c \in [t_1, t_2]$.
 \end{lemma}
 
 \begin{proof}
-First off, it should be noted that a solution to \ref{eq:theta-deriv} exists because the right hand side is Lipschitz continuous. The proof of 1.\ follows directly from the fact that the derivative of $\theta(t)$ exist and is bounded. 2.\ is just a restatement of the intermediate value theorem.
+First off, it should be noted that a solution to (\ref{eq:theta-deriv}) exists because the right hand side is Lipschitz continuous. The proof of 1.\ follows directly from the fact that the derivative of $\abs{\theta(t)}$ exists and is bounded. 2.\ is just a restatement of the intermediate value theorem.
 \end{proof}
 
-\begin{lemma}
-  For a particle, $p$, with nonzero speed, and no centripetal acceleration for $t \ge t_0$, then
+\begin{lemma}\label{lemma:polar-assymptote}
+  For a particle, $p$, with nonzero speed, and zero centripetal acceleration for $t \ge t_0$, then
   \[
     \begin{cases}
-      \theta(t) \to \pi \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(t_0) > 0\\
-      \theta(t) = 0 \quad \text{for} \quad t \ge t_0 \qquad &\text{if} \;\; \theta(t_0) = 0
+      \abs{\theta(t)} \to \pi \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(t_0) > 0\\
+      \abs{\theta(t)} = 0 \quad \text{for all} \quad t \ge t_0 \qquad &\text{if} \;\; \theta(t_0) = 0
+    \end{cases}
+  \]
+
+    Furthermore,
+
+  \[
+    \begin{cases}
+      r(t) \to \infty \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(t_0) > 0\\
+      r(t) \to 0 \quad \text{as} \quad t \ge t_0 \qquad &\text{if} \;\; \theta(t_0) = 0
     \end{cases}
   \]
 \end{lemma}
 
 \begin{proof}
 
-For the first case 
+For the first case, $\frac{d\abs{\theta(t)}}{dt} > 0$, except when $\abs{\theta(t)} = 0, \pi$, which means that $\theta(t)$ is monotonically increasing. Since $\phi(t)$ is bounded above py $\pi$, $\phi(t) \to \pi \;\; \text{as} \;\; \infty$.
 
 The second case is the easiest to check. If we plug $\theta(t_0) = 0$ into \ref{eq:theta-deriv}, we get
 
 \begin{align*}
-\frac{d\theta(t)}{dt} = 0 \qquad \text{for} \;\; t \ge t_0\\
-\intertext{So...}
-\theta(t) = 0 \qquad \text{for} \;\; t \ge t_0
+\frac{d\abs{\theta(t)}}{dt} = 0 \qquad \text{for} \;\; t \ge t_0\\
+\intertext{So}
+\abs{\theta(t)} = 0 \qquad \text{for} \;\; t \ge t_0
 \end{align*}
+
+[TODO]
 
 \end{proof}
