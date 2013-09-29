@@ -15,7 +15,7 @@ We will constrain the problem such that it is similar to the problem of a partic
 Thus, we want to choose the angle which will minimize the path traveled by a particle along the perimeter of the quadrilateral. Intuitively, a symmetric quadrilateral should provide the fastest route, but we will formalize this intuition. We do this by deriving the following equations using basic trigonometry:
 
 \begin{align}
-  x_c& = w - \frac{l_2}{2 \cos{\theta}}\\
+  x_c& = w - \frac{l_2}{2} \cos{\theta}\\
   y_c& = \frac{l_2}{2} - \frac{l_2}{2} \sin{\theta}\\
   l_{AB}& = \sqrt{x_c^2 + y_c^2}\\
   & = \sqrt{ \paren{\frac{l_1}{2} - \frac{l_2}{2} \cos\theta}^2 + \paren{w - \frac{l_2}{2} \sin\theta}^2 }\\
@@ -26,7 +26,7 @@ Thus, we want to choose the angle which will minimize the path traveled by a par
 Since we know that $l_{BC}$ is fixed, our minimization problem reduces to
 
 \[
-\argmin_{\theta} \bracket{l_{AB} + l_{BC} + l_{CD}}
+\argmin_{\theta} \bracket{l_{AB} + l_{CD}}
 \]
 
 Because all distances are positive, we can use Lemma \ref{lemma:conv-argmin}, defined in the Appendix, to simplify our problem:
