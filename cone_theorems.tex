@@ -2,7 +2,7 @@ Now we are finally able to tackle the model problem of optimal paths around cone
 
 \subsection{Quadrilateral}
 
-We would like to minimize the path length around the quadrilateral shown in Figure \ref{fig:quad}.
+We would like to minimize the path length around the quadrilateral shown in Figure \ref{fig:quad}. Solving this problem will hopefully give us intuition for solving the problem of actual paths. We allow the quadrilateral's perimeter to vary based on an angle $\theta$ which has a physical representation of measuring how symmetric the system is.
 
 \includefig{quad.eps}{Quadrilateral path. A $\to$ B $\to$ C $\to$ D}{quad}
 
@@ -11,6 +11,8 @@ We will constrain the problem such that it is similar to the problem of a partic
 \[
 \argmin_{\theta} \bracket{l_{AB} + l_{BC} + l_{CD}}
 \]
+
+Thus, we want to choose the angle which will minimize the path traveled by a particle along the perimeter of the quadrilateral. Intuitively, a symmetric quadrilateral should provide the fastest route, but we will formalize this intuition. We do this by deriving the following equations using basic trigonometry:
 
 \begin{align}
   x_c& = w - \frac{l_2}{2 \cos{\theta}}\\
@@ -21,7 +23,7 @@ We will constrain the problem such that it is similar to the problem of a partic
   l_{CD}& = \sqrt{\paren{\frac{l_1}{2} + \frac{l_2}{2} \cos\theta}^2 + \paren{w - \frac{l_2}{2} \sin\theta}^2 }
 \end{align}
 
-Since we know that $l_{BC}$ is fixed the problem reduces to
+Since we know that $l_{BC}$ is fixed, our minimization problem reduces to
 
 \[
 \argmin_{\theta} \bracket{l_{AB} + l_{BC} + l_{CD}}
@@ -46,7 +48,7 @@ We note that $l_1, l_2,$ and $d$ are all constants which are given to us in the 
   \argmin_{\theta} - l_1 l_2 \sin \theta = \argmax_{\theta} \sin \theta
 \end{eqnarray}
 
-Thus we see that the optimal angle for minimizing the path length is $\theta = \frac{\pi}{2}$. In other words, it is better to be have a symmetric path.
+Thus we see that the optimal angle for minimizing the path length is $\theta = \frac{\pi}{2}$. In other words, it is better to be have a symmetric path. This works well with our intuition, and so now we are ready to solve problems related to particles traveling around cones.
 
 % -----------------------------------------------------------------------------
 

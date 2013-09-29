@@ -1,4 +1,6 @@
-The simplest problem to tackle first, is the optimal trajectory from a current position, $\bvec{X_0}$ to a final position, $\bvec{X_f}$. Working in a polar coordinate system centered on $X_f$, it is clear, that our goal is achieved when $r = 0$. Furthermore, $\theta(t)$ must be $0$ before reaching $X_f$, otherwise, it will grow exponentially fast as $r(t) \to 0$, which can be seen in equation (\ref{eq:r-deriv}).
+Now that we have defined our notation, we are ready to think about the problem of optimal trajectories.
+
+The simplest problem to tackle first, is the optimal trajectory from a starting position, $\bvec{X_0}$ to a final position, $\bvec{X_f}$. Working in a polar coordinate system centered on $X_f$, it is clear, that our goal is achieved when $r = 0$. Furthermore, $\theta(t)$ must be $0$ before reaching $X_f$, otherwise, it will grow exponentially fast as $r(t) \to 0$, which can be seen in equation (\ref{eq:r-deriv}).
 
 \begin{lemma}
 If $a_t=0$ and $a_c \le a_{c,max}$, then the minimum radius of curvature of a particle's trajectory is given by
@@ -55,8 +57,10 @@ Given a 2-dimensional particle, $p$, with bounded centripetal acceleration, $a_c
 
 % -----------------------------------------------------------------------------
 
+Now we will show that the fastest path between two points goes in a straight line. This will formalize the natural intuition that straight lines are the fastest path when there are no obstacles between the start and finish position.
+
 \begin{theorem}
-  Given a 2-dimensional particle $p$ whose initial position is $\bvec{X_1}$ and moves with bounded tangential acceleration, $a_t \le a_{t,max}$, and infinite centripetal acceleration, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $\bvec{X_1}$ to $\bvec{X_2}$ is the line segment from $\bvec{X_1}$ to $\bvec{X_2}$:
+  Given a 2-dimensional particle $p$ whose initial position is $\bvec{X_1}$ and moves with bounded tangential acceleration, $a_t \le a_{t,max}$, and infinite centripetal acceleration, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $\bvec{X_1}$ to $\bvec{X_2}$ lies on the line segment from $\bvec{X_1}$ to $\bvec{X_2}$:
 \end{theorem}
 
 \begin{proof} 
