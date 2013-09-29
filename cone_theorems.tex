@@ -14,11 +14,11 @@ We will constrain the problem such that it is similar to the problem of a partic
 
 \begin{align}
   x_c& = w - \frac{l_2}{2 \cos{\theta}}\\
-  y_c& = \frac{l_2}{2} - \frac{l_2}{2 \sin{\theta}}\\
+  y_c& = \frac{l_2}{2} - \frac{l_2}{2} \sin{\theta}\\
   l_{AB}& = \sqrt{x_c^2 + y_c^2}\\
-  & = \sqrt{ \paren{\frac{l_1}{2} - \frac{l_2}{2 \cos\theta}}^2 + \paren{w - \frac{l_2}{2 \sin\theta}}^2 }\\
+        & = \sqrt{ \paren{\frac{l_1}{2} - \frac{l_2}{2} \cos\theta}^2 + \paren{w - \frac{l_2}{2} \sin\theta}^2 }\\
   l_{BC}& = l_2\\
-  l_{CD}& = \sqrt{\paren{\frac{l_1}{2} + \frac{l_2}{2 \cos\theta}}^2 + \paren{w - \frac{l_2}{2 \sin\theta}}^2 }
+  l_{CD}& = \sqrt{\paren{\frac{l_1}{2} + \frac{l_2}{2} \cos\theta}^2 + \paren{w - \frac{l_2}{2} \sin\theta}^2 }
 \end{align}
 
 Since we know that $l_{BC}$ is fixed the problem reduces to
@@ -32,8 +32,8 @@ Because all distances are positive, we can use Lemma \ref{lemma:conv-argmin}, de
 If we define $l_{AB} = \sqrt{z_{AB}}$ and $l_{CD} = \sqrt{z_{CD}}$, we can use \ref{lemma:conv-argmin} with $k(t) = \sqrt{t}$ to simplify our problem to
 
 \begin{multline}
-  \argmin_{\theta} \left[ 2\paren{\frac{l_1}{2} - \frac{l_2}{2 \sin\theta}}^2 \right.\\
-  \left. + \paren{w - \frac{l_2}{2 \cos\theta}}^2 + \paren{w + \frac{l_2}{2 \cos\theta}}^2 \right]
+  \argmin_{\theta} \left[ 2\paren{\frac{l_1}{2} - \frac{l_2}{2} \sin\theta}^2 \right.\\
+  \left. + \paren{w - \frac{l_2}{2} \cos\theta}^2 + \paren{w + \frac{l_2}{2} \cos\theta}^2 \right]
 \end{multline}
 
 Now, we can expand out our expression and use Lemma the fact that $\sin^2 \theta + \cos^2 \theta = 1$ to obtain a much simpler (but equivalent) minimization problem:
@@ -45,6 +45,8 @@ We note that $l_1, l_2,$ and $d$ are all constants which are given to us in the 
 \begin{eqnarray}
   \argmin_{\theta} - l_1 l_2 \sin \theta = \argmax_{\theta} \sin \theta
 \end{eqnarray}
+
+Thus we see that the optimal angle for minimizing the path length is $\theta = \frac{\pi}{2}$. In other words, it is better to be have a symmetric path.
 
 % -----------------------------------------------------------------------------
 
