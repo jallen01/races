@@ -22,6 +22,22 @@ a_c \le a_{c,max} \to \frac{1}{a_c} \ge \frac{1}{a_{c,max}}
 \end{proof}
 
 \begin{theorem}
+A 2-dimensional particle, $p$, traveling along a valid path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} < 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
+\end{theorem}
+
+\begin{proof}
+Since $\theta(T_{f,\gamma}) = 0$, then if $\frac{d\abs{\theta(t)}}{dt} > 0$ at some point along the path, then $\theta{T_{f,\gamma}} < \theta{t_0} < \theta{t_c}$, so [TODO]
+\end{proof}
+
+\begin{theorem}
+Given a 2-dimensional particle, $p$, it is always optimal to minimize $\frac{d\abs{\theta(t)}}{dt}$ at all $t \in [0, T_{\gamma}]$.
+\end{theorem}
+
+\begin{proof}
+[TODO]
+\end{proof}
+
+\begin{theorem}
 Given a 2-dimensional particle, $p$, with bounded centripetal acceleration, $a_c \le a_{c,max}$ and zero tangential acceleration, every valid optimal path, $\hat{\gamma}(t)$ between two points $X_1$ and $X_2$, has a radius of curvature of $0$ or $a_{c,max}$ at every point along it.
 \end{theorem}
 
@@ -29,7 +45,7 @@ Given a 2-dimensional particle, $p$, with bounded centripetal acceleration, $a_c
 [TODO]
 \end{proof}
 
-\begin{corollary}\label{cor:optimal-path-fix-s}
+\begin{corollary}\label{corr:optimal-path-fix-s}
 Given a 2-dimensional particle, $p$, with bounded centripetal acceleration, $a_c \le a_{c,max}$ and zero tangential acceleration, every valid optimal trajectory is constructed from line segments and circular sections of radius $R_{min}$, that are tangent at their intersections.
 \end{corollary}
 

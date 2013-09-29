@@ -1,7 +1,17 @@
+In this paper, we shall examine optimal paths for a particle.
+
 Our model problem is a particle moving in $\R^2$ with constrained acceleration. The particle must navigate around cones (points in $\R^2$) to reach a final position. The goal is to minimize the total time spend navigating to the final position. 
 
-In this paper, we first present a polar coordinate representation of a particle's position around a point and derive a set of differential equations governing the motion of the particle in this coordinate system. This allows us to devise some simple lemmas about the motion of the particle.
+We first present a polar coordinate representation of a particle's position around a point and derive a set of differential equations governing the motion of the particle in this coordinate system. This allows us to devise some simple lemmas about the motion of the particle.
 
-After developing an intuition for particles and particle paths, we then move on to the more complicated problem of deriving governing rules for optimal paths between points. 
+After developing an intuition for particles and particle paths, we then move on to the more complicated problem of deriving governing rules for optimal paths between points.
 
-Finally, we are able to tackle the problem of finding an optimal path around cones.
+Finally, we tackle the problem of finding an optimal path around cones.
+
+\subsection{Motivation}
+
+The problem of finding an optimal trajectory is interesting because of its applications in physics. There are many instances where finding optimal paths is important. For instance, a race car driver wants to know the fastest way to get from one point to another so that he can win his race. For another example, imagine you are sending a spacecraft to a particular destination in space and would like the fastest means of getting there.
+
+The space example directly motivates our model problem. On a spacecraft, there is a limited amount of acceleration that is possible (provided by thrusters). One would potentially like to navigate to a planet while moving around obstacles. 
+
+Understanding how to find optimal trajectories will provide greater insight into solving problems like these.
