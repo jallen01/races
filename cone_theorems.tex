@@ -1,4 +1,4 @@
-Now we are finally able to tackle the model problem of optimal paths around cones. The cone problem we will solve will involve only 3 cones, but first we will solve a simpler but related problem of minimizing the path length around a quadrilateral.
+Now we are finally able to tackle the model problem of optimal paths around cones. First we will solve a simpler but related problem of minimizing the path length around a quadrilateral.
 
 \subsection{Quadrilateral}
 
@@ -13,11 +13,11 @@ We will constrain the problem such that it is similar to the problem of a partic
 \]
 
 \begin{align}
-  x_c& = w - \frac{l2}{2 \cos{\theta}}\\
+  x_c& = w - \frac{l_2}{2 \cos{\theta}}\\
   y_c& = \frac{l_2}{2} - \frac{l_2}{2 \sin{\theta}}\\
   l_{AB}& = \sqrt{x_c^2 + y_c^2}\\
   & = \sqrt{ \paren{\frac{l_1}{2} - \frac{l_2}{2 \cos\theta}}^2 + \paren{w - \frac{l_2}{2 \sin\theta}}^2 }\\
-  l_{BC}& = l2\\
+  l_{BC}& = l_2\\
   l_{CD}& = \sqrt{\paren{\frac{l_1}{2} + \frac{l_2}{2 \cos\theta}}^2 + \paren{w - \frac{l_2}{2 \sin\theta}}^2 }
 \end{align}
 
@@ -51,26 +51,32 @@ We note that $l_1, l_2,$ and $d$ are all constants which are given to us in the 
 % 3 cones, constant speed
 \begin{theorem}
 
-Given a particle with zero tangential acceleration and bounded centripetal acceleration, $a_c \le a_{c,max}$, and a cone setup consisting of 3 cones, A, B, and C, at locations $\bvec{X_A}$, $\bvec{X_B}$, and $\bvec{X_C}$ as is shown in Figure \ref{fig:3-cones}.
+Given a particle with zero tangential acceleration and bounded centripetal acceleration, $a_c \le a_{c,max}$, and a cone setup consisting of 3 cones, A, B, and C, at locations $\bvec{X_A}$, $\bvec{X_B}$, and $\bvec{X_C}$ as is shown in Figure \ref{fig:3-cones}
 
-\includefig{3_cones.eps}{3 Cone setup}{3-cones}
+\includefig{3_cones.eps}{3 cone setup}{3-cones}
 
-The optimal path [TODO]
+the optimal path around the cones is shown in Figure \ref{fig:3-cones-path}
+
+\includefig{3_cones_path.eps}{3 cone optimal path}{3-cones-path}
 
 \end{theorem}
 
 \begin{proof}
-Since speed is constant, the optimal path will be the shortest path. The optimal path is of the form, tr. Thus, the problem reduces to a trigonometric problem.
+[TODO: Finish proof]
+
+Since speed is constant, the optimal path will be the shortest path. By Corollary \ref{corr:optimal-path-fix-s}, the optimal path can only include line segments and circular sections. Thus, the problem reduces to a trigonometric problem.
+
+The turn must touch cone B, otherwise the trajectory will either not go around the cone, or be longer than necessary. Therefor, the center of the turn, c, must be a distance $r$ away from cone B.
 
 \includefig{cones_fix_s.eps}{Position of center of turn}{cones-fix-s}
 
-The turn must touch the cone B, otherwise the trajectory will either not go around the cone, or be longer than necessary. Therefor, the center of the turn must be a distance $r$ away from 
+Now that c is defined by $\alpha$, let us determine the total path length as a function of $\alpha$.
 
 \includefig{cones_fix_s_2.eps}{Path length}{cones-fix-s-2}
 
 \begin{align*}
-x_c = x_B - r \cos{\alpha_c}\\
-y_c = y_B - r \sin{\alpha_c}\\
+x_c& = x_B - r \cos{\alpha_c}\\
+y_c& = y_B - r \sin{\alpha_c}\\
 l_1& = \sqrt{d_c - r}\\
 l_2& = r \paren{\alpha_c - \tan^{-1}\paren{\frac{y_c}{x_c}}}\\
 \end{align*}
