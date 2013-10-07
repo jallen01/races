@@ -67,7 +67,7 @@ Unless otherwise specified, the motion of 2-dimensional particles in this paper 
 
 \includefig{polar_param.eps}{A particle moving in 2-dimensional polar coordinate system centered at B}{polar-param}
 
-$\theta(t), \phi(t) \in [-\pi, \pi]$. From now on, $\abs{\theta}$ and $\abs{\phi}$ will be used, since there is a symmetry in the system about $\bhat{r}$.
+$\theta(t), \phi(t) \in [-\pi, \pi]$. From now on, $\abs{\theta(t)}$ and $\abs{\phi(t)}$ will be used, since there is a symmetry in the system about $\bhat{r}$.
 
 \begin{lemma}
 The time derivative of $\theta$ is given by
@@ -106,7 +106,7 @@ Returning again to Figure \ref{fig:polar-param}, the following equations can be 
   \intertext{Applying the chain rule to (\ref{eq:r-deriv})}
   \frac{d}{dt} \frac{dr(t)}{dt}& = -\frac{dv(t)}{dt} \cos\paren{\abs{\theta(t)}} + v(t) \sin\paren{\abs{\theta(t)}} \frac{d\abs{\theta(t)}}{dt}\\
   &\begin{aligned}
-    = -\frac{dv(t)}{dt} \cos\paren{\abs{\theta(t)}} &+ \frac{v(t)^2}{r(t)} \sin^2\paren{\abs{\theta(t)}}\\
+    = -a_t \cos\paren{\abs{\theta(t)}} &+ \frac{v(t)^2}{r(t)} \sin^2\paren{\abs{\theta(t)}}\\
     &\qquad - v(t) \sin\paren{\abs{\theta(t)}} \frac{a_c(t)}{v(t)}\label{eq:r-deriv-2}
   \end{aligned}
 \end{align}
