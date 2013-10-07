@@ -5,13 +5,7 @@ In this section, we will provide some basic definitions about particles and path
 \end{definition}
 
 \begin{definition}
-  A particle, $p$, is an object with zero volume that, given a time $t$, can only be located at a position in space. A particle travels along a path, $\gamma(t)$ if the particle is at position $\gamma(t)$ at time $t$, for all $t \in [T_0 (\gamma), T_f(\gamma)]$. If a particle is traveling along a path $\gamma(t)$ ,then we define a position, $\bvec{X} = \gamma(t)$, a velocity, $\bvec{X} = \frac{d\gamma(t)}{dt}$, and an acceleration, $\bvec{X} = \frac{d^2\gamma(t)}{dt^2}$, of the particle, for all $t \in [T_0 (\gamma), T_f(\gamma)]$.
-
-  A particle is restricted, if there are conditions on its position, $\bvec{X}$ and the time derivatives of its position for some $t$. The set of all valid paths for a particle consists of all paths that the particle can travel along.
-\end{definition}
-
-\begin{definition}
-  A planar path is a 2-dimensional path.
+  A planar path is a path in $\R^2$.
 \end{definition}
 
 \begin{definition}
@@ -19,22 +13,17 @@ In this section, we will provide some basic definitions about particles and path
 \end{definition}
 
 \begin{definition}
-  For a given particle, $p$, a fastest path, $\hat{\gamma}(t)$, between two points, $\bvec{X_1}$ and $\bvec{X_2}$, is a valid path such that $T_{f,\hat{\gamma}} \leq T_{f,\gamma}$ for all valid paths, $\gamma(t)$, between $\bvec{X_1}$ and $\bvec{X_2}$.
+  A particle, $p$, is an object in space with zero volume. A particle travels along a path, $\gamma(t)$ if the particle is at position $\gamma(t)$ at time $t$, for all $t \in [T_0(\gamma), T_f(\gamma)]$. If a particle is traveling along a path, $\gamma(t)$, then we define a position, $\bvec{X}(t) \coloneqq \gamma(t)$, a velocity, $\bvec{v}(t) \coloneqq \frac{d\gamma(t)}{dt}$, and an acceleration, $\bvec{a}(t) \coloneqq \frac{d^2\gamma(t)}{dt^2}$, for the particle, for all $t \in [T_0(\gamma), T_f(\gamma)]$.
+
+  A particle is restricted if there are conditions on its position and the time derivatives of its position. Given a particle, a valid path is a path that the particle can travel along.
 \end{definition}
 
 \begin{definition}
-  A particle's velocity is defined as 
-
-  \[\bvec{v} \coloneqq \frac{d\bvec{X}}{dt}\]
-
-  Furthermore, a particle's speed is $v$, and its direction of motion is $\bhat{v}$
-
+  Given a particle, a fastest path, $\hat{\gamma}(t)$, between two points, $\bvec{X_1}$ and $\bvec{X_2}$, is a valid path such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid paths, $\gamma(t)$, between $\bvec{X_1}$ and $\bvec{X_2}$.
 \end{definition}
 
 \begin{definition}
-  A particle's acceleration is defined as 
-  
-  \[\bvec{a} \coloneqq \frac{d\bvec{v}}{dt}\]
+  A particle's speed is $v(t)$, and its direction of motion is $\bhat{v}$.
 \end{definition}
 
 \begin{definition}
@@ -46,22 +35,16 @@ In this section, we will provide some basic definitions about particles and path
 \end{definition}
 
 \begin{definition}
-  The tangential acceleration, $\bvec{a_t}$, of a particle, $p$, is the component of the acceleration of $p$ in its direction of motion, $\bhat{v}$.
+  The tangential acceleration, $a_t$, of a particle, is the component of the acceleration of the particle in its direction of motion.
 
-  \[
-  a_t = \frac{dv}{dt}
-  \]
-\end{definition}
-
-\begin{definition}
-  Constant speed conditions is a set of restrictions on a particle's motion, $\bvec{X}$ in $R^2$, , and its centripetal 
+  \[a_t \coloneqq \frac{dv}{dt}\]
 \end{definition}
 
 % -----------------------------------------------------------------------------
 
 \subsection{Particle Motion in Polar Coordinates}
 
-Unless otherwise specified, the motion of 2-dimensional particles in this paper will be described in polar coordinates, along with an extra parameter $\theta$ as is shown in Figure \ref{fig:polar-param}.
+Unless otherwise specified, the motion of particle moving along planar paths  will be described in polar coordinates, along with an extra parameter $\theta$, as is shown in Figure \ref{fig:polar-param}.
 
 \includefig{polar_param.eps}{A particle moving in 2-dimensional polar coordinate system centered at B}{polar-param}
 
@@ -109,24 +92,12 @@ Returning again to Figure \ref{fig:polar-param}, the following equations can be 
   \end{aligned}
 \end{align}
 
-\begin{lemma}\label{lemma:intermediate-theta}
-  For a particle, $p$, with bounded centripetal and tangential acceleration, then: 
-
-  1. The function $\abs{\theta(t)}$ is continuous. 
-
-  2. Given $t_1, t_2 \in \R^2$, s.t. $t_1 < t_2$, $\theta(t_1) > a$ and $\theta(t_2) < a$, then $\theta(t_c) = a$ for some $t_c \in [t_1, t_2]$.
-\end{lemma}
-
-\begin{proof}
-First off, it should be noted that a solution to (\ref{eq:theta-deriv}) exists because the right hand side is Lipschitz continuous. The proof of 1.\ follows directly from the fact that the derivative of $\abs{\theta(t)}$ exists and is bounded. 2.\ is just a restatement of the intermediate value theorem.
-\end{proof}
-
 \begin{lemma}\label{lemma:polar-assymptote}
-  For a particle, $p$, with nonzero speed, and zero centripetal acceleration for $t \ge t_0$, then
+  Given a particle with the following restrictions: $a = 0$, $v(t) = \bar{v}$, for all $t \ge T_0$then the following equations hold
   \[
     \begin{cases}
-      \abs{\theta(t)} \to \pi \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(t_0) > 0\\
-      \abs{\theta(t)} = 0 \quad \text{for all} \quad t \ge t_0 \qquad &\text{if} \;\; \theta(t_0) = 0
+      \abs{\theta(t)} \to \pi \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(T_0) > 0\\
+      \abs{\theta(t)} = 0 \quad \text{for all} \quad t \ge T_0 \qquad &\text{if} \;\; \theta(T_0) = 0
     \end{cases}
   \]
 
@@ -134,17 +105,17 @@ First off, it should be noted that a solution to (\ref{eq:theta-deriv}) exists b
 
   \[
     \begin{cases}
-      r(t) \to \infty \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(t_0) > 0\\
-      r(t) \to 0 \quad \text{as} \quad t \ge t_0 \qquad &\text{if} \;\; \theta(t_0) = 0
+      r(t) \to \infty \quad \text{as} \quad t \to \infty \qquad &\text{if} \;\; \theta(T_0) > 0\\
+      r(t) \to 0 \quad \text{as} \quad t \ge T_0 \qquad &\text{if} \;\; \theta(T_0) = 0
     \end{cases}
   \]
 \end{lemma}
 
 \begin{proof}
 
-For the first case, $\frac{d\abs{\theta(t)}}{dt} > 0$, except when $\abs{\theta(t)} = 0, \pi$, which means that $\theta(t)$ is monotonically increasing. Since $\phi(t)$ is bounded above py $\pi$, $\phi(t) \to \pi \;\; \text{as} \;\; \infty$.
+The first part of the lemma is proven by referring to (\ref{eq:theta-deriv}), and noting that $\frac{d\abs{\theta(t)}}{dt} = 0$ when $\abs{\theta(t)} = 0, \pi$, and $\frac{d\abs{\theta(t)}}{dt} > 0$ otherwise. If $\theta(T_0) \ne 0$, then $\theta(t)$ is bounded above by $\pi$ and strictly increasing, because its derivative is strictly positive, so $\abs{\theta(t)} \to \pi \quad \text{as} \quad t \to \infty$. If $\theta(T_0) = 0$, then $\abs{\theta(t)} = 0 \quad \text{for all} \quad t \ge T_0$.
 
-The second case is the easiest to check. If we plug $\theta(t_0) = 0$ into \ref{eq:theta-deriv}, we get
+For the first case of the second part of the lemma, 
 
 \begin{align*}
 \frac{d\abs{\theta(t)}}{dt} = 0 \qquad \text{for} \;\; t \ge t_0\\

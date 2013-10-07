@@ -1,5 +1,13 @@
 Now that we have defined our notation, we are ready to think about the problem of optimal trajectories.
 
+\begin{definition}
+  A fixed speed particle is a particle with the following conditions: $\bvec{X} \in \R^2$, $a_t = 0$, $v(t) = \bar{v}$.
+\end{definition}
+
+\begin{definition}
+  A particle with bounded centripetal acceleration is a particle with the following condition: $\norm{a_c} \le \bar{a_c}$, for some $\bar{a_c} \ge 0$.
+\end{definition}
+
 The simplest problem to tackle first, is the optimal trajectory from a starting position, $\bvec{X_0}$ to a final position, $\bvec{X_f}$. Working in a polar coordinate system centered on $X_f$, it is clear, that our goal is achieved when $r = 0$. Furthermore, $\theta(t)$ must be $0$ before reaching $X_f$, otherwise, it will grow exponentially fast as $r(t) \to 0$, which can be seen in equation (\ref{eq:r-deriv}).
 
 \begin{lemma}
