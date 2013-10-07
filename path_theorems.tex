@@ -108,3 +108,29 @@ There is only a single function $a(t) = \bar{a}$ which the acceleration can sati
 
 % -----------------------------------------------------------------------------
 
+
+\section{Constant Speed Conditions}
+
+\begin{definition}
+  The minimum radius of curvature of a particle under constant speed conditions is given by $r_{min} = \frac{\bar{v}^2}{\bar{a}_c}$. This is the radius of the circle that the particle would trace out if the particle were turning with maximum centripetal acceleration $\bar{a}_c$.
+\end{definition}
+
+\begin{conjecture}
+  Let particles $p_1, p_2$ have initial velocities $\bvec{v}_1, \bvec{v}_2$ and starting positions $\bvec{x}_1 = \bvec{x}_2$ respectively. Additionally, let $p_1, p_2$ have constant speed conditions and let the end position be $\bvec{x}_f$ such that $d(\bvec{x}_f, \bvec{x}_1) = d(\bvec{x}_f, \bvec{x}_2) > r_{min}$. If $d(\bvec{x}_1, \bvec{x}_f) \leq d(\bvec{x}_2, \bvec{x}_f)$ and $\theta_{p_1}(T_0) < \theta_{p_2}(T_0)$, then $T_f(\bhat{\gamma_1}) < T_f(\bhat{\gamma_2})$.
+\end{conjecture}
+
+\begin{theorem}
+  Let particle $p$ have initial velocity $\bvec{v}$ and starting position $\bvec{x}_0$. Let $p$ have constant speed conditions and let the end position be $\bvec{x}_f$ such that $d(\bvec{x}_f, \bvec{x}_0) > r_{min}$. The fastest path $\bhat{\gamma_p}$ for particle $p$ to reach $\bvec{x}_f$ minimizes $\theta(t)$ for all $t \in [T_0, T_f(\bhat{\gamma_p})]$.
+  \label{theorem:restricted-theta}
+\end{theorem}
+
+\begin{corollary}
+  The fastest path $\bhat{\gamma_p}$, given the conditions set forth in theorem \ref{theorem:restricted-theta}, will trace out a path which contains an arc of a circle with radius $\bar{v}^2 / \bar{a}^2$ connected to a straight line tangent to the arc.
+\end{corollary}
+
+\begin{corollary}
+  Given conditions set forth in theorem \ref{theorem:restricted-theta}, we have:
+  \begin{eqnarray}
+    T_f(\bhat{\gamma_p}}) = v_0 \left( \left( \pi - \arccos \frac{r_{min}}{d - r_{min}} \right) 2 \pi r_{min}  + \sqrt{d^2 - 2 r_{min} d}  \right)
+  \end{eqnarray}
+\end{corollary}
