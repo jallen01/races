@@ -44,7 +44,8 @@ Since $\theta(T_{f,\gamma}) = 0$, then if $\frac{d\abs{\theta(t)}}{dt} > 0$ for 
 Now we will show that the fastest path between two points goes in a straight line if there is no initial speed. This will formalize the natural intuition that straight lines are the fastest path when there are no obstacles between the start and finish position.
 
 \begin{theorem}
-  Given a particle $p \in \mathrm{R}^2$ whose initial position is $\bvec{X_1}$ and moves with bounded tangential acceleration, $a_t \le \bar{a}_{t}$, and infinite centripetal acceleration, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $\bvec{X_1}$ to $\bvec{X_2}$ lies on the line segment from $\bvec{X_1}$ to $\bvec{X_2}$:
+  \label{theorem:line-proof}
+  Given a particle $p \in \mathrm{R}^2$ with initial position of $\bvec{X_1}$, no initial speed, and moves with bounded tangential acceleration, $a_t \le \bar{a}_{t}$, and infinite centripetal acceleration, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $\bvec{X_1}$ to $\bvec{X_2}$ lies on the line segment from $\bvec{X_1}$ to $\bvec{X_2}$:
 \end{theorem}
 
 \begin{proof}
@@ -86,11 +87,11 @@ Thus, we see that the fastest path is the straight line between $\vec{X_1}$ and 
 \end{proof}
 
 \begin{corollary}
-  Given points $(x_1, y_1), (x_2, y_2) \in \mathrm{R}^2$ and a particle $p$ whose initial position is $(x_1, y_1)$ which moves with acceleration bounded by $\bar{a}$, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $(x_1, y_1)$ to $(x_2, y_2)$ is unique.
+  Given points $\bvec{X_1}, \bvec{X_f} \in \mathrm{R}^2$ and a particle $p$ whose initial position is $\bvec{X_1}$ which moves under conditions set forth in \ref{theorem:line-proof}, the fastest path $\hat{\gamma}(t)$ which $p$ can trace to $\bvec{X_f}$ is unique.
 \end{corollary}
-\proof We have already shown that any fastest path between $(x_1, y_1)$ and $(x_2, y_2)$ follows the straight line given by $y = \frac{y_2 - y_1}{x_2 - x_1} x + y_1$. Moreover, we showed that when travelling along the fastest path, the particle must have acceleration along the straight line of $\bar{a}$. Since we have starting position $(x_1, y_1)$ and initial speed of $0$, the acceleration of the particle $a(t)$ uniquely defines a path for the particle.
+\proof We have already shown that any fastest path between $\bvec{X_1}$ and $\bvec{X_f}$ follows the straight line between them. Moreover, we showed that when travelling along the fastest path, the particle must have tangential acceleration of $\bar{a}_t$. Since we have starting position $\vec{X_1}$ and initial speed of $0$, the acceleration of the particle uniquely defines a path for the particle.
 
-There is only a single function $a(t) = \bar{a}$ which the acceleration can satisfy when the particle is moving along a fastest path, therefore, there is only a single possible fastest path.
+There is only a single function $a(t) = \bar{a}_t$ which the acceleration can satisfy when the particle is moving along a fastest path, therefore, there is only a single possible fastest path.
 \qed
 
 % -----------------------------------------------------------------------------
@@ -99,7 +100,7 @@ There is only a single function $a(t) = \bar{a}$ which the acceleration can sati
 \section{Constant Speed Conditions}
 
 \begin{conjecture}
-  Let particles $p_1, p_2$ have initial velocities $\bvec{v}_1, \bvec{v}_2$ and starting positions $\bvec{x}_1 = \bvec{x}_2$ respectively. Additionally, let $p_1, p_2$ have constant speed conditions and let the end position be $\bvec{x}_f$ such that $d(\bvec{x}_f, \bvec{x}_1) = d(\bvec{x}_f, \bvec{x}_2) > R_{min}$. If $d(\bvec{x}_1, \bvec{x}_f) \leq d(\bvec{x}_2, \bvec{x}_f)$ and $\theta_{p_1}(T_0) < \theta_{p_2}(T_0)$, then $T_f(\bhat{\gamma_1}) < T_f(\bhat{\gamma_2})$.
+  Let particles $p_1, p_2$ have initial velocities $\bvec{v}_1, \bvec{v}_2$ and starting positions $\bvec{x}_1, \bvec{x}_2$ respectively. Additionally, let $p_1, p_2$ have constant speed conditions and let the end position be $\bvec{x}_f$ such that $d(\bvec{x}_f, \bvec{x}_1) = d(\bvec{x}_f, \bvec{x}_2) > R_{min}$. If $d(\bvec{x}_1, \bvec{x}_f) \leq d(\bvec{x}_2, \bvec{x}_f)$ and $\theta_{p_1}(T_0) < \theta_{p_2}(T_0)$, then $T_f(\bhat{\gamma_1}) < T_f(\bhat{\gamma_2})$.
 \end{conjecture}
 
 \begin{theorem}
