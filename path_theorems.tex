@@ -24,48 +24,24 @@ a_c \le a_{c,max} \to \frac{1}{a_c} \ge \frac{1}{a_{c,max}}
 \end{proof}
 
 \begin{theorem}
-A 2-dimensional particle, $p$, traveling along a valid path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} < 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
+A 2-dimensional particle, $p$, traveling along a fastest path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} \leq 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
 \end{theorem}
 
 \begin{proof}
 Since $\theta(T_{f,\gamma}) = 0$, then if $\frac{d\abs{\theta(t)}}{dt} > 0$ for $t \in [t_1, t_2]$, since $\theta{T_{f,\gamma}} < \theta{t_1}$, then by Lemma \ref{lemma:intermediate-theta} $\theta(t_1) = \theta(t_2)$ for some $t_2 \in [t_1, T_{f, \gamma}$. Since all of the time derivatives in (\ref{eq:r-deriv}) - (\ref{eq:theta-deriv}) are all monotonic for $r \in (0, \infty)$, there is no local maximum for them, so the optimal strategy should be the same, regardless of $r$. In other words, there can not be multiple cases for optimal strategies based on $r$.
 \end{proof}
 
-\begin{theorem}
-Given a 2-dimensional particle, $p$, it is always optimal to minimize $\frac{d\abs{\theta(t)}}{dt}$ at all $t \in [0, T_{\gamma}]$.
-\end{theorem}
-
-\begin{proof}
-[TODO]
-\end{proof}
-
-\begin{theorem}
-Given a 2-dimensional particle, $p$, with bounded centripetal acceleration, $a_c \le a_{c,max}$ and zero tangential acceleration, every valid optimal path, $\hat{\gamma}(t)$ between two points $X_1$ and $X_2$, has a radius of curvature of $0$ or $a_{c,max}$ at every point along it.
-\end{theorem}
-
-\begin{proof}
-[TODO]
-\end{proof}
-
-\begin{corollary}\label{corr:optimal-path-fix-s}
-Given a 2-dimensional particle, $p$, with bounded centripetal acceleration, $a_c \le a_{c,max}$ and zero tangential acceleration, every valid optimal trajectory is constructed from line segments and circular sections of radius $R_{min}$, that are tangent at their intersections.
-\end{corollary}
-
-\begin{proof}
-[TODO]
-\end{proof}
-
 % -----------------------------------------------------------------------------
 
-Now we will show that the fastest path between two points goes in a straight line. This will formalize the natural intuition that straight lines are the fastest path when there are no obstacles between the start and finish position.
+Now we will show that the fastest path between two points goes in a straight line if there is no initial speed. This will formalize the natural intuition that straight lines are the fastest path when there are no obstacles between the start and finish position.
 
 \begin{theorem}
-  Given a 2-dimensional particle $p$ whose initial position is $\bvec{X_1}$ and moves with bounded tangential acceleration, $a_t \le a_{t,max}$, and infinite centripetal acceleration, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $\bvec{X_1}$ to $\bvec{X_2}$ lies on the line segment from $\bvec{X_1}$ to $\bvec{X_2}$:
+  Given a particle $p \in \mathrm{R}^2$ whose initial position is $\bvec{X_1}$ and moves with bounded tangential acceleration, $a_t \le \bar{a}_{t}$, and infinite centripetal acceleration, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $\bvec{X_1}$ to $\bvec{X_2}$ lies on the line segment from $\bvec{X_1}$ to $\bvec{X_2}$:
 \end{theorem}
 
-\begin{proof} 
+\begin{proof}
 
-Without loss of generality, we can define a cartesian coordinate system, where the origin is at $\bvec{X_1}$ and the positive x-axis passes through $\bvec{X_2}$.
+Without loss of generality, we can define a cartesian coordinate system, where the origin is at $\bvec{X_1}$ and the positive x-axis passes through $\bvec{X_2}$. Let us say that the two points in our cartesian coordinate system become $(0,0)$ and $(x_2, 0)$ respectively.
 
 Now let us examine the particle's motion in the $\bhat{x}$ direction. The speed of the particle is the following
 \begin{equation}
@@ -74,28 +50,31 @@ Now let us examine the particle's motion in the $\bhat{x}$ direction. The speed 
 
 To find the distance $l_x(t)$ travelled in the $\bhat{x}$ direction, we can use the relation:
 \begin{align}
-  d(t) &= \int_0^t v_x(t_2) dt_2 \\
+  l_x(t) &= \int_0^t v_x(t_2) dt_2 \\
   &= \int_0^t \int_0^t a_x(t_1) dt_1 dt_2
 \end{align}
 
-Recall that the tangential acceleration of the point mass $p$ is bounded by $a_{t,max}$. This means that $a_t(t) \leq \bar{a}$ for all $t$. Therefore, we see:
+Recall that the tangential acceleration of the point mass $p$ is bounded by $\bar{a}_{t}$. This means that $a_t(t) \leq \bar{a}_t$ for all $t$. Therefore, we see:
 \begin{align}
-  d(t) &\leq \int_0^t \int_0^t \bar{a} dt_1 dt_2\\
-  &= \frac{\bar{a} t^2}{2}
+  d(t) &\leq \int_0^t \int_0^t \bar{a}_t dt_1 dt_2\\
+  &= \frac{\bar{a}_t t^2}{2}
 \end{align}
 
-Thus, in order to travel a distance of $d(T_f) = x_2$, it needs to be the case that $T_f \geq \sqrt{\frac{2 x_2}{\bar{a}}}$. Moreover, equality holds if and only if $a_t(t) = \bar{a}$ for all $t \in [0, T_f(\gamma)]$.
+Thus, in order to travel a distance of $l_x(T_f(\hat{\gamma})) = d' = d(\bvec{X_2}, \bvec{X_1})$, it needs to be the case that $T_f(\hat{\gamma}) \geq \sqrt{\frac{2 d'}{\bar{a}_t}}$. It is possible to travel from $\vec{X_2}$ to $\vec{X_1}$ in time $T_{min} = \sqrt{\frac{2 d'}{\bar{a}_t}}$ if and only if $a_t(t) = \bar{a}_t$ and $\theta(t) = 0$ for all $t \in [T_0(\gamma), T_{min}]$. In other words, the particle must be accelerating at the maximum possible tangential acceleration of $\bar{a}_t$ and it must be accelerating in the straight line direction to $\vec{X_2}$ at all times.
 
-If the point mass travels for time $t < \sqrt{\frac{2 x_2}{\bar{a}}}$, then it is impossible for the point mass to reach $(x_2, 0)$ when starting at $(0,0)$. This is because $p$ cannot reach $(x_2, 0)$ in the $x$ direction when $t < \sqrt{\frac{2 x_2}{\bar{a}}}$ and any acceleration in the $y$ direction would not enable this either.
+If the particle travels for time $t < T_{min}$, then it is impossible for the point mass to reach $\vec{X_2}$ when starting at $\vec{X_1}$. This is because $p$ cannot reach $\vec{X}_2$ in the $x$ direction when $t < \sqrt{\frac{2 d'}{\bar{a}}}$ because it is impossible for $p$ to reach any point whose $x$-coordinate is $x_2$, so it is obviously impossible to reach $(x_2, 0) = \vec{X_2}$.
+
+Moreover, if there exists some time $t < T_{min}$ when $\theta(t) \neq 0$, then it is also impossible for the point mass to reach $\vec{X_2}$. Suppose that there are two particles $p_1$ and $p_2$ both accelerating at $a_t(t) = \bar{a}_t$. Imagine $p_1$ satisfies $\theta_{p_1}(t) = 0$ for all $t$ and that $p_2$ satisfies $\theta_{p_2}(t) = 0$ except for times in some interval $[t_0, t_1]$, the particle $p_2$ sets a constant non-zero angle $\zeta_{p_2}(t) \neq 0$ with the $x$-axis for $t \in [t_0, t_1]$. Denote $d_{p}$ as the distance that is left to be travelled by particle $p$ between times $t_1$ and $T_{min}$. We can find $d_{p_2}$ in terms of $d_{p_1}$ by using trigonometry:
+
+\begin{eqnarray}
+d_{p_2}^2 = d_{p_1}^2 + \left(\frac{\bar{a}_t (t_1 - t_0)^2}{2} \sin \zeta_{p_2} \right)^2
+\end{eqnarray}
+
+Since $d_{p_2} \geq 0$ by being a distance, $\sin \zeta_{p_2} \neq 0$ by setting $\zeta_{p_2} > 0$, and $t_1 - t_0 > 0$, we know that $d_{p_2} > d_{p_1}$. This means that at time $T_{min}$ when $p_1$ has reached its destination at $\Vec{X_2}$, particle $p_2$ still has $d_{p_2} - d_{p_1}$ distance left to travel. This means that it is impossible for $\theta(t) > 0$ on the fastest path.
 
 This means that the fastest path is completed in time $T_f(\hat{\gamma}) = \sqrt{\frac{2 x_2}{\bar{a}}}$. Let us examine the path taken by the point mass $p$ on this fastest path. Recall that $a_t(t) = \bar{a}$ for all $t$ along the fastest path. This means that there was no centripetal acceleration $|a_c| = 0$. In other words, the point mass never turned on its way to reaching the destination point. The only way this could have happened is if it travelled along the $x$ axis in a straight line.
 
-Now, we have seen that the fastest path in the transformed coordinates travels exactly on the $x$ axis so that $y = 0$ anywhere along the fastest path. Notice, however, that the $x$ axis in the transformed coordinates is given exactly by the following line:
-\begin{equation}
-  y = \frac{y_2 - y_1}{x_2 - x_1} x + y_1
-\end{equation}
-
-Thus, we see that the fastest path in the original coordinates follows the above equation, which is what we wanted to show.
+Thus, we see that the fastest path is the straight line between $\vec{X_1}$ and $\vec{X_2}$.
 \end{proof}
 
 \begin{corollary}
