@@ -149,7 +149,7 @@ For particle $p_1$, we know that $|a_c(t')| = \bar{a}_c$ for all $t' < t_s$ beca
 
 Now let us introduce a particle $p_2$ with the same conditions as $p_1$. However, at some time $t_b < t_s$, $p_2$ will choose $a^{p_2}_c$ such that $|a^{p_2}_c| \neq \bar{a}_c$ so that $p_2$'s centripetal acceleration diverges from $p_1$'s centripetal acceleration. We shall show that $p_2$'s fastest path after this divergence is worse than $p_1$'s fastest path, which will allow us to conclude that deviations from $p_1$ are suboptimal.
 
-We can examine the difference in radius $r$ and angle $theta$ between $p_1$ and $p_2$ after $t_b$, and use Conjecture \ref{conjecture:fastest-paths} to finish our proof. Recall equations \ref{eq:r-deriv-2} and \ref{eq:theta-deriv} which we derived in a previous section. We can use \ref{eq:r-deriv-2} to obtain the following:
+We can examine the difference in radius $r$ and angle $\theta$ between $p_1$ and $p_2$ after $t_b$, and use Conjecture \ref{conjecture:fastest-paths} to finish our proof. Recall equations \ref{eq:r-deriv-2} and \ref{eq:theta-deriv} which we derived in a previous section. We can use \ref{eq:r-deriv-2} to obtain the following:
 
 \begin{eqnarray}
   \frac{d^2 r_{p_1}(t)}{d t^2} - \frac{d^2 r_{p_2}(t)}{d t^2} = \\
@@ -168,14 +168,3 @@ Again, we used the fact that $\bar{a}_c - a^{p_2}_c(t_b) > 0$ to show the inequa
 
 Now, we have satisfied the conditions of Conjecture \ref{conjecture:fastest-paths} since $d(\gamma_{p_1}(t_b + \epsilon), \bvec{X}_f) < d(\gamma_{p_2}(t_b + \epsilon), \bvec{X}_f)$ and $\theta_{p_1}(t_b + \epsilon) < \theta_{p_2}(t_b + \epsilon)$. This implies that $T_f(\gamma_{p_1}) < T_f(\gamma_{p_2})$. Thus, the fastest path before $t_s$ must be to travel along $\gamma_{p_1}$. However, we know that the fastest path after $t_s$ is to travel along the straight line (which $\gamma_{p_1}$ does). Therefore, we see that $\gamma_{p_1} = \bhat{\gamma}_p$ is the fastest path.
 \qed
-
-\begin{corollary}
-  The fastest path $\bhat{\gamma_p}$, given the conditions set forth in theorem \ref{theorem:restricted-theta}, will trace out a path which contains an arc of a circle with radius $\bar{v}^2 / \bar{a}^2$ connected to a straight line tangent to the arc.
-\end{corollary}
-
-\begin{corollary}
-  Given conditions set forth in theorem \ref{theorem:restricted-theta}, we have:
-  \begin{eqnarray}
-    T_f(\bhat{\gamma_p}) = v_0 \left( \left( \pi - \arccos \frac{R_{min}}{d - R_{min}} \right) 2 \pi R_{min}  + \sqrt{d^2 - 2 R_{min} d}  \right)
-  \end{eqnarray}
-\end{corollary}
