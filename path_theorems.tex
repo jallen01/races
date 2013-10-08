@@ -149,19 +149,17 @@ For particle $p_1$, we know that $|a_c(t')| = \bar{a}_c$ for all $t' < t_s$ beca
 
 Now let us introduce a particle $p_2$ with the same conditions as $p_1$. However, at some time $t_b < t_s$, $p_2$ will choose $a^{p_2}_c$ such that $|a^{p_2}_c| \neq \bar{a}_c$ so that $p_2$'s centripetal acceleration diverges from $p_1$'s centripetal acceleration. We shall show that $p_2$'s fastest path after this divergence is worse than $p_1$'s fastest path, which will allow us to conclude that deviations from $p_1$ are suboptimal.
 
-We can examine the difference in radius $r$ and angle $\theta$ between $p_1$ and $p_2$ after $t_b$, and use Conjecture \ref{conjecture:fastest-paths} to finish our proof. Recall equations \ref{eq:r-deriv-2} and \ref{eq:theta-deriv} which we derived in a previous section. We can use \ref{eq:r-deriv-2} to obtain the following:
+We can examine the difference in radius $r$ and angle $\theta$ between $p_1$ and $p_2$ after $t_b$, and use Conjecture \ref{conjecture:fastest-paths} to finish our proof. Recall equations \ref{eq:r-deriv-2} and \ref{eq:theta-deriv} which we derived in a previous section. We can use equation \ref{eq:r-deriv-2} to obtain the following:
 
 \begin{eqnarray}
-  \frac{d^2 r_{p_1}(t)}{d t^2} - \frac{d^2 r_{p_2}(t)}{d t^2} = \\
-  - sin(| \theta(t_b) |) \left( \bar{a}_c - a^{p_2}_c(t_b) \right) < 0
+  \frac{d^2 r_{p_1}(t)}{d t^2} - \frac{d^2 r_{p_2}(t)}{d t^2} = - \sin(| \theta(t_b) |) \left( \bar{a}_c - a^{p_2}_c(t_b) \right) < 0
 \end{eqnarray}
 
 The inequality was obtained because $\bar{a}_c - a^{p_2}_c(t_b) > 0$. This directly implies that $r_1(t_b + \epsilon) < r_2(t_b + \epsilon)$ for some small $\epsilon > 0$. Therefore the distance left to travel for $p_1$ is less than the distance left for $p_2$ at $t_b + \epsilon$ time, i.e. $d(\gamma_{p_1}(t_b + \epsilon), \bvec{X}_f) < d(\gamma_{p_2}(t_b + \epsilon), \bvec{X}_f)$.
 
-We can also use \ref{eq:theta-deriv} to obtain the following for the difference in angles:
+We can also use equation \ref{eq:theta-deriv} to obtain the following for the difference in angles:
 \begin{eqnarray}
-  \frac{d | \theta_{p_1}(t_b) |}{dt} - \frac{ |\theta_{p_1} (t_b) |}{dt} = \\
-  - \frac{1}{v(t_b)} \left(\bar{a}_c - a^{p_2}_c(t_b) \right) < 0
+  \frac{d | \theta_{p_1}(t_b) |}{dt} - \frac{ |\theta_{p_1} (t_b) |}{dt} = - \frac{1}{v(t_b)} \left(\bar{a}_c - a^{p_2}_c(t_b) \right) < 0
 \end{eqnarray}
 
 Again, we used the fact that $\bar{a}_c - a^{p_2}_c(t_b) > 0$ to show the inequality. This implies that $\theta_{p_1}(t_b + \epsilon) < \theta_{p_2}(t_b + \epsilon)$.
