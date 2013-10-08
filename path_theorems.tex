@@ -1,27 +1,29 @@
 Now that we have defined our notation, we are ready to think about the problem of optimal trajectories.
 
-The simplest problem to tackle first, is the optimal trajectory from a starting position, $\bvec{X_0}$ to a final position, $\bvec{X_f}$. Working in a polar coordinate system centered on $X_f$, it is clear, that our goal is achieved when $r = 0$. Furthermore, $\theta(t)$ must be $0$ before reaching $X_f$, otherwise, it will grow exponentially fast as $r(t) \to 0$, which can be seen in equation (\ref{eq:r-deriv}).
+The simplest problem to tackle first, is the optimal trajectory from a starting position, $\bvec{X_0}$ to a final position, $\bvec{X_f}$. Working in a polar coordinate system centered on $\bvec{X_f}$, it is clear, that our goal is achieved when $r = 0$. Furthermore, $\theta(t)$ must be $0$ before reaching $\bvec{X_f}$, otherwise, it will grow exponentially fast as $r(t) \to 0$, which can be seen in equation (\ref{eq:r-deriv}).
 
 \begin{lemma}
-If $a_t=0$ and $a_c \le a_{c,max}$, then the minimum radius of curvature of a particle's trajectory is given by
+  If $a_t=0$ and $a_c \le \bar{a}_{c}$, then the minimum radius of curvature of a particle's trajectory is given by
 \begin{equation}
-R_{min} = \frac{v^2}{a_{c,max}}
+  R_{min} = \frac{v^2}{\bar{a}_{c}}
 \end{equation}
 \end{lemma}
 
 \begin{proof}
-This comes directly from the definition of radius of curvature 
+This comes directly from the definition of radius of curvature for a particle without any tangential acceleration:
 
 \[
-R = \frac{v^2}{a_c}
+  R = \frac{v^2}{a_c}
 \]
 
 and the fact that 
 
 \[
-a_c \le a_{c,max} \to \frac{1}{a_c} \ge \frac{1}{a_{c,max}}
+  a_c \le \bar{a}_{c} \to \frac{1}{\bar{a}_c} \ge \frac{1}{\bar{a}_{c}}
 \]
 \end{proof}
+
+We cann also investigate how the particle moves along a fastest path. In particle, we can make some statements about the change in $\theta$, the angle between the particle's velocity vector and the straight line between the particle and it's destination.
 
 \begin{theorem}
 A 2-dimensional particle, $p$, traveling along a fastest path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} \leq 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
