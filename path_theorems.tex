@@ -80,6 +80,8 @@ This means that the fastest path is completed in time $T_f(\hat{\gamma}) = \sqrt
 Thus, we see that the fastest path is the straight line between $\vec{X_1}$ and $\vec{X_2}$.
 \end{proof}
 
+We can also prove that this fastest path is unique without very much extra work.
+
 \begin{corollary}
   Given points $\bvec{X_1}, \bvec{X_f} \in \mathrm{R}^2$ and a particle $p$ whose initial position is $\bvec{X_1}$ which moves under conditions set forth in Theorem \ref{theorem:line-proof}, the fastest path $\hat{\gamma}(t)$ which $p$ can trace to $\bvec{X_f}$ is unique.
 \end{corollary}
@@ -129,7 +131,7 @@ If this conjecture is true, then we can provide the strategy for obtaining the f
   Let particle $p$ have initial velocity $\bvec{v}$ and starting position $\bvec{X}_0$. Let $p$ have constant speed conditions and let the end position be $\bvec{X}_f$ such that $d(\bvec{X}_f, \bvec{X}_0) > R_{min}$. The fastest path $\bhat{\gamma_p}$ for particle $p$ to reach $\bvec{X}_f$ minimizes $\theta(t)$ for all $t \in [T_0(\bhat{\gamma_p}), T_f(\bhat{\gamma_p})]$.
   \label{theorem:restricted-theta}
 \end{theorem}
-\proof Let $p_1$ be a particle whose path $\gamma_{p_1}$ is determined by the minimizing $|\theta(t)|$ for all times $t \in [T_0(\bhat{\gamma_p}), T_f(\bhat{\gamma_p})]$. We shall show that $\gamma_{p_1}$ is in fact the fastest path to $\bvec{X}_f$.
+\proof Let $p_1$ be a particle whose path $\gamma_{p_1}$ is determined by the minimizing $|\theta(t)|$ for all times $t \in [T_0(\gamma_{p_1}), T_f(\gamma_{p_1})]$. We shall show that $\gamma_{p_1}$ is in fact the fastest path to $\bvec{X}_f$.
 
 \qed
 
