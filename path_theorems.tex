@@ -23,7 +23,7 @@ and the fact that
 \]
 \end{proof}
 
-We cann also investigate how the particle moves along a fastest path. In particle, we can make some statements about the change in $\theta$, the angle between the particle's velocity vector and the straight line between the particle and it's destination.
+We can also investigate how the particle moves along a fastest path. In particular, we can make some statements about the change in $\theta$, the angle between the particle's velocity vector and the straight line between the particle and it's destination.
 
 \begin{theorem}
 A 2-dimensional particle, $p$, traveling along a fastest path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} \leq 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
@@ -96,7 +96,7 @@ In the previous section, we made statements about fastest paths between two poin
 
 This is a simple case of the more general problem. We shall now examine optimal trajectories when the initial velocity is non-zero but when the centripetal acceleration is bounded. These conditions are much closer to physical reality, because it is often the case that you want to find a fastest path after you have already started moving. Moreover, Theorem \ref{theorem:line-proof} assumed that centripetal acceleration was unbounded so that the particle could turn on a dime in any direction. This is not realistic because most physical objects have momentum when they are travelling at high speeds, making it much more difficult to turn.
 
-Assuming bounded acceleration makes the problem more interesting, and also much more difficult if we allow for tangential acceleration. In this section, we will eliminate tangential acceleration so that the particle will travel at constant speed.
+Assuming bounded acceleration makes the problem more interesting, and also much more difficult if we allow for tangential acceleration. In this section, we will eliminate tangential acceleration so that the particle will travel at constant speed with bounded acceleration.
 
 To begin proving things about the fastest path, we first formalize the conditions we will be using:
 
@@ -118,7 +118,7 @@ To prove things about the fastest path of a particle under constant speed condit
 
 \begin{conjecture}
   \label{conjecture:fastest-paths}
-  Let particles $p_1, p_2$ have initial velocities $\bvec{v}_1, \bvec{v}_2$ and starting positions $\bvec{x}_1, \bvec{x}_2$ respectively. Additionally, let $p_1, p_2$ have constant speed conditions and let the end position be $\bvec{x}_f$ such that $d(\bvec{x}_f, \bvec{x}_1) = d(\bvec{x}_f, \bvec{x}_2) > R_{min}$. If $d(\bvec{x}_1, \bvec{x}_f) \leq d(\bvec{x}_2, \bvec{x}_f)$ and $\theta_{p_1}(T_0) < \theta_{p_2}(T_0)$, then $T_f(\bhat{\gamma_1}) < T_f(\bhat{\gamma_2})$.
+  Let particles $p_1, p_2$ have initial velocities $\bvec{v}_1, \bvec{v}_2$ and starting positions $\bvec{X}_1, \bvec{X}_2$ respectively. Additionally, let $p_1, p_2$ have constant speed conditions and let the end position be $\bvec{X}_f$ such that $d(\bvec{X}_f, \bvec{X}_1) = d(\bvec{X}_f, \bvec{X}_2) > R_{min}$. If $d(\bvec{X}_1, \bvec{X}_f) \leq d(\bvec{X}_2, \bvec{X}_f)$ and $\theta_{p_1}(T_0) < \theta_{p_2}(T_0)$, then $T_f(\bhat{\gamma_1}) < T_f(\bhat{\gamma_2})$.
 \end{conjecture}
 
 This conjecture comes from physical intuition. If two particles $p_1$ and $p_2$ are attempting to arrive at a particular ending point $\bvec{X}_f$, and $p_2$ is farther away than $p_1$ and also has an initial angle $\theta$ to $\bvec{X}_f$ that is larger than $p_1$'s initial angle, then $p_2$ must take a longer time to turn towards $\bvec{X}_f$ and must travel a longer distance than $p_1$. Because of this, it seems to be the case that $p_1$'s fastest path is faster than $p_2$'s fastest path.
@@ -126,9 +126,12 @@ This conjecture comes from physical intuition. If two particles $p_1$ and $p_2$ 
 If this conjecture is true, then we can provide the strategy for obtaining the fastest path between two points $\bvec{X}_0$ and $\bvec{X}_f$.
 
 \begin{theorem}
-  Let particle $p$ have initial velocity $\bvec{v}$ and starting position $\bvec{x}_0$. Let $p$ have constant speed conditions and let the end position be $\bvec{x}_f$ such that $d(\bvec{x}_f, \bvec{x}_0) > R_{min}$. The fastest path $\bhat{\gamma_p}$ for particle $p$ to reach $\bvec{x}_f$ minimizes $\theta(t)$ for all $t \in [T_0, T_f(\bhat{\gamma_p})]$.
+  Let particle $p$ have initial velocity $\bvec{v}$ and starting position $\bvec{X}_0$. Let $p$ have constant speed conditions and let the end position be $\bvec{X}_f$ such that $d(\bvec{X}_f, \bvec{X}_0) > R_{min}$. The fastest path $\bhat{\gamma_p}$ for particle $p$ to reach $\bvec{X}_f$ minimizes $\theta(t)$ for all $t \in [T_0(\bhat{\gamma_p}), T_f(\bhat{\gamma_p})]$.
   \label{theorem:restricted-theta}
 \end{theorem}
+\proof Let $p_1$ be a particle whose path $\gamma_{p_1}$ is determined by the minimizing $|\theta(t)|$ for all times $t \in [T_0(\bhat{\gamma_p}), T_f(\bhat{\gamma_p})]$. We shall show that $\gamma_{p_1}$ is in fact the fastest path to $\bvec{X}_f$.
+
+\qed
 
 \begin{corollary}
   The fastest path $\bhat{\gamma_p}$, given the conditions set forth in theorem \ref{theorem:restricted-theta}, will trace out a path which contains an arc of a circle with radius $\bar{v}^2 / \bar{a}^2$ connected to a straight line tangent to the arc.
