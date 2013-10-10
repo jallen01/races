@@ -1,6 +1,6 @@
-Now that we have defined a coordinate system, we are ready to think about particle paths.
+Now that we have defined a coordinate system, we are ready to think about particle paths. Working in our modified polar coordinate system centered on $\bvec{X_2}$, it is clear, that our goal is achieved when $r(t) = 0$. Furthermore, it is important that $\theta(t)$ approach $0$ as $r(t) \to 0$, otherwise, the particle will pass by $\bvec{X_2}$.
 
-\begin{lemma}
+\begin{lemma} \label{lem:r-curve}
   Given a particle, $p$, with constant speed and bounded centripetal acceleration, $\abs{a_c(t)} \le \bar{a_c}$, the minimum radius of curvature of the particle's trajectory is given by
 
   \begin{equation}
@@ -9,32 +9,21 @@ Now that we have defined a coordinate system, we are ready to think about partic
   \end{lemma}
 
 \begin{proof}
+
 This comes directly from the definition of radius of curvature for a particle without any tangential acceleration:
 
 \[
   R(t) = \frac{v(t)^2}{a_c(t)}
 \]
 
-and the fact that 
+and 
 
 \[
   a_c(t) \le \bar{a}_c \to \frac{1}{a_c} \ge \frac{1}{\bar{a}_c}
 \]
 \end{proof}
 
-Knowing this fact, the simplest problem to tackle first is one with infinite centripetal acceleration, which means that a particle can change its direction of motion to an arbitrary direction infinitely fast, $\frac{d\abs{\theta}}{dt}$ is unbounded. We now tackle the problem of finding a fastest path from $\bvec{X_1}$ to $\bvec{X_2}$. Working in our modified polar coordinate system centered on $\bvec{X_2}$, it is clear, that our goal is achieved when $r(t) = 0$. Furthermore, it is important that $\theta(t)$ approach $0$ as $r(t) \to 0$, otherwise, the particle will pass by $\bvec{X_2}$. Equation will grow exponentially fast as $r(t) \to 0$, which can be seen in equation (\ref{eq:r-diff}).
-
-We can also investigate how the particle moves along a fastest path. In particular, we can make some statements about the change in $\theta$, the angle between the particle's velocity vector and the straight line between the particle and it's destination.
-
-\begin{theorem}
-A 2-dimensional particle, $p$, traveling along a fastest path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} \leq 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
-\end{theorem}
-
-\begin{proof}
-Since $\theta(T_{f,\gamma}) = 0$, then if $\frac{d\abs{\theta(t)}}{dt} > 0$ for $t \in [t_1, t_2]$, since $\theta{T_{f,\gamma}} < \theta{t_1}$, then by Lemma ???? $\theta(t_1) = \theta(t_2)$ for some $t_2 \in [t_1, T_{f, \gamma}$. Since all of the time derivatives in (\ref{eq:r-diff}) - (\ref{eq:theta-diff}) are all monotonic for $r \in (0, \infty)$, there is no local maximum for them, so the fastest strategy should be the same, regardless of $r$. In other words, there can not be multiple cases for fastest strategies based on $r$.
-\end{proof}
-
-% -----------------------------------------------------------------------------
+With Lemma \ref{lem:r-curve} in mind, the simplest problem to tackle first is the fastest path from $\bvec{X_1}$ to $\bvec{X_2}$ where centripetal acceleration is unbounded, which means that a particle can change its direction of motion to an arbitrary direction infinitely fast, $\frac{d\abs{\theta}}{dt}$ is unbounded. The following Theorem 
 
 Now we will show that the fastest path between two points goes in a straight line if there is no initial speed. This will formalize the natural intuition that straight lines are the fastest path when there are no obstacles between the start and finish position.
 
@@ -45,14 +34,14 @@ Now we will show that the fastest path between two points goes in a straight lin
 
 \begin{proof}
 
-Without loss of generality, we can define a cartesian coordinate system, where the origin is at $\bvec{X_1}$ and the positive x-axis passes through $\bvec{X_2}$. Let us say that the two points in our cartesian coordinate system become $(0,0)$ and $(x_2, 0)$ respectively.
+Without loss of generality, we can define a Cartesian coordinate system, where the origin is at $\bvec{X_1}$ and the positive x-axis passes through $\bvec{X_2}$. Let us say that the two points in our Cartesian coordinate system become $(0,0)$ and $(x_2, 0)$ respectively.
 
 Now let us examine the particle's motion in the $\bhat{x}$ direction. The speed of the particle is the following
 \begin{equation}
   v_x(t) = \int_0^t a_x(t_1) dt_1
 \end{equation}
 
-To find the distance $l_x(t)$ travelled in the $\bhat{x}$ direction, we can use the relation:
+To find the distance $l_x(t)$ traveled in the $\bhat{x}$ direction, we can use the relation:
 \begin{align}
   l_x(t) &= \int_0^t v_x(t_2) dt_2 \\
          &= \int_0^t \int_0^{t_1} a_x(t_1) dt_1 dt_2
@@ -90,6 +79,20 @@ We can also prove that this fastest path is unique without very much extra work.
 
 There is only a single function of the acceleration $a(t) = \bar{a}_t$ which can be satisfied when the particle is moving along a fastest path, therefore, there is only a single possible fastest path.
 \qed
+
+We can also investigate how the particle moves along a fastest path. In particular, we can make some statements about the change in $\theta$, the angle between the particle's velocity vector and the straight line between the particle and it's destination.
+
+\begin{theorem}
+A 2-dimensional particle, $p$, traveling along a fastest path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} \leq 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
+\end{theorem}
+
+\begin{proof}
+Since $\theta(T_{f,\gamma}) = 0$, then if $\frac{d\abs{\theta(t)}}{dt} > 0$ for $t \in [t_1, t_2]$, since $\theta{T_{f,\gamma}} < \theta{t_1}$, then by Lemma ???? $\theta(t_1) = \theta(t_2)$ for some $t_2 \in [t_1, T_{f, \gamma}$. Since all of the time derivatives in (\ref{eq:r-diff}) - (\ref{eq:theta-diff}) are all monotonic for $r \in (0, \infty)$, there is no local maximum for them, so the fastest strategy should be the same, regardless of $r$. In other words, there can not be multiple cases for fastest strategies based on $r$.
+\end{proof}
+
+% -----------------------------------------------------------------------------
+
+
 
 % -----------------------------------------------------------------------------
 

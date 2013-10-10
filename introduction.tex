@@ -1,19 +1,18 @@
 The problem of finding optimal paths between points for a particle with fixed speed is interesting because many attributes of an optimal path are intuitively obvious, but rigorously proving them is much more difficult. One's first assumption would be that the optimal path between points A and B, would be to travel in a straight line from point A to B. This would be true in the simple case where the turning rate is not constrained, but it is not true in the general case when a particle has a constrained turning rate and starts with some nonzero velocity not directed towards B. 
 
+\subsection{The Problem}
+
+Given a particle that starts at a position in $\R^2$, has initial velocity, and has constrained acceleration, what is the path in $\R^2$ for the particle to take to reach a final position in $\R^2$, such that the time spent traveling from the starting position to the ending position is minimized. The particle can have restrictions on its position, velocity, and acceleration.
 
 \subsection{Motivation}
 
-In physics and computational geometry the problem of finding the shortest path given constraints on the radius of curvature.
+The problem of finding a fastest path for a particle with constant speed is usefull because it is identical to the problem of finding a shortest path in $\R^2$ given constraints on the radius of curvature of the path, which appears in fields such as physics and computational geometry. One could imagine a race car driver navigating a racetrack with constant speed, as a physical example of the problem.
 
-There are many instances where finding optimal paths is important. For instance, a race car driver wants to know the optimal way to get from one point to another so that he can win his race. For another example, imagine you are sending a spacecraft to a particular destination in space and would like the optimal means of getting there.
+This example directly motivates our problem, because a racecar driver has a turning rate limited by friction.
 
-The space example directly motivates our model problem. On a spacecraft, there is a limited amount of acceleration that is possible (provided by thrusters). One would potentially like to navigate to a planet while moving around obstacles. 
+Understanding how to find optimal paths for a particle with constant speed moving in $\R^2$ will provide insight into solving even more complicated problems with varying speed and more dimensions such as spacecraft trajectories.
 
-Understanding how to find optimal trajectories will provide greater insight into solving problems like these.
-
-\subsection{Problem Description}
-
-Given a particle, $p$, moving in $\R^2$, we set constraints on its position, velocity . The particle has a starting position and velocity, and must navigate in $\R^2$ to reach a final position. The goal is to minimize the total time spent navigating to the final position. 
+ 
 
 \subsection{Outline}
 
