@@ -1,11 +1,7 @@
-In this section, we will provide some basic definitions about particles and paths. These will lay the groundwork for thinking about optimal paths.
+Now we will provide some basic definitions about particles and paths, which will lay the groundwork for thinking about fastest paths.
 
 \begin{definition}
-  A n-dimensional path $\gamma(t): [T_0(\gamma), T_f(\gamma)] \to \mathrm{R}^n$ is a function which maps a time $t \in [T_0(\gamma), T_f(\gamma)]$ to a position $\bvec{X} \in \mathrm{R}^n$. The path $\gamma$ begins at time $T_0(\gamma)$ and ends at time $T_f(\gamma)$.
-\end{definition}
-
-\begin{definition}
-  A planar path is a path in $\R^2$.
+  A path $\gamma(t): [T_0(\gamma), T_f(\gamma)] \to \mathrm{R}^2$ is a function which maps a time $t \in [T_0(\gamma), T_f(\gamma)]$ to a position $\bvec{X} \in \mathrm{R}^2$. The path $\gamma$ begins at time $T_0(\gamma)$ and ends at time $T_f(\gamma)$.
 \end{definition}
 
 \begin{definition}
@@ -15,7 +11,7 @@ In this section, we will provide some basic definitions about particles and path
 \begin{definition}
   A particle, $p$, is an object in space with zero volume. A particle travels along a path, $\gamma(t)$ if the particle is at position $\gamma(t)$ at time $t$, for all $t \in [T_0(\gamma), T_f(\gamma)]$. If a particle is traveling along a path, $\gamma(t)$, then we define a position, $\bvec{X}(t) \coloneqq \gamma(t)$, a velocity, $\bvec{v}(t) \coloneqq \frac{d\gamma(t)}{dt}$, and an acceleration, $\bvec{a}(t) \coloneqq \frac{d^2\gamma(t)}{dt^2}$, for the particle, for all $t \in [T_0(\gamma), T_f(\gamma)]$.
 
-  A particle is restricted if there are conditions on its position and the time derivatives of its position. Given a particle, a valid path is a path that the particle can travel along.
+  A particle is restricted if there are conditions on its position and the time derivatives of its position. Given a particle, a valid path is a path that the particle can travel along without violating its restrictions.
 \end{definition}
 
 \begin{definition}
@@ -24,70 +20,90 @@ In this section, we will provide some basic definitions about particles and path
 
 \begin{definition}
   A particle's speed is $v(t)$, and its direction of motion is $\bhat{v}$.
+
+  A particle with constant speed, is a particle with zero tangential acceleration, $a_t(t) = 0$, and $v(t) = \bar{v}$.
 \end{definition}
 
 \begin{definition}
-  The centripetal acceleration, $\bvec{a_c}$, of a particle, $p$, is the component of its acceleration in the direction perpendicular to its direction of motion.
+  The centripetal acceleration, $\bvec{a_c}(t)$, of a particle, $p$, is the component of its acceleration in the direction perpendicular to its direction of motion.
 
-  In rectangular coordinates, the sign of $a_c$ is defined to be the sign of the projection of $\bhat{a_c}$ onto $\bhat{x}$. 
+  In rectangular coordinates, the sign of $a_c(t)$ is defined to be the sign of the projection of $\bhat{a_c}(t)$ onto $\bhat{x}(t)$. 
 
-  In polar coordinates, the sign of $a_c$ is defined to be the sign of the projection of $\bhat{a_c}$ onto $\bhat{r}$.
+  In polar coordinates, the sign of $a_c(t)$ is defined to be the sign of the projection of $\bhat{a_c}(t)$ onto $\bhat{r}(t)$.
 \end{definition}
 
 \begin{definition}
-  The tangential acceleration, $a_t$, of a particle, is the component of the acceleration of the particle in its direction of motion.
+  The tangential acceleration, $a_t(t)$, of a particle, is the component of the acceleration of the particle in its direction of motion.
 
-  \[a_t \coloneqq \frac{dv}{dt}\]
+  \[a_t(t) \coloneqq \frac{dv(t)}{dt}\]
 \end{definition}
 
 % -----------------------------------------------------------------------------
 
 \subsection{Particle Motion in Polar Coordinates}
 
-Unless otherwise specified, the motion of particle moving along planar paths  will be described in polar coordinates, along with an extra parameter $\theta$, as is shown in Figure \ref{fig:polar-param}.
+Before we introduce the equations governing a particle's motion in $\R^2$, we must first define a coordinate system to describe its motion. Unless otherwise specified, the motion of particles in this paper will be described in polar coordinates that contain an extra parameter $\theta$, that is shown in Figure \ref{fig:polar-param}.
 
 \includefig{polar_param.eps}{A particle moving in 2-dimensional polar coordinate system centered at B}{polar-param}
 
-$\theta(t), \phi(t) \in [-\pi, \pi]$. From now on, $\abs{\theta(t)}$ and $\abs{\phi(t)}$ will be used, since there is a symmetry in the system about $\bhat{r}$.
+Note that $\theta(t), \phi(t)$ are directional angles, so $\theta(t), \phi(t) \in [-\pi, \pi]$. From now on, we will only use $\abs{\theta(t)}$ and $\abs{\phi(t)}$, since there is a symmetry in the system about $\bhat{r}$.
 
 \begin{lemma}
-The time derivative of $\theta$ is given by
-\[
-\frac{d\abs{\theta(t)}}{dt} = \frac{a_c}{v}
-\]
+The time derivative of $\theta(t)$ is given by
+
+\begin{equation}\label{eq:theta-deriv}
+\frac{d\abs{\theta(t)}}{dt} = \frac{d\abs{\phi(t)}}{dt} + \frac{a_c(t)}{v(t)}
+\end{equation}
+
 \end{lemma}
 
 \begin{proof}
 
-If we look at a point, $p$, subject to only centripetal acceleration, $a_c$, the change in $\bvec{v}$ over an infinitesimal time, $dt$, is shown in Figure \ref{fig:theta-deriv} (the two vectors, $\bvec{v}$ and $\bvec{v}+\bvec{dv}$, are superimposed). 
+$\theta(t)$ is composed of $\phi(t)$ plus the angle between $\bhat{v}(t)$ and the horizontal, which we can temporarily call $\beta(t)$. $\phi(t)$ is the component of $\theta(t)$ in the polar coordinate system, and changes as the point moves with respect to the point B. $\beta(t)$ can be thought of as the component of $\theta(t)$ in the Cartesian coordinate system, and it only changes when $a_c(t)$ is nonzero. 
+
+So differentiating, we get
+
+\[
+\frac{d\abs{\theta(t)}}{dt} = \frac{d\abs{\phi(t)}}{dt} + \frac{d\beta(t)}{dt}
+\]
+
+To find $\frac{d\beta(t)}{dt}$, we can look at a point, $p$, subject to nonzero centripetal acceleration, $a_c(t)$, and zero tangential acceleration. The change in $\bvec{v(t)}$ over an infinitesimal time, $dt$, is shown in Figure \ref{fig:theta-deriv} (the two vectors, $\bvec{v(t)}$ and $\paren{\bvec{v(t)}+\bvec{dv(t)}}$, are superimposed). 
 
 \includefig{theta_deriv.eps}{Tangential acceleration}{theta-deriv}
 
-From the definition of $a_c$
+$a_c(t)$ is defined to be the component of acceleration perpendicular to the direction of motion, so
 
 \[
-\frac{dv}{dt} = a_c
+\frac{dv(t)}{dt} = a_c(t)
 \]
 
-Since $dv = d\abs{\theta} v$, then
+Since $dv(t) = -d\beta(t) v(t)$, then
+
 \[
-\frac{d\abs{\theta}}{dt} = \frac{a_c}{v}
+\frac{d\beta(t)}{dt} = -\frac{a_c(t)}{v(t)}
 \]
+
+So
+
+\[
+\frac{d\abs{\theta(t)}}{dt} = \frac{d\abs{\phi(t)}}{dt} - \frac{a_c(t)}{v}
+\]
+
+The proof of the lemma in the case where $a_t(t)$ is nonzero is very similar, since the component of $\bvec{dv(t)}$ in the direction $\bhat{v(t)}$ is negligible compared to $v(t)$.
+
 \end{proof}
-
-The proof of the lemma in the case where $a_t$ is also nonzero is very similar, since the component of $\bvec{dv}$ in the direction $\bhat{v}$ is negligible compared to $v$.
 
 Returning again to Figure \ref{fig:polar-param}, the following equations can be derived
 
 \begin{align}
-  \frac{dr(t)}{dt}& = -v(t) \, \cos\paren{\abs{\theta(t)}}\label{eq:r-deriv}\\
-  \frac{d\abs{\phi(t)}}{dt}& = \frac{v(t)}{r(t)} \, \sin\paren{\abs{\theta(t)}}\label{eq:phi-deriv}\\
+  \frac{dr(t)}{dt}& = -v(t) \, \cos\paren{\abs{\theta(t)}}\label{eq:r-diff}\\
+  \frac{d\abs{\phi(t)}}{dt}& = \frac{v(t)}{r(t)} \, \sin\paren{\abs{\theta(t)}}\label{eq:phi-diff}\\
   \frac{d\abs{\theta(t)}}{dt}& = \frac{d\abs{\phi(t)}}{dt} - \frac{a_c(t)}{v(t)}\\
-  &= \frac{v(t)}{r(t)} \, \sin\paren{\abs{\theta(t)}} - \frac{a_c(t)}{v(t)}\label{eq:theta-deriv}\\
-  \intertext{Applying the chain rule to (\ref{eq:r-deriv})}
+  &= \frac{v(t)}{r(t)} \, \sin\paren{\abs{\theta(t)}} - \frac{a_c(t)}{v(t)}\label{eq:theta-diff}\\
+  \intertext{Applying the chain rule to (\ref{eq:r-diff})}
   \frac{d}{dt} \frac{dr(t)}{dt}& = -\frac{dv(t)}{dt} \cos\paren{\abs{\theta(t)}} + v(t) \sin\paren{\abs{\theta(t)}} \frac{d\abs{\theta(t)}}{dt}\\
   &\begin{aligned}
-    = -a_t \cos\paren{\abs{\theta(t)}} &+ \frac{v(t)^2}{r(t)} \sin^2\paren{\abs{\theta(t)}}\\
-    &\qquad - \sin\paren{\abs{\theta(t)}} a_c(t) \label{eq:r-deriv-2}
+    = -a_t(t) \cos\paren{\abs{\theta(t)}} &+ \frac{v(t)^2}{r(t)} \sin^2\paren{\abs{\theta(t)}}\\
+    &\qquad - \sin\paren{\abs{\theta(t)}} a_c(t) \label{eq:r-diff-2}
   \end{aligned}
 \end{align}

@@ -1,46 +1,28 @@
-In this section, we will give some basic defintions which we will use throughout the paper. We will define our notational conventions here.
+Before we begin defining our problem, we need to introduce a small amount of notation.
 
 \subsection{Vectors}
 
 \begin{description}
-  \item[$a$] Scalar quantity.
-  \item[$\bvec{a}$] Vector in n-dimensional space. $\norm{\bvec{a}} = a$.
+  \item[$\bvec{a}$] Vector in n-dimensional space.
   \item[$\bhat{a}$] Unit vector in n-dimensional space. $\bhat{a} = \bvec{a}/a$ and $\norm{\bhat{a}} = 1$.
+  \item[$a$] Scalar quantity. Usually $a = \norm{\bvec{a}}$, but occasionally we will also define a sign that is dependent on the direction of $\bhat{a}$.
 \end{description}
 
 \subsection{Angles}
 
-We define two different types of angle measurements: a standard measurement, and a directional measurement (all angles are measured in radians).
-
-In the standard measurement, angles are in $[0, 2\pi]$ and are measured counterclockwise. In the directional measurement, angles are in $[-\pi, \pi]$ and the measurement direction is indicated by an arrow on the measurement.
+We define a directional angle measurement, which we will use throughout the paper. All angles are in $[-\pi, \pi]$, and the positive measurement direction is indicated by an arrow on the angle.
 
 \begin{figure}[H]
-  \centering
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{angle_def_1.eps}
-    \caption{}
-    \label{fig:angle-def-1}
-  \end{subfigure}
-  \qquad \qquad
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{angle_def_2.eps}
-    \caption{}
-    \label{fig:angle-def-2}
-  \end{subfigure}
-  \caption{Standard angle notation (no arrow)}
-\end{figure}
-
-\begin{figure}[H]
-  \begin{subfigure}[b]{0.4\textwidth}
+  \begin{subfigure}[b]{0.3\textwidth}
     \includegraphics[width=\textwidth]{angle_def_3.eps}
     \caption{}
     \label{fig:angle-def-3}
   \end{subfigure}
   \qquad \qquad
-  \begin{subfigure}[b]{0.4\textwidth}
+  \begin{subfigure}[b]{0.3\textwidth}
     \includegraphics[width=\textwidth]{angle_def_4.eps}
     \caption{}
     \label{fig:angle-def-4}
   \end{subfigure}
-  \caption{Directional angle notation (arrow)}
+  \caption{Directional angle notation}
 \end{figure}
