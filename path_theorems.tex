@@ -92,10 +92,6 @@ Since $\theta(T_{f,\gamma}) = 0$, then if $\frac{d\abs{\theta(t)}}{dt} > 0$ for 
 
 % -----------------------------------------------------------------------------
 
-
-
-% -----------------------------------------------------------------------------
-
 \section{Constant Speed Conditions}
 
 In the previous section, we made statements about fastest paths between two points when the initial velocity was set to zero. We saw that our physical intuition was confirmed and that a straight line was the fastest way to travel between two points.
@@ -104,30 +100,24 @@ This is a simple case of the more general problem. We shall now examine fastest 
 
 Assuming bounded acceleration makes the problem more interesting, and also much more difficult if we allow for tangential acceleration. In this section, we will eliminate tangential acceleration so that the particle will travel at constant speed with bounded acceleration.
 
-To begin proving things about the fastest path, we first formalize the conditions we will be using:
-
 \begin{definition}
-  A fixed speed particle is a particle such that: $\bvec{X} \in \R^2$, $a_t = 0$, $v(t) = \bar{v}$.
+  A particle with constant speed, is a particle with zero tangential acceleration, $a_t(t) = 0$, and $v(t) = \bar{v}$.
 \end{definition}
 
 \begin{definition}
-  A particle with bounded centripetal acceleration is a particle with the following condition: $\norm{a_c} \le \bar{a_c}$, for some $\bar{a_c} \ge 0$.
+  A particle with bounded centripetal acceleration is a particle with $\norm{a_c(t)} \le \bar{a_c}$, for some $\bar{a_c} \ge 0$.
 \end{definition}
 
-Now we shall use the following shorthand throughout this section to talk about the conditions on a particle:
-
-\begin{definition}
-  A particle with constant speed conditions is a fixed speed particle with bounded centripetal acceleration.
-\end{definition}
+Throughout the rest of this paper, all the particles we will deal with will have constant speed and bounded centripetal acceleration.
 
 To prove things about the fastest path of a particle under constant speed conditions, we shall make Conjecture \ref{conjecture:fastest-paths} about how fastest paths behave.
 
 \begin{conjecture}
   \label{conjecture:fastest-paths}
-  Let particles $p_1, p_2$ have initial velocities $\bvec{v}_1, \bvec{v}_2$ and starting positions $\bvec{X}_1, \bvec{X}_2$ respectively. Additionally, let $p_1, p_2$ have constant speed conditions and let the end position be $\bvec{X}_f$ such that $d(\bvec{X}_f, \bvec{X}_1) = d(\bvec{X}_f, \bvec{X}_2) > R_{min}$. If $d(\bvec{X}_1, \bvec{X}_f) \leq d(\bvec{X}_2, \bvec{X}_f)$ and $\theta_{p_1}(T_0) < \theta_{p_2}(T_0)$, then $T_f(\bhat{\gamma_1}) < T_f(\bhat{\gamma_2})$.
+  Let particles $p_1, p_2$ have centripetal acceleration bounded by $\bar{a_c}$, constant speed $\bar{v}$, starting positions $\bvec{X}_1, \bvec{X}_2$ respectively, and final position $\bvec{X}_f$. Both particles move in a $X_f$ centered particle coordinate system. If $r_1(T_0) \leq r_2(T_0)$ and $\theta_1(T_0) < \theta_1(T_0)$, then $T_f(\hat{\gamma_1}) < T_f(\hat{\gamma_2})$.
 \end{conjecture}
 
-This conjecture comes from physical intuition. If two particles $p_1$ and $p_2$ are attempting to arrive at a particular ending point $\bvec{X}_f$, and $p_2$ is farther away than $p_1$ and also has an initial angle $\theta$ to $\bvec{X}_f$ that is larger than $p_1$'s initial angle, then $p_2$ must take a longer time to turn towards $\bvec{X}_f$ and must travel a longer distance than $p_1$. Because of this, it seems to be the case that $p_1$'s fastest path is faster than $p_2$'s fastest path.
+In words, this conjecture states that if a particle, $p_1$, is closer to the final position than another, $p_2$, and has a smaller $\theta(t)$, then its optimal path to the final position is shorter. The intuition behind this is that $p_2$ must travel a longer distance than $p_1$ to reach the final position, because it is further away. Furthermore, one could also imagine, that 
 
 If this conjecture is true, then we can provide the strategy for obtaining the fastest path between two points $\bvec{X}_0$ and $\bvec{X}_f$.
 
