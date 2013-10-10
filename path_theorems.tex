@@ -27,8 +27,11 @@ With Lemma \ref{lem:r-curve} in mind, the simplest problem to tackle first is th
 
 Now we will show that the fastest path between two points goes in a straight line if there is no initial speed. This will formalize the natural intuition that straight lines are the fastest path when there are no obstacles between the start and finish position.
 
-\begin{theorem}
-  \label{thm:line-proof}
+Note: we provide two nearly identical theorems with different proofs, to provide the reader with different ways to think about the problem.
+
+\begin{theorem}\label{thm:line-proof}
+  (John Wang's version)
+
   Given a particle $p \in \mathrm{R}^2$ with initial position of $\bvec{X_1}$ and no initial speed moving with bounded tangential acceleration, $a_t \le \bar{a}_{t}$, and infinite centripetal acceleration, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $\bvec{X_1}$ to $\bvec{X_2}$ lies on the line segment from $\bvec{X_1}$ to $\bvec{X_2}$:
 \end{theorem}
 
@@ -81,6 +84,56 @@ There is only a single function of the acceleration $a(t) = \bar{a}_t$ which can
 \qed
 
 We can also investigate how the particle moves along a fastest path. In particular, we can make some statements about the change in $\theta$, the angle between the particle's velocity vector and the straight line between the particle and it's destination.
+
+\begin{theorem}\label{thm:theta-zero}
+  Given a particle $p$, if $\abs{\theta(t_1)} = 0$ at some time $t_$, then an optimal path, $\hat{\gamma}(t)$ has $\abs{\theta(t)} \ge 0$ for all $t \ge t_1$. Furthermore, given two valid paths, $\gamma_1(t)$ and $\gamma_2(t)$, then $T_f(\gamma_1) \le T_f(\gamma_2)$ if $\abs{\theta_1(t_1)} = 0$.
+\end{theorem}
+
+\begin{proof}
+  
+\end{proof}
+
+
+\begin{theorem}
+  (Jonathan Allen's version)
+
+  Given a particle $p$ with initial position $\bvec{X_1}$, initial velocity $\bvec{v}(t)$, bounded tangential acceleration $a_t \le \bar{a}_t$, and infinite centripetal acceleration, the fastest path $\hat{\gamma}(t)$ which $p$ can trace from $\bvec{X_1}$ to $\bvec{X_2}$ is the line segment from $\bvec{X_1}$ to $\bvec{X_2}$.
+\end{theorem}
+
+\begin{proof}
+  
+  Define two particles, $p_1$ and $p_2$, that have the same initial conditions as particle $p$ in the Theorem statement. 
+
+  For some arbitrary $\epsilon > 0$. Define the centripetal acceleration of $p_1$ to be $a_{c, 1}$, and let $\bar{a_{c,\epsilon}}$ be the maximum value of $a_{c, 1}$ for $t \in [T_0, \epsilon]$. Now define the centripetal acceleration of $p_2$ to be
+
+  \[
+    a_c(t) = \begin{cases}
+      \theta(T_0) / \epsilon \quad &\text{for} \quad t \in [T_0, T_0 + \epsilon]\\
+      0 \quad &\text{for} \quad otherwise
+    \end{cases}
+  \]
+
+  If we take the limit as $\epsilon \to \infty$, we get
+
+  \[
+
+  \] 
+
+  \begin{align}
+    \theta_1(T_0(\gamma_1))& = \int_{t=T_0(\gamma_1)}^{T_0(\gamma_1)^+} \frac{d\abs{\phi(t')}}{dt} - \frac{\theta(T_0)}{\epsilon \v(t)} dt'\\
+    & = 0 \quad \text{for} \quad \epsilon \to T_0
+  \end{align}
+
+  Furthermore,
+
+  \begin{align}
+    \theta_2(T_0)& = \int_{t=T_0(\gamma_1)}^{T_0(\gamma_1)^+} \frac{d\abs{\phi(t')}}{dt} - \frac{\theta(T_0)}{\epsilon \v(t)} dt'\\
+    & = \theta(T_0)
+  \end{align}
+
+  From Theorem \ref{thm:theta-zero} we know that $\theta(t)$ must now be $0$, for all $t \ge T_0$, thus the particle is traveling in the $-\bhat{r}$ direction for $t \in [T_0, T_f]$, which is the line segment from $X_1$ to $X_2$.
+
+\end{proof}
 
 \begin{theorem}
 A 2-dimensional particle, $p$, traveling along a fastest path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} \leq 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
