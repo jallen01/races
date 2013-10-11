@@ -1,9 +1,9 @@
-In this paper, we have formalized many of the things that intuition would tell us. Namely, we have shown that a straight line is the fastest way to get between two points. This fact is unsurprising because of the fact that acceleration in a single direction (toward the finish point) is the least wasteful means of getting to the finish.
+In this paper, we developed a number of simple lemmas governing the motion of a particle with bounded acceleration. We also formalized many of the things that intuition tells us are true. Namely, we have shown that a straight line is the fastest path for a particle to take to get to a point, if centripetal acceleration is unbounded. This fact is unsurprising, since the particle should be accelerating towards the point as much as possible, which occurs when it is moving directly towards the point. 
 
-We developed a number of simple lemmas governing the motion of a volume-less particle with bounded acceleration. We also showed that when a particle has bounded accleration, the optimal strategy for getting to another point as fast as possible is to minimize the angle that the particle's velocity vector makes with the ending point.
+We also provided a conjecture that it is also optimal for a particle to orient itself towards the point as quickly as possible, in the case when centripetal acceleration is bounded. Assuming this conjecture to be true, we were able to draw more conclusions about optimal paths that can be directly used to calculate optimal paths.
 
 \subsection{Future Work}
 
-Future work should first involve a rigorous proof of . Furthermore, the special case of optimal paths for when the particle is \"too close\" to the final point, should be researched. This special case is very interesting, because it involves moving away from the final point for a period of time, and the shape of the optimal path does not appear to be intuitive.
+Future work should first involve a rigorous proof of \ref{conj:optimal-position}. Furthermore, the special case of optimal paths for when the particle is \"too close\" to the final point, should be researched. This special case is very interesting, because it involves moving away from the final point for a period of time, and the shape of the optimal path does not appear to be intuitive.
 
-To make the problem more general, one could extend the problem to include particles moving with varying speed. Equations \ref{eq:r-diff} - \ref{eq:r-diff-2} still apply in this case, but the analysis is more complex in this case. 
+To make the problem more general, one could extend the problem to include particles moving with varying speed. Equations \ref{eq:r-diff} - \ref{eq:r-diff-2} still apply in this case, but the analysis is more complex. 

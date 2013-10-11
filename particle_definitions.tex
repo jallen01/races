@@ -1,53 +1,44 @@
-Now we will provide some basic definitions about particles and paths, which will lay the groundwork for thinking about fastest paths.
+We will first provide some basic definitions about particles and paths, which will lay the groundwork for thinking about fastest paths. First we will define what we mean by a particle and a path.
 
 \begin{definition}
-  A path $\gamma(t): [T_0(\gamma), T_f(\gamma)] \to \mathrm{R}^2$ is a function which maps a time $t \in [T_0(\gamma), T_f(\gamma)]$ to a position $\bvec{X} \in \mathrm{R}^2$. The path $\gamma$ begins at time $T_0(\gamma)$ and ends at time $T_f(\gamma)$.
+  A path $\gamma(t): [T_0(\gamma), T_f(\gamma)] \to \mathrm{R}^2$ is a function which maps a time $t \in [T_0(\gamma), T_f(\gamma)]$ to a position $\bvec{X} \in \mathrm{R}^2$.
 \end{definition}
 
 \begin{definition}
-  A path between two points, $\bvec{X_1}$ and $\bvec{X_2}$ is a path $\gamma(t)$ where $\gamma(T_0(\gamma)) = \bvec{X_1}$ and $\gamma(T_f(\gamma)) = \bvec{X_2}$.
-\end{definition}
-
-\begin{definition}
-  A particle, $p$, is an object in space with zero volume. A particle travels along a path, $\gamma(t)$ if the particle is at position $\gamma(t)$ at time $t$, for all $t \in [T_0(\gamma), T_f(\gamma)]$. If a particle is traveling along a path, $\gamma(t)$, then we define a position, $\bvec{X}(t) \coloneqq \gamma(t)$, a velocity, $\bvec{v}(t) \coloneqq \frac{d\gamma(t)}{dt}$, and an acceleration, $\bvec{a}(t) \coloneqq \frac{d^2\gamma(t)}{dt^2}$, for the particle, for all $t \in [T_0(\gamma), T_f(\gamma)]$.
+  A particle $p$ is an object in space with zero volume. If a particle is traveling along a path, $\gamma(t)$, then we define a position, $\bvec{X}(t) \coloneqq \gamma(t)$, a velocity, $\bvec{v}(t) \coloneqq \frac{d\gamma(t)}{dt}$, and an acceleration, $\bvec{a}(t) \coloneqq \frac{d^2\gamma(t)}{dt^2}$, for the particle, for all $t \in [T_0(\gamma), T_f(\gamma)]$.
 
   A particle is restricted if there are conditions on its position and the time derivatives of its position. Given a particle, a valid path is a path that the particle can travel along without violating its restrictions.
 \end{definition}
 
+Now we will make our problem statement more rigorous, by defining what a fastest path is.
+
 \begin{definition}
-  Given a particle, a fastest path, $\hat{\gamma}(t)$, between two points, $\bvec{X_1}$ and $\bvec{X_2}$, is a valid path such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid paths, $\gamma(t)$, between $\bvec{X_1}$ and $\bvec{X_2}$.
+  Given a particle, a fastest path $\hat{\gamma}(t)$ between two points, $\bvec{X_1}$ and $\bvec{X_2}$, is a valid path such that $T_f(\hat{\gamma}) \leq T_f(\gamma)$ for all valid paths, $\gamma(t)$, between $\bvec{X_1}$ and $\bvec{X_2}$.
+\end{definition}
+
+Finally, we need to define some terms for a particle's motion which will be needed later on to describe restrictions on a particle's motion.
+
+\begin{definition}
+  The centripetal acceleration $\bvec{a_c}(t)$ of a particle, $p$, is the component of its acceleration in the direction perpendicular to its direction of motion.
 \end{definition}
 
 \begin{definition}
-  A particle's speed is $v(t)$, and its direction of motion is $\bhat{v}$.
-\end{definition}
-
-\begin{definition}
-  The centripetal acceleration, $\bvec{a_c}(t)$, of a particle, $p$, is the component of its acceleration in the direction perpendicular to its direction of motion.
-
-  In rectangular coordinates, the sign of $a_c(t)$ is defined to be the sign of the projection of $\bhat{a_c}(t)$ onto $\bhat{x}(t)$. 
-
-  In polar coordinates, the sign of $a_c(t)$ is defined to be the sign of the projection of $\bhat{a_c}(t)$ onto $\bhat{r}(t)$.
-\end{definition}
-
-\begin{definition}
-  The tangential acceleration, $a_t(t)$, of a particle, is the component of the acceleration of the particle in its direction of motion.
+  The tangential acceleration $a_t(t)$ of a particle is the component of the acceleration of the particle in its direction of motion.
 
   \[a_t(t) \coloneqq \frac{dv(t)}{dt}\]
 \end{definition}
-
 % -----------------------------------------------------------------------------
 
 \subsection{Particle Motion in Polar Coordinates}
 
-Before we introduce the equations governing a particle's motion in $\R^2$, we must first define a coordinate system to describe its motion. Unless otherwise specified, the motion of particles in this paper will be described in a modified polar coordinate system that contain an extra parameter $\theta$, that is shown in Figure \ref{fig:polar-param}. We will refer to this system as the B centered particle coordinate system.
+Before we introduce the equations governing a particle's motion in $\R^2$, we must first define a coordinate system to describe its motion. Unless otherwise specified, the motion of particles in this paper will be described in a modified polar coordinate system that contain an extra parameter $\theta$, that is shown in Figure \ref{fig:polar-param}. We will refer to this system as the \textit{B centered particle coordinate system}.
 
 \includefig{polar_param.eps}{A particle moving in a B centered particle coordinate system}{polar-param}
 
-Note that $\theta(t), \phi(t)$ are directional angles, so $\theta(t), \phi(t) \in [-\pi, \pi]$. From now on, we will only use $\abs{\theta(t)}$ and $\abs{\phi(t)}$, since there is a symmetry in the system about $\bhat{r}$.
+The sign of $a_c(t)$ is defined to be the sign of the projection of $\bhat{a_c}(t)$ onto $-\bhat{r}(t)$; in other words, it is positive when pointing towards B. $\theta(t), \phi(t) \in [-\pi, \pi]$, and from now on, we will only use $\abs{\theta(t)}$ and $\abs{\phi(t)}$, since there is a symmetry in the system about $\bhat{r}$. 
 
 \begin{lemma}
-The time derivative of $\theta(t)$ is given by
+The time derivative of $\abs{\theta(t)}$ is given by
 
 \begin{equation}\label{eq:theta-deriv}
 \frac{d\abs{\theta(t)}}{dt} = \frac{d\abs{\phi(t)}}{dt} + \frac{a_c(t)}{v(t)}
@@ -59,13 +50,13 @@ The time derivative of $\theta(t)$ is given by
 
 $\theta(t)$ is composed of $\phi(t)$ plus the angle between $\bhat{v}(t)$ and the horizontal, which we can temporarily call $\beta(t)$. $\phi(t)$ is the component of $\theta(t)$ in the polar coordinate system, and changes as the point moves with respect to the point B. $\beta(t)$ can be thought of as the component of $\theta(t)$ in the Cartesian coordinate system, and it only changes when $a_c(t)$ is nonzero. 
 
-So differentiating, we get
+Differentiating, we get
 
 \[
 \frac{d\abs{\theta(t)}}{dt} = \frac{d\abs{\phi(t)}}{dt} + \frac{d\beta(t)}{dt}
 \]
 
-To find $\frac{d\beta(t)}{dt}$, we can look at a point, $p$, subject to nonzero centripetal acceleration, $a_c(t)$, and zero tangential acceleration. The change in $\bvec{v(t)}$ over an infinitesimal time, $dt$, is shown in Figure \ref{fig:theta-deriv} (the two vectors, $\bvec{v(t)}$ and $\paren{\bvec{v(t)}+\bvec{dv(t)}}$, are superimposed). 
+To find $\frac{d\beta(t)}{dt}$, we can look at a point, $p$, subject to nonzero centripetal acceleration, and zero tangential acceleration. The change in $\bvec{v(t)}$ over an infinitesimal time, $dt$, is shown in Figure \ref{fig:theta-deriv} (the two vectors, $\bvec{v(t)}$ and $\paren{\bvec{v(t)}+\bvec{dv(t)}}$, are superimposed). 
 
 \includefig{theta_deriv.eps}{Tangential acceleration}{theta-deriv}
 
@@ -81,13 +72,7 @@ Since $dv(t) = -d\beta(t) v(t)$, then
 \frac{d\beta(t)}{dt} = -\frac{a_c(t)}{v(t)}
 \]
 
-So
-
-\[
-\frac{d\abs{\theta(t)}}{dt} = \frac{d\abs{\phi(t)}}{dt} - \frac{a_c(t)}{v}
-\]
-
-The proof of the lemma in the case where $a_t(t)$ is nonzero is very similar, since the component of $\bvec{dv(t)}$ in the direction $\bhat{v(t)}$ is negligible compared to $v(t)$.
+The proof of the lemma in the case where $a_t(t)$ is nonzero is nearly identical, since the component of $\bvec{dv(t)}$ in the direction $\bhat{v}(t)$ is negligible compared to $v(t)$.
 
 \end{proof}
 
