@@ -72,11 +72,24 @@ Now let us introduce a particle $p_2$ with the same conditions as $p_1$, but dif
 
 Because $\gamma_1$ minimizes $\abs{\theta(t)}$, $\abs{\theta_1(t_b)} \le \abs{\theta_2(t_b)}$. If $t_b > t_s$, then from \ref{thm:theta-min} we know that $\gamma_2(t)$ is worse than $\gamma_1$. If $t_b \le t_s$, we will prove that $r_1(t_b) < r_2(t_b)$. 
 
-Looking at Equation \ref{eq:r-diff}
+Looking at Equation \ref{eq:theta-diff}
 
 \begin{align*}
-  r(t_b)& = r(t_b-\epsilon) - \bar{v} \int_{t' = T_0}^{t} \cos(\abs{\theta(t')}) dt'
+  \abs{\theta(t_b)}& = \abs{\theta(t_b - \epsilon)} + \int_{t' = t_b-\epsilon}^{t_b} \paren{\frac{\bar{v}}{r(t)} \sin(\abs{\theta(t)}) - \frac{a_c(t)}{\bar{v}}} dt'\\
+  \intertext{Now we can find the difference of the two $\theta$'s and take the limit as $\epsilon \to 0$}
+  \abs{\theta_2(t_b)} - \abs{\theta_1(t_b)}& \to \int_{t' = t_b-\epsilon}^{t_b} - \frac{a_{c,2}(t) - a_{c,1}(t)}{\bar{v}} dt' \quad \text{as} \quad \epsilon \to 0\\
+  & \ge 0 \quad \text{as} \quad \epsilon \to 0
 \end{align*}
 
-Since $\cos(\abs{\theta_1(t)}) \ge \cos(\abs{\theta_2(t)})$, $r_1(t_b) \le r_2(t_b)$, so we can invoke Conjecture \ref{conj:optimal-position} to show that $\gamma_1$ is a fastest path which finishes the proof.
+Furthermore, 
+
+\begin{align}
+  r(t_b)& = r(t_b - \epsilon) + \int_{t' = t_b - \epsilon}^{t_b} - v(t') \cos(\abs{\theta(t')}) dt'\\
+  \intertext{Taking the limit of the difference again}
+  r_2(t_b) - r_1(t_b)& \to \int_{t' = t_b - \epsilon}^{t_b} - v(t') \paren{\cos(\abs{\theta_2(t')}) - \cos(\abs{\theta_1(t')})} dt' \quad \text{as} \quad \epsilon \to 0\\
+  \intertext{We know that $\theta_2(t_b) \ge \theta_1(t_b)$ as $\epsilon \to 0$, so}
+  r_2(t_b) - r_1(t_b)& \ge 0 \quad \text{as} \quad \epsilon \to 0
+\end{align}
+
+Now we can invoke Conjecture \ref{conj:optimal-position} to show that $\gamma_1$ is a faster path than $\gamma_2$, which finishes the proof.
 \end{proof}

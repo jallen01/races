@@ -35,7 +35,7 @@ The simplest problem to tackle first is the fastest path from $\bvec{X_0}$ to $\
 \begin{proof}
   Referring back to Equation \ref{eq:r-diff}
 
-  \[r(t) = r(T_0 + \int_{t' = T_0}^{t} - v(t') \cos(\abs{\theta(t')}) dt'\]
+  \[r(t) = r(T_0) + \int_{t' = T_0}^{t} - v(t') \cos(\abs{\theta(t')}) dt'\]
 
   Thus, if $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$, then $r_1(t) \le r_2(t)$, and $T_f(\gamma_1) \le T_f(\gamma_2)$, so $\gamma_1$ is a fastest path. If all the inequalities are strict, then $T_f(\gamma_1) < T_f(\gamma_2)$, so every other path is longer, and thus $\gamma_1$ is the unique fastest path.
 
