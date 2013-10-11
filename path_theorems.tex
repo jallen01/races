@@ -1,9 +1,9 @@
 Now that we have defined a coordinate system, we are ready to think about particle paths. All particles in this section have bounded tangential acceleration, $\abs{a_t(t)} \le \bar{a_t}$, for some $\bar{a_t} \ge 0$.
 
-The simplest problem to tackle first is the fastest path from $\bvec{X_1}$ to $\bvec{X_2}$ when centripetal acceleration is unbounded, which means that a particle can change its direction of motion instantaneously. The following theorem makes this notion more precise.
+The simplest problem to tackle first is the fastest path from $\bvec{X_0}$ to $\bvec{X_f}$ when centripetal acceleration is unbounded, which means that a particle can change its direction of motion instantaneously. The following theorem makes this notion more precise.
 
-\begin{theorem}
-  Let a particle $p$ have bounded tangential acceleration and $\theta(T_0) = \theta_0$. For all $\theta_f \in [0, \pi]$ and $\epsilon > 0$, there exists a valid path $\gamma(t)$, such that $\abs{\theta(T_0(\gamma) + \epsilon)} \to \theta_f$ as $\epsilon \to 0$.
+\begin{theorem}\label{thm:theta-choose}
+  Let $p$ be a particle with bounded tangential acceleration and $\theta(T_0) = \theta_0$. For all $\theta_f \in [0, \pi]$ and $\epsilon > 0$, there exists a valid path $\gamma(t)$, such that $\abs{\theta(T_0(\gamma) + \epsilon)} \to \theta_f$ as $\epsilon \to 0$.
 \end{theorem}
   
 \begin{proof}
@@ -26,8 +26,8 @@ The simplest problem to tackle first is the fastest path from $\bvec{X_1}$ to $\
   \]
 \end{proof}
 
-\begin{theorem}\label{thm:theta-zero}
-  Given a particle $p$, a path $\gamma_1$ from $\bvec{X_1}$ to $\bvec{X_2}$ is a fastest path if, for every other valid path $\gamma_2$ from $\bvec{X_1}$ to $\bvec{X_2}$, $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$.
+\begin{theorem}\label{thm:theta-min}
+  Let $p$ be a particle with bounded tangential acceleration and initial position $X_0$. A path $\gamma_1$ to $\bvec{X_f}$ is a fastest path if, for every other valid path $\gamma_2$ to $\bvec{X_f}$, $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$. The fastest path is unique if all the inequalities are strict.
 
   Furthermore, if, at some time $t_s \ge T_0(\hat{\gamma})$ along a fastest path $\hat{\gamma}$, $\abs{\theta(t_s)} = 0$, then $\abs{\theta(t)} = 0$ for all $t \ge t_s$. 
 \end{theorem}
@@ -37,7 +37,7 @@ The simplest problem to tackle first is the fastest path from $\bvec{X_1}$ to $\
 
   \[r(t) = r(T_0) + \int_{t' = T_0}^{t} - v(t) \cos(\abs{\theta(t)})\]
 
-  Thus, if $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$, then $r_1(t) \le r_2(t)$, and $T_f(\gamma_1) \le T_f(\gamma_2)$, so $\gamma_1$ is a fastest path.
+  Thus, if $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$, then $r_1(t) \le r_2(t)$, and $T_f(\gamma_1) \le T_f(\gamma_2)$, so $\gamma_1$ is a fastest path. If all the inequalities are strict, then $T_f(\gamma_1) < T_f(\gamma_2)$, so every other path is longer, and thus $\gamma_1$ is the unique fastest path.
 
   The second part of the theorem follows directly from the first part.
 \end{proof}
@@ -45,12 +45,21 @@ The simplest problem to tackle first is the fastest path from $\bvec{X_1}$ to $\
 Now we will formalize the natural intuition that straight lines are the fastest paths between points when centripetal acceleration is unbounded.
 
 \begin{theorem}\label{thm:line-proof}
-  Given a particle $p$ with initial position $\bvec{X_1}$, initial velocity $\bvec{v}(t)$, the fastest path $\hat{\gamma}(t)$ from $\bvec{X_1}$ to $\bvec{X_2}$ is the line segment from $\bvec{X_1}$ to $\bvec{X_2}$.
+  Let $p$ be a particle with bounded tangential acceleration, initial position $\bvec{X_0}$, and initial velocity $\bvec{v}(t)$. The line segment from $\bvec{X_0}$ to $\bvec{X_f}$ with $a_c(t) = \bar{a_c}$ for all $t \in [T_0(\gamma_1), T_f(\gamma_1)]$ is a fastest path $\hat{\gamma}(t)$ to $\bvec{X_f}$. Furthermore, the fastest path for this system is unique.
 \end{theorem}
 
 \begin{proof}
-  Because of Theorem \ref{thm:theta-zero}, there is a path, $\gamma_1(t)$, such that $\theta_1(t) = 0$ for $t \in (T_0(\gamma_1), T_f(\gamma_1)]$ \ref{thm:theta-zero}
+  Because of Theorem \ref{thm:theta-choose}, there is a valid path $\gamma_1(t)$, which has $\theta_1(t) = 0$ for $t \in (T_0(\gamma_1), T_f(\gamma_1)]$.
 
+  If we let $a_{t, 1}(t) = \bar{a_t}$ for all $t \in [T_0(\gamma_1), T_f(\gamma_1)]$, then $v_1(t) = \bar{a_t} t$, so for every other valid path $\gamma_2$
+
+  \begin{align*}
+    v_2(t)& = \int_{t'=T_0(\gamma_2(t))}^{t} a_{t, 2} dt\\
+    & \le \bar{a_t} t\\
+    &  \le v_1(t)
+  \end{align*}
+
+  Thus, all the conditions are satisfied for Theorem \ref{thm:theta-min}, so $\gamma_1(t)$ is a fastest path. The $\theta$ inequality is strict, so the fastest path is unique. Geometrically, since $\theta(t) = 0$, the path is the line segment from $\bvec{X_0}$ to $\bvec{X_f}$.
 \end{proof}
 
 % \begin{theorem}\label{thm:line-proof}
@@ -97,21 +106,13 @@ Now we will formalize the natural intuition that straight lines are the fastest 
 
 % We can also prove that this fastest path is unique without very much extra work.
 
-\begin{corollary}
-  Given points $\bvec{X_1}, \bvec{X_f} \in \mathrm{R}^2$ and a particle $p$ whose initial position is $\bvec{X_1}$ which moves under conditions set forth in Theorem \ref{thm:line-proof}, the fastest path $\hat{\gamma}(t)$ which $p$ can trace to $\bvec{X_f}$ is unique.
-\end{corollary}
-\proof We have already shown in Theorem \ref{thm:line-proof} that any fastest path between $\bvec{X_1}$ and $\bvec{X_f}$ follows the straight line between them. Moreover, we showed that when travelling along the fastest path, the particle must have tangential acceleration of $\bar{a}_t$. Since we have starting position $\vec{X_1}$ and initial speed of $0$, the acceleration of the particle uniquely defines a path for the particle.
+% \begin{corollary}
+%   The fastest path given by  is unique.
+% \end{corollary}
+% \begin{proof}
+% Since we have starting position $\vec{X_0}$ and initial speed of $0$, the acceleration of the particle uniquely defines a path for the particle.
 
-There is only a single function of the acceleration $a(t) = \bar{a}_t$ which can be satisfied when the particle is moving along a fastest path, therefore, there is only a single possible fastest path.
-\qed
+% There is only a single function of the acceleration $a(t) = \bar{a}_t$ which can be satisfied when the particle is moving along a fastest path, therefore, there is only a single possible fastest path.
+% \end{proof}
 
-We can also investigate how the particle moves along a fastest path. In particular, we can make some statements about the change in $\theta$, the angle between the particle's velocity vector and the straight line between the particle and it's destination.
-
-
-\begin{theorem}
-A 2-dimensional particle, $p$, traveling along a fastest path, $\hat{\gamma(t)}$, from $X_1$ to $X_2$ has $\frac{d\abs{\theta(t)}}{dt} \leq 0$ for all $t \in [0, T_{f, \gamma}]$, unless $\norm{X_1 - X_2} < 2 R_{min}$.
-\end{theorem}
-
-\begin{proof}
-Since $\theta(T_{f,\gamma}) = 0$, then if $\frac{d\abs{\theta(t)}}{dt} > 0$ for $t \in [t_1, t_2]$, since $\theta{T_{f,\gamma}} < \theta{t_1}$, then by Lemma ???? $\theta(t_1) = \theta(t_2)$ for some $t_2 \in [t_1, T_{f, \gamma}$. Since all of the time derivatives in (\ref{eq:r-diff}) - (\ref{eq:theta-diff}) are all monotonic for $r \in (0, \infty)$, there is no local maximum for them, so the fastest strategy should be the same, regardless of $r$. In other words, there can not be multiple cases for fastest strategies based on $r$.
-\end{proof}
+% We can also investigate how the particle moves along a fastest path. In particular, we can make some statements about the change in $\theta$, the angle between the particle's velocity vector and the straight line between the particle and it's destination.
