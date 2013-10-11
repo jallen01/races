@@ -68,9 +68,9 @@ Let $t_s$ be the smallest time such that $\theta_p(t) = 0$. From \ref{thm:theta-
 
 We know that $\abs{a_{c,1}(t)} = \bar{a}_c$ for all $t < t_s$ because $p_1$ follows a path that minimizes $\abs{\theta_1(t)}$.
 
-Now let us introduce a particle $p_2$ with the same conditions as $p_1$, except that at some time $t_b < t_s$, $p_2$ will have $a_{c,2}(t) \neq \bar{a}_c$. We shall show that the fastest path for $p_2$, $\hat{\gamma_2(t)}$, after this divergence is strictly slower than the fastest path for $p_1$, $\hat{\gamma}_1$, which will allow us to conclude that $\gamma_1(t)$ is the unique fastest path.
+Now let us introduce a particle $p_2$ with the same conditions as $p_1$, except that $a_{c,2}(t) < \bar{a}_c$ for some time interval $t \in [t_a, t_b], [t_a, t_b] < t_s$. We shall show that the fastest path for $p_2$, $\hat{\gamma_2(t)}$, after $t_b$ is strictly worse than the fastest path for $p_1$, $\hat{\gamma}_1$, which will allow us to conclude that $\gamma_1(t)$ is the unique fastest path.
 
-We can examine the difference in $r$ and $\theta$ between $p_1$ and $p_2$ after $t_b$, and use Conjecture \ref{conj:optimal-position} to finish our proof. Recall equations \ref{eq:r-diff-2} and \ref{eq:theta-diff} which we derived in a previous section. We can use equation \ref{eq:r-diff-2} to obtain the following:
+We will first prove that $r_1(t_b) < r_2(t_b)$ and $\theta_1(t_b) < \theta_2(t_b)$ and then invoke Conjecture \ref{conj:optimal-position} to finish our proof. Recall equations \ref{eq:r-diff-2} and \ref{eq:theta-diff} which we derived in a previous section. We can use equation \ref{eq:r-diff-2} to obtain the following:
 
 \begin{align*}
   \frac{d^2 r_1(t)}{d t^2} - \frac{d^2 r_2(t)}{d t^2}& = - \sin\paren{\abs{\theta(t_b)}} \paren{\bar{a}_c - a_{c,2}(t_b)}\\
