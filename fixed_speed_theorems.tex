@@ -1,7 +1,7 @@
 We will now examine the more general case of particles with bounded centripetal acceleration, $\abs{a_c(t)} \le \bar{a_c}$, for some $\bar{a_c} \ge 0$. This case is much more relevant to physical problems, because objects typically have momentum which limits their ability to turn quickly. To keep the problem manageable, all particle in this section have zero tangential acceleration, $a_t(t) = 0$, and $v(t) = \bar{v}$.
 
 \begin{lemma} \label{lem:r-curve}
-  Given a particle with constant speed and bounded acceleration, the minimum radius of curvature of the particle's trajectory is given by
+  Given a particle with constant speed and bounded centripetal acceleration, the minimum radius of curvature of the particle's trajectory is given by
 
   \begin{equation}
     R_{min} = \frac{\bar{v}^2}{\bar{a}_c}
@@ -23,44 +23,62 @@ and
 \]
 \end{proof}
 
-We must first make a conjecture about how fastest paths behave. Unfortunately, our research has not yet yielded a rigorous proof of the conjecture, but we will provide some intuition behind it.
+At the beginning of our paper we mentioned that there is a case when a particle is too close to the ending position and can't turn fast enought, so it ends up passing by it. We formalize this notion in the following lemma.
+
+\begin{lemma}\label{lem:too-close}
+  Let particle $p$ have constant speed, bounded centripetal acceleration, an initial angle $\theta_0$, starting position $\bvec{X_0}$, and ending position $\bvec{X_f}$. Every valid path where $\theta(t)$ is minimized for all $t \in [T_0(\bhat{\gamma_p}), T_f(\bhat{\gamma_p})]$ has $d(\bvec{X}_0, \bvec{X}_f) \ge 2 R_{min} \cos\paren{\theta_0}$.
+\end{lemma}
+
+\begin{proof}
+
+  The following figure will help illustrate the theorem.
+
+  \includefig{valid_trajs.eps}{Valid and invalid final positions for a particle starting at position $X_0 = A$}{valid-traj}
+
+  Looking at Figure \ref{fig:valid-traj}, one should notice that if $X_f$ is any position inside the circle of radius $R_{min}$, such as point B, then the path is invalid. It is not possible to turn inside the circle, because the centripetal acceleration is bounded. Thus, C is the closest valid ending position. C is a distance $2 R_{min} \cos\paren{\theta_0}$ away from A.
+
+\end{proof}
+
+In order to continue, we must first make a conjecture about how fastest paths behave. Unfortunately, our research has not yet yielded a rigorous proof of this conjecture, so we will provide some intuition behind it.
 
 \begin{conjecture}\label{conj:optimal-position}
-  Given particles $p_1, p_2$ with starting positions $\bvec{X}_1, \bvec{X}_2$ respectively, and a final position $\bvec{X}_f$. If $r_1(T_0) \leq r_2(T_0)$ and $\abs{\theta_1(T_0)} < \abs{\theta_1(T_0)}$, then $T_f(\hat{\gamma_1}) < T_f(\hat{\gamma_2})$.
+  Let $p_1, p_2$ be particles with constant speed, bounded centripetal acceleration, starting positions $\bvec{X}_1, \bvec{X}_2$ respectively, and a final position $\bvec{X}_f$, such that $d(\bvec{X}_1, \bvec{X}_f), d(\bvec{X}_2, \bvec{X}_f) \ge 2 R_{min} \cos\paren{\theta_0}$. If $r_1(T_0) \leq r_2(T_0)$ and $\abs{\theta_1(T_0)} < \abs{\theta_1(T_0)}$, then $T_f(\hat{\gamma_1}) < T_f(\hat{\gamma_2})$.
 \end{conjecture}
 
-In words, this conjecture states that a particle, $p_2$, further away from $X_f$ cannot overtake another point, $p_1$, that is closer to $X_f$, if $\theta_1(t) \le \theta_2(t)$. The intuition behind this is that $p_2$ must travel further than $p_1$ to reach $X_f$, because it is further away. Furthermore, one could also imagine, that if this conjecture were not true, then it would be fastest to move away from $X_f$, which seems intuitively wrong.
+In words, this conjecture states that a particle $p_2$ that is further away from $X_f$ cannot overtake another particle $p_1$ that is closer to $X_f$, if $\theta_1(t) \le \theta_2(t)$. The intuition behind this is that $p_2$ must travel further than $p_1$ to reach $X_f$, because it is further away. Furthermore, one could also imagine, that if this conjecture were not true, then it would be fastest to move away from $X_f$ for some period of time, which seems intuitively wrong.
 
-Assuming that Conjecture \ref{conj:optimal-position} is true, we will move on to prove some theorems about fastest paths.
+The special case when $d(\bvec{X}_1, \bvec{X}_f), d(\bvec{X}_2, \bvec{X}_f) < (1/2) R_{min} \cos\paren{\theta_0}$ is omitted, because some special strategy will be needed in this situation. We leave this case as an open problem in our paper. 
+
+Assuming that Conjecture \ref{conj:optimal-position} is true, we will move on to prove one final theorem about fastest paths.
 
 \begin{theorem}
-  Let particle $p$ have initial velocity $\bvec{v_0}$, starting position $\bvec{X}_0$, and ending position $\bvec{X}_f$, such that $d(\bvec{X}_0, \bvec{X}_f) > R_{min}$. The fastest path $\bhat{\gamma_p}$ for particle $p$ to reach $\bvec{X}_f$ minimizes $\theta(t)$ for all $t \in [T_0(\bhat{\gamma_p}), T_f(\bhat{\gamma_p})]$.
+  Let  $p$ be a particle with constant speed, bounded centripetal acceleration, initial angle $\theta_0$, starting position $\bvec{X}_0$, and ending position $\bvec{X}_f$, such that $d(\bvec{X}_0, \bvec{X}_f) \ge 2 R_{min} \cos\paren{\theta_0}$. The unique fastest path $\bhat{\gamma_p}$ for particle $p$ to reach $\bvec{X}_f$ minimizes $\theta(t)$ for all $t \in [T_0(\bhat{\gamma_p}), T_f(\bhat{\gamma_p})]$.
   \label{thm:restricted-theta}
 \end{theorem}
-\proof Let $p_1$ be a particle whose path $\gamma_{p_1}$ is determined by the minimizing $|\theta_{p_1}(t)|$ for all times $t \in [T_0(\gamma_{p_1}), T_f(\gamma_{p_1})]$. We shall show that $\gamma_{p_1}$ is in fact the fastest path to $\bvec{X}_f$.
+\begin{proof}
+Let $p_1$ be a particle whose path $\gamma_1$ minimizes $\abs{\theta_1(t)}$ for all times $t \in [T_0(\gamma_1), T_f(\gamma_1)]$. We shall show that $\gamma_1$ is the unique fastest path.
 
-This lemma does allow us to determine something crucial about the fastest path of $\bhat{\gamma_{p}}$. In particular, if the particle $p$ ever obtains $\theta_p(t_s) = 0$ at some time $t_s$, then it will be the case that $\theta_p(t') = 0$ for all $t'$ such that $t_s < t' < T_f(\bhat{\gamma_p})$. In words, if $\theta_p(t_s) = 0$ for any $t_s < T_f(\bhat{\gamma_p})$, then the particle will follow a straight line to $\bvec{X}_f$ after time $t_s$. Moreover that it must be the case that the particle reaches $\theta_p = 0$ at some time (or else the particle would never reach $\bvec{X}_f$). Thus, there must exist time $t_s$ where $\theta_p(t') = 0$ for all $t' > t_s$ in the fastest path $\bhat{\gamma_p}$. This is a necessary, but not sufficient condition for being a fastest path.
+Let $t_s$ be the smallest time such that $\theta_p(t) = 0$. From \ref{thm:theta-min}, we know that $\theta_p(t) = 0$ for $t \ge t_s$, so the particle moves in a straight line towards $X_f$ for $t \ge t_s$. To show that $\gamma_1(t)$ truly is a fastest path, we must examine what happens for $t < t_s$.
 
-To show that $\gamma_{p_1}$ truly is a fastest path, we must examine what happens before $t_s$, i.e. for all times $t'$ such that $T_0(\gamma_{p_1}) < t' < t_s$. This becomes the important period because we know that after $t_s$ (which necessarily occurs in a fastest path), the motion of the particle is in a straight line.
+We know that $\abs{a_{c,1}(t)} = \bar{a_c}$ for all $t < t_s$ because $p_1$ follows a path that minimizes $\abs{\theta_1(t)}$. Thus, we see that $p_1$ traces out an arc of a circle with radius $R_{min} = \frac{\bar{v}}{\bar{a}_c}$.
 
-For particle $p_1$, we know that $|a_c(t')| = \bar{a}_c$ for all $t' < t_s$ because $p_1$ is minimizing $|\theta_{p_1}(t)|$. Thus, we see that $p_1$ traces out an arc of a circle with radius $R_{min} = \frac{\bar{v}}{\bar{a}_c}$.
+Now let us introduce a particle $p_2$ with the same conditions as $p_1$, except that at some time $t_b < t_s$, $p_2$ will choose $a_{c,2}$ such that $\abs{a_{c,2}} \neq \bar{a}_c$. We shall show that $\hat{\gamma_2(t)}$ after this divergence is strictly slower than $\hat{\gamma_1}$, which will allow us to conclude that $\gamma_1(t)$ is the unique fastest path.
 
-Now let us introduce a particle $p_2$ with the same conditions as $p_1$ except that at some time $t_b < t_s$, $p_2$ will choose $a^{p_2}_c$ such that $|a^{p_2}_c| \neq \bar{a}_c$ so that $p_2$'s centripetal acceleration diverges from $p_1$'s centripetal acceleration. We shall show that $p_2$'s fastest path after this divergence is worse than $p_1$'s fastest path, which will allow us to conclude that deviations from $\gamma_{p_1}$ are subfastest.
+We can examine the difference in $r$ and $\theta$ between $p_1$ and $p_2$ after $t_b$, and use Conjecture \ref{conj:optimal-position} to finish our proof. Recall equations \ref{eq:r-diff-2} and \ref{eq:theta-diff} which we derived in a previous section. We can use equation \ref{eq:r-diff-2} to obtain the following:
 
-We can examine the difference in radius $r$ and angle $\theta$ between $p_1$ and $p_2$ after $t_b$, and use Conjecture \ref{conj:optimal-position} to finish our proof. Recall equations \ref{eq:r-diff-2} and \ref{eq:theta-diff} which we derived in a previous section. We can use equation \ref{eq:r-diff-2} to obtain the following:
+\begin{align*}
+  \frac{d^2 r_1(t)}{d t^2} - \frac{d^2 r_2(t)}{d t^2} = - \sin\paren{\abs{\theta(t_b)}} \paren{\bar{a}_c - a_{c,2}(t_b)}
+  & < 0
+\end{align*}
 
-\begin{eqnarray}
-  \frac{d^2 r_{p_1}(t)}{d t^2} - \frac{d^2 r_{p_2}(t)}{d t^2} = - \sin(| \theta(t_b) |) \left( \bar{a}_c - a^{p_2}_c(t_b) \right) < 0
-\end{eqnarray}
-
-The inequality was obtained because $\bar{a}_c - a^{p_2}_c(t_b) > 0$. This directly implies that $r_{p_1}(t_b + \epsilon) < r_{p_2}(t_b + \epsilon)$ for some small $\epsilon > 0$. Therefore the distance left to travel for $p_1$ is less than the distance left for $p_2$ at $t_b + \epsilon$ time, i.e. $d(\gamma_{p_1}(t_b + \epsilon), \bvec{X}_f) < d(\gamma_{p_2}(t_b + \epsilon), \bvec{X}_f)$.
+The inequality was obtained because $\bar{a}_c - a^{p_2}_c(t_b) > 0$. This directly implies that $r_1(t_b + \epsilon) < r_2(t_b + \epsilon)$ for some small $\epsilon > 0$. Therefore the distance left to travel for $p_1$ is less than the distance left for $p_2$ at $t_b + \epsilon$ time, i.e. $d(\gamma_1(t_b + \epsilon), \bvec{X}_f) < d(\gamma_2(t_b + \epsilon), \bvec{X}_f)$.
 
 We can also use equation \ref{eq:theta-diff} to obtain the following for the difference in angles:
 \begin{eqnarray}
-  \frac{d | \theta_{p_1}(t_b) |}{dt} - \frac{ |\theta_{p_2} (t_b) |}{dt} = - \frac{1}{v(t_b)} \left(\bar{a}_c - a^{p_2}_c(t_b) \right) < 0
+  \frac{d \abs{\theta_1(t_b)}}{dt} - \frac{\abs{\theta_2 (t_b)}}{dt} = - \frac{1}{v(t_b)} \left(\bar{a}_c - a^{p_2}_c(t_b) \right) < 0
 \end{eqnarray}
 
-Again, we used the fact that $\bar{a}_c - a^{p_2}_c(t_b) > 0$ to show the inequality. This implies that $\theta_{p_1}(t_b + \epsilon) < \theta_{p_2}(t_b + \epsilon)$.
+Again, we used the fact that $\bar{a}_c - a^{p_2}_c(t_b) > 0$ to show the inequality. This implies that $\theta_1(t_b + \epsilon) < \theta_2(t_b + \epsilon)$.
 
-Now, we have satisfied the conditions of Conjecture \ref{conj:optimal-position} since $d(\gamma_{p_1}(t_b + \epsilon), \bvec{X}_f) < d(\gamma_{p_2}(t_b + \epsilon), \bvec{X}_f)$ and $\theta_{p_1}(t_b + \epsilon) < \theta_{p_2}(t_b + \epsilon)$. This implies that $T_f(\gamma_{p_1}) < T_f(\gamma_{p_2})$. Thus, the fastest path before $t_s$ must be to travel along $\gamma_{p_1}$. However, we know that the fastest path after $t_s$ is to travel along the straight line (which $\gamma_{p_1}$ does). Therefore, we see that $\gamma_{p_1} = \bhat{\gamma}_p$ is the fastest path.
-\qed
+Now, we have satisfied the conditions of Conjecture \ref{conj:optimal-position} since $d(\gamma_1(t_b + \epsilon), \bvec{X}_f) < d(\gamma_2(t_b + \epsilon), \bvec{X}_f)$ and $\theta_1(t_b + \epsilon) < \theta_2(t_b + \epsilon)$. This implies that $T_f(\gamma_1) < T_f(\gamma_2)$. Thus, the fastest path before $t_s$ must be to travel along $\gamma_1$. However, we know that the fastest path after $t_s$ is to travel along the straight line (which $\gamma_1$ does). Therefore, we see that $\gamma_1 = \bhat{\gamma}_p$ is the fastest path.
+\end{proof}
