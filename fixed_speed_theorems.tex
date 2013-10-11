@@ -68,24 +68,15 @@ Let $t_s$ be the smallest time such that $\theta_p(t) = 0$. From \ref{thm:theta-
 
 We know that $\abs{a_{c,1}(t)} = \bar{a}_c$ for all $t < t_s$ because $p_1$ follows a path that minimizes $\abs{\theta_1(t)}$.
 
-Now let us introduce a particle $p_2$ with the same conditions as $p_1$, except that $a_{c,2}(t) < \bar{a}_c$ for some time interval $t \in [t_a, t_b], [t_a, t_b] < t_s$. We shall show that the fastest path for $p_2$, $\hat{\gamma_2(t)}$, after $t_b$ is strictly worse than the fastest path for $p_1$, $\hat{\gamma}_1$, which will allow us to conclude that $\gamma_1(t)$ is the unique fastest path.
+Now let us introduce a particle $p_2$ with the same conditions as $p_1$, but different centripetal acceleration. For some small enough $\epsilon > 0$, we can now find a time interval $t \in [t_b-\epsilon, t_b+\epsilon]$ where that $a_{c,2}(t) < a_{c,1}$.  We shall show that the fastest path for $p_2$, $\hat{\gamma_2(t)}$, after $t_b$ is strictly worse than the fastest path for $p_1$, $\hat{\gamma}_1$, which will allow us to conclude that $\gamma_1(t)$ is the unique fastest path.
 
-We will first prove that $r_1(t_b) < r_2(t_b)$ and $\theta_1(t_b) < \theta_2(t_b)$ and then invoke Conjecture \ref{conj:optimal-position} to finish our proof. Recall equations \ref{eq:r-diff-2} and \ref{eq:theta-diff} which we derived in a previous section. We can use equation \ref{eq:r-diff-2} to obtain the following:
+Because $\gamma_1$ minimizes $\abs{\theta(t)}$, $\abs{\theta_1(t_b)} \le \abs{\theta_2(t_b)}$. If $t_b > t_s$, then from \ref{thm:theta-min} we know that $\gamma_2(t)$ is worse than $\gamma_1$. If $t_b \le t_s$, we will prove that $r_1(t_b) < r_2(t_b)$. 
+
+Looking at Equation \ref{eq:r-diff}
 
 \begin{align*}
-  \frac{d^2 r_1(t)}{d t^2} - \frac{d^2 r_2(t)}{d t^2}& = - \sin\paren{\abs{\theta(t_b)}} \paren{\bar{a}_c - a_{c,2}(t_b)}\\
-  & < 0
+  r(t_b)& = r(t_b-\epsilon) - \bar{v} \int_{t' = T_0}^{t} \cos(\abs{\theta(t')}) dt'
 \end{align*}
 
-The inequality was obtained because $\bar{a}_c - a_{c,2}(t_b) > 0$. This directly implies that $r_1(t_b + \epsilon) < r_2(t_b + \epsilon)$ for some small $\epsilon > 0$. Therefore the distance left to travel for $p_1$ is less than the distance left for $p_2$ at $t_b + \epsilon$ time, i.e. $d(\gamma_1(t_b + \epsilon), \bvec{X_f}) < d(\gamma_2(t_b + \epsilon), \bvec{X_f})$.
-
-We can also use equation \ref{eq:theta-diff} to obtain the following for the difference in angles:
-\begin{align*}
-  \frac{d \abs{\theta_1(t_b)}}{dt} - \frac{\abs{\theta_2 (t_b)}}{dt}& = - \frac{1}{v(t_b)} \paren{\bar{a}_c - a_{c,2}(t_b)}\\
-  & < 0
-\end{align*}
-
-Again, we used the fact that $\bar{a}_c - a_{c,2}(t_b) > 0$ to show the inequality. This implies that $\abs{\theta_1(t_b + \epsilon)} < \abs{\theta_2(t_b + \epsilon)}$.
-
-Now, we have satisfied the conditions of Conjecture \ref{conj:optimal-position} since $d(\gamma_1(t_b + \epsilon), \bvec{X_f}) < d(\gamma_2(t_b + \epsilon), \bvec{X_f})$ and $\abs{\theta_1(t_b + \epsilon)} < \abs{\theta_2(t_b + \epsilon)}$. This implies that $T_f(\gamma_1) < T_f(\gamma_2)$. Thus, the fastest path before $t_s$ must be to travel along $\gamma_1$. However, we know that the fastest path after $t_s$ is to travel along the straight line (which $\gamma_1$ does). Therefore, we see that $\gamma_1$ is the unique fastest path.
+Since $\cos(\abs{\theta_1(t)}) \ge \cos(\abs{\theta_2(t)})$, $r_1(t_b) \le r_2(t_b)$, so we can invoke Conjecture \ref{conj:optimal-position} to show that $\gamma_1$ is a fastest path which finishes the proof.
 \end{proof}
