@@ -23,28 +23,6 @@ and
 \]
 \end{proof}
 
-At the beginning of our paper we mentioned that there is a case when a particle is too close to the ending position and can't turn fast enought, so it ends up passing by it. We formalize this notion in the following lemma.
-
-\begin{lemma}\label{lem:too-close}
-  Let particle $p$ have constant speed, bounded centripetal acceleration, an initial angle $\theta_0$, starting position $\bvec{X_0}$, and ending position $\bvec{X_f}$. Every valid path where $\theta(t)$ is minimized for all $t \in [T_0(\bhat{\gamma_p}), T_f(\bhat{\gamma_p})]$ has $d(\bvec{X_0}, \bvec{X_f}) \ge 2 R_{min} \cos\paren{\theta_0}$.
-\end{lemma}
-
-\begin{proof}
-
-  The following figure will help illustrate the theorem.
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=3.5in,height=2.5in,keepaspectratio]{valid_trajs.eps}
-    \end{center}
-  \vspace{-.2in} % corrects bad spacing
-  \caption{\label{fig:valid-traj}}
-  \end{figure}
-
-  One should notice that if $X_f$ is any position inside the circle of radius $R_{min}$, such as point B, then the path is invalid. It is not possible to turn inside the circle, because the centripetal acceleration is bounded. Thus, C is the closest valid ending position. C is a distance $2 R_{min} \cos\paren{\theta_0}$ away from A.
-
-\end{proof}
-
 In order to continue, we must first make a conjecture about how fastest paths behave. Unfortunately, our research has not yet yielded a rigorous proof of this conjecture, so we will provide some intuition behind it.
 
 \begin{conjecture}\label{conj:optimal-position}
@@ -68,11 +46,11 @@ Let $t_s$ be the smallest time such that $\theta_p(t) = 0$. From \ref{thm:theta-
 
 We know that $\abs{a_{c,1}(t)} = \bar{a}_c$ for all $t < t_s$ because $p_1$ follows a path that minimizes $\abs{\theta_1(t)}$.
 
-Now let us introduce a particle $p_2$ with the same conditions as $p_1$, but different centripetal acceleration. For some small enough $\epsilon > 0$, we can now find a time interval $t \in [t_b-\epsilon, t_b+\epsilon]$ where that $a_{c,2}(t) < a_{c,1}$.  We shall show that the fastest path for $p_2$, $\hat{\gamma_2(t)}$, after $t_b$ is strictly worse than the fastest path for $p_1$, $\hat{\gamma}_1$, which will allow us to conclude that $\gamma_1(t)$ is the unique fastest path.
+Now let us introduce a particle $p_2$ with the same conditions as $p_1$, but different centripetal acceleration at some time $t_b$. Suppose for some small $\epsilon > 0$, we have a time interval $t \in [t_b-\epsilon, t_b+\epsilon]$ where that $a_{c,2}(t) < a_{c,1}$.  We shall show that the fastest path for $p_2$, $\hat{\gamma_2(t)}$, after $t_b$ is strictly worse than the fastest path for $p_1$, $\hat{\gamma}_1$, which will allow us to conclude that $\gamma_1(t)$ is the unique fastest path.
 
 Because $\gamma_1$ minimizes $\abs{\theta(t)}$, $\abs{\theta_1(t_b)} \le \abs{\theta_2(t_b)}$. If $t_b > t_s$, then from \ref{thm:theta-min} we know that $\gamma_2(t)$ is worse than $\gamma_1$. If $t_b \le t_s$, we will prove that $r_1(t_b) < r_2(t_b)$. 
 
-Looking at Equation \ref{eq:theta-diff}
+Looking at Equation \ref{eq:theta-diff} and recalling that $a_{c,2}(t_b) - a_{c,1}(t_b) < 0$.
 
 \begin{align*}
   \abs{\theta(t_b)}& = \abs{\theta(t_b - \epsilon)} + \int_{t' = t_b-\epsilon}^{t_b} \paren{\frac{\bar{v}}{r(t)} \sin(\abs{\theta(t)}) - \frac{a_c(t)}{\bar{v}}} dt'\\

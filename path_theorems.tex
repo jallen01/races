@@ -27,7 +27,7 @@ The simplest problem to tackle first is the fastest path from $\bvec{X_0}$ to $\
 \end{proof}
 
 \begin{theorem}\label{thm:theta-min}
-  Let $p$ be a particle with bounded tangential acceleration and initial position $X_0$. A path $\gamma_1$ to $\bvec{X_f}$ is a fastest path if, for every other valid path $\gamma_2$ to $\bvec{X_f}$, $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$. The fastest path is unique if all the inequalities are strict.
+  Let $p$ be a particle with bounded tangential acceleration and initial position $X_0$. A path $\gamma_1$ to $\bvec{X_f}$ is a fastest path if, for every other valid path $\gamma_2$ to $\bvec{X_f}$, $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$. The fastest path is unique if one of the inequalities is strict.
 
   Furthermore, if, at some time $t_s \ge T_0(\hat{\gamma})$ along a fastest path $\hat{\gamma}$, $\abs{\theta(t_s)} = 0$, then $\abs{\theta(t)} = 0$ for all $t \ge t_s$. 
 \end{theorem}
@@ -37,7 +37,7 @@ The simplest problem to tackle first is the fastest path from $\bvec{X_0}$ to $\
 
   \[r(t) = r(T_0) + \int_{t' = T_0}^{t} - v(t') \cos(\abs{\theta(t')}) dt'\]
 
-  Thus, if $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$, then $r_1(t) \le r_2(t)$, and $T_f(\gamma_1) \le T_f(\gamma_2)$, so $\gamma_1$ is a fastest path. If all the inequalities are strict, then $T_f(\gamma_1) < T_f(\gamma_2)$, so every other path is longer, and thus $\gamma_1$ is the unique fastest path.
+  Thus, if $\abs{\theta_1(t)} \le \abs{\theta_2(t)}$ and $v_1(t) \le v_2(t)$, then $r_1(t) \le r_2(t)$. Because the distance that needs to be traveled by $p_2$ is greater at time any $t$, and because $v_1(t) \le v_2(t)$, then we know that $T_f(\gamma_1) \le T_f(\gamma_2)$. Therefore $\gamma_1$ is a fastest path. If all the inequalities are strict, then $T_f(\gamma_1) < T_f(\gamma_2)$, so every other path is longer, and thus $\gamma_1$ is the unique fastest path.
 
   The second part of the theorem follows directly from the first part.
 \end{proof}
