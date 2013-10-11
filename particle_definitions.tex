@@ -33,7 +33,13 @@ Finally, we need to define some terms for a particle's motion which will be need
 
 Before we introduce the equations governing a particle's motion in $\R^2$, we must first define a coordinate system to describe its motion. Unless otherwise specified, the motion of particles in this paper will be described in a modified polar coordinate system that contain an extra parameter $\theta$, that is shown in Figure \ref{fig:polar-param}. We will refer to this system as the \textit{B centered particle coordinate system}.
 
-\includefig{polar_param.eps}{A particle moving in a B centered particle coordinate system}{polar-param}
+\begin{figure}[H]
+    \begin{center}
+      \includegraphics[width=4in,height=3in,keepaspectratio]{polar_param.eps}
+    \end{center}
+  \vspace{-.2in} % corrects bad spacing
+  \caption{A particle moving in a B centered particle coordinate system.\label{fig:polar-param}}
+  \end{figure}
 
 The sign of $a_c(t)$ is defined to be the sign of the projection of $\bhat{a_c}(t)$ onto $-\bhat{r}(t)$; in other words, it is positive when pointing towards B. $\theta(t), \phi(t) \in [-\pi, \pi]$, and from now on, we will only use $\abs{\theta(t)}$ and $\abs{\phi(t)}$, since there is a symmetry in the system about $\bhat{r}$. 
 
@@ -56,9 +62,15 @@ Differentiating, we get
 \frac{d\abs{\theta(t)}}{dt} = \frac{d\abs{\phi(t)}}{dt} + \frac{d\beta(t)}{dt}
 \]
 
-To find $\frac{d\beta(t)}{dt}$, we can look at a point, $p$, subject to nonzero centripetal acceleration, and zero tangential acceleration. The change in $\bvec{v(t)}$ over an infinitesimal time, $dt$, is shown in Figure \ref{fig:theta-deriv} (the two vectors, $\bvec{v(t)}$ and $\paren{\bvec{v(t)}+\bvec{dv(t)}}$, are superimposed). 
+To find $\frac{d\beta(t)}{dt}$, we can look at a point, $p$, subject to nonzero centripetal acceleration, and zero tangential acceleration. The change in $\bvec{v(t)}$ over an infinitesimal time, $dt$, is shown below (the two vectors, $\bvec{v(t)}$ and $\paren{\bvec{v(t)}+\bvec{dv(t)}}$, are superimposed). 
 
-\includefig{theta_deriv.eps}{Tangential acceleration}{theta-deriv}
+\begin{figure}[H]
+    \begin{center}
+      \includegraphics[width=3.5in,height=2.5in,keepaspectratio]{theta_deriv.eps}
+    \end{center}
+  \vspace{-.2in} % corrects bad spacing
+  \caption{}
+\end{figure}
 
 $a_c(t)$ is defined to be the component of acceleration perpendicular to the direction of motion, so
 
